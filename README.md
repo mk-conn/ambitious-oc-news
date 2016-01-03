@@ -45,6 +45,7 @@ Specify what it takes to deploy your app.
 
 ## Further Reading / Useful Links
 
+* [owncloud/news api](https://github.com/owncloud/news/wiki/API-1.2)
 * [ember.js](http://emberjs.com/)
 * [ember-cli](http://www.ember-cli.com/)
 * Development Browser Extensions
