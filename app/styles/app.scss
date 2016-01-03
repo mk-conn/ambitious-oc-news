@@ -1,0 +1,31 @@
+@import '../../bower_components/bootstrap/scss/bootstrap';
+@import '../../bower_components/font-awesome/scss/font-awesome';
+
+$enable-flex: true;
+
+input {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background: #F1F1F1 !important;
+  border-width: 0 !important;
+}
+
+.app-settings {
+  padding-top: 40px;
+}
+
+.feed-favicon > img {
+  height: 0.8em;
+  max-height:0.8em;
+  max-width:0.8em;
+  overflow:hidden;
+}
+
+.feed-title {
+  margin: 0 10px;
+  font-size:0.9em;
+}
+
+.folder-close {
+  cursor: pointer;
+}

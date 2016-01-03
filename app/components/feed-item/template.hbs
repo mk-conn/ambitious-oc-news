@@ -1,0 +1,17 @@
+<div class="list-group-item-heading">
+    <span class="feed-favicon pull-xs-left">
+      {{#if feed.faviconLink}}
+          <img src="{{feed.faviconLink}}" alt="feed-icon"/>
+      {{else}}
+          <span class="fa fa-feed"></span>
+      {{/if}}
+    </span>
+
+  {{#link-to "feeds.feed" feed}}
+      <span class="feed-title">{{feed.title}}</span>
+  {{/link-to}}
+
+    <span class="label label-default label-pill pull-xs-right">
+      {{feed.unreadCount}}
+    </span>
+</div>

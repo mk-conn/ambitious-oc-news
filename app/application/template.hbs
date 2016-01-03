@@ -1,0 +1,15 @@
+<nav class="navbar navbar-full navbar-dark bg-inverse">
+    <a class="navbar-brand" href="/">OC NEWS</a>
+
+    <ul class="nav navbar-nav">
+      {{#link-to "feeds" classNames="nav-item" tagName="li"}}
+          <a href="#" class="nav-link">Feeds</a>
+      {{/link-to}}
+      {{#link-to "settings" classNames="nav-item" tagName="li"}}
+          <a href="#" class="nav-link">Settings</a>
+      {{/link-to}}
+    </ul>
+
+</nav>
+
+{{outlet}}

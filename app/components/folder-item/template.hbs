@@ -1,0 +1,13 @@
+
+<div class="card-header">
+    <span class="fa-folder-open fa folder-close" {{action "closeFolder"}}></span>
+    <span class="card-title">{{folder.name}}</span>
+    <span class="label label-default label-pill pull-xs-right">{{folder.unreadCount}}</span>
+</div>
+
+<div class="card-block">
+    <div class="list-group-item-text">
+      {{feed-list feeds=folder.feeds}}
+    </div>
+</div>
+

@@ -1,0 +1,36 @@
+<h3>Connection settings</h3>
+
+{{#if config.error}}
+    <div class="alert alert-danger">
+        <strong>Failure:</strong> {{config.error}}
+    </div>
+{{else}}
+  {{#if config.success}}
+      <div class="alert alert-success">
+          <strong>Success:</strong> {{config.success}}
+      </div>
+  {{/if}}
+{{/if}}
+
+<form {{action "submit" on="submit"}} class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label">OC News URL</label>
+      {{input type="text" placeholder="https://your-owncloud-url.com/" value=config.domain class="form-control"}}
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Username</label>
+      {{input type="text" placeholder="Your username" value=config.username  class="form-control"}}
+    </div>
+
+    <div class="form-group">
+        <label for="ocPassword" class="control-label">OC News URL</label>
+      {{input type="password" placeholder="Your password" value=config.password class="form-control"}}
+    </div>
+
+    <button type="submit" class="btn btn-primary-outline">Submit</button>
+    <label for="persist-settings"
+           class="control-label">{{input type="checkbox" checked=config.persist id="persist-settings" }} Remember
+        this
+        (stored in local storage of your browser)</label>
+</form>
