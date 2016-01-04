@@ -5,9 +5,9 @@
 $enable-flex: true;
 
 .loader {
-  display:table-cell;
-  vertical-align: middle;
-  margin:auto auto;
+  position:absolute;
+  top:45%;
+  left:45%;
 }
 
 input {
@@ -79,12 +79,13 @@ blockquote {
 }
 
 .item-list {
-  background:#eee;
+  background: #eee;
 }
 
 .feed-items-list, .folder-feeds, .app-settings {
   margin-top: 1rem;
 }
+
 .feed-items-list > .card > .card-header {
   margin-bottom: $table-cell-padding;
 }
