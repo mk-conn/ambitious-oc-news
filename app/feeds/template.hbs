@@ -2,8 +2,8 @@
 {{starred-items items=model.starred}}
 
 {{#each model.unfoldered as |feed|}}
-  {{feed-item feed=feed onClick=(action "transistionTo" feed)}}
+  {{feed-item feed=feed}}
 {{/each}}
 
-{{folder-list folders=model.folders onClick="selectFeed"}}
+{{folder-list folders=model.folders}}
 
