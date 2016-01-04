@@ -8,12 +8,13 @@ export default DS.Model.extend({
   url: attr('string'),
   title: attr('string'),
   author: attr('string'),
-  pubDate: attr('string'),
+  pubDate: attr('date'),
   body: attr('string'),
   enclosureMime: attr('string'),
   enclosureLink: attr('string'),
   unread: attr('boolean'),
   starred: attr('boolean'),
   lastModified: attr('date'),
-  feedId: attr('number')
+  feedId: attr('number'),
+  searchIndex: attr('string')
 });

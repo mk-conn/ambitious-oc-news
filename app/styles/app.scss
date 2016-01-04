@@ -16,14 +16,14 @@ input {
 
 .feed-favicon > img {
   height: 0.8em;
-  max-height:0.8em;
-  max-width:0.8em;
-  overflow:hidden;
+  max-height: 0.8em;
+  max-width: 0.8em;
+  overflow: hidden;
 }
 
 .feed-title {
   margin: 0 10px;
-  font-size:0.9em;
+  font-size: 0.9em;
 }
 
 .folder-close {
@@ -32,5 +32,40 @@ input {
 
 blockquote {
   background: #eee;
-  padding:5px;
+  padding: 5px;
+}
+
+.item-meta {
+  font-style: italic;
+  padding-bottom:5px;
+}
+
+@mixin firstPicOfArticle {
+  float: left;
+  width: 65px;
+  height:65px;
+  border-radius: 3px;
+  margin-right:20px;
+}
+
+.item.is-unread > .item-title {
+  font-weight:bold;
+}
+.item-text {
+  clear:both;
+  min-height: 75px;
+}
+
+.item-body {
+  img {
+    max-width:90%
+  }
+}
+
+.item > .item-container > .item-text > .item-body > img:first-child {
+  @include firstPicOfArticle();
+}
+
+.item > .item-container > .item-text > .item-body > a:first-child > img {
+  @include firstPicOfArticle();
 }
