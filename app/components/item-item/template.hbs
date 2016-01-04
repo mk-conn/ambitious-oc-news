@@ -1,7 +1,13 @@
 <div class="card-header item-url item-title">
     <a href="{{item.url}}" target="_blank" class={{read}}>{{item.title}}</a>
     <span class="pull-right">
-        <button type="button" class="btn btn-primary-outline btn-sm" {{action "toggleShowFull"}}>Full</button>
+        <button type="button" class="btn btn-primary-outline btn-sm" {{action "toggleShowFull"}}>
+          {{#if showFull}}
+              <i class="fa fa-angle-up"></i>
+          {{else}}
+              <i class="fa fa-angle-down"></i>
+          {{/if}}
+        </button>
     </span>
 </div>
 <div class="card-block item-container">

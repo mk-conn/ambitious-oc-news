@@ -69,3 +69,9 @@ blockquote {
 .item > .item-container > .item-text > .item-body > a:first-child > img {
   @include firstPicOfArticle();
 }
+.feed-item {
+  cursor:pointer;
+}
+.feed-item:hover {
+  background:#eee;
+}
