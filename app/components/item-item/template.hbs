@@ -1,7 +1,8 @@
 <div class="card-header item-url item-title">
-    <a href="{{item.url}}" target="_blank" class={{read}}>{{item.title}}</a>
+    <a href="{{item.url}}" target="_blank">{{item.title}}</a>
     <span class="pull-right">
-        <button type="button" class="btn btn-primary-outline btn-sm" {{action "toggleShowFull"}}>
+        <button type="button" class="btn btn-secondary-outline btn-sm hint--top" data-hint="Star this article"><i class="fa fa-star-o"></i></button>
+        <button type="button" class="btn btn-secondary-outline btn-sm hint--top" data-hint="Open/close this article" {{action "toggleShowFull"}}>
           {{#if showFull}}
               <i class="fa fa-angle-up"></i>
           {{else}}
@@ -13,7 +14,10 @@
 <div class="card-block item-container">
     <div class="card-text item-text">
         <div class="item-meta">
-          {{item.author}}, {{item.pubDate}}
+          {{#if item.author}}
+            {{item.author}} |
+          {{/if}}
+          {{moment-format item.pubDate 'LLLL' 'X'}} | {{feed.title}}
         </div>
         <div class="item-body">
           {{#if showFull}}

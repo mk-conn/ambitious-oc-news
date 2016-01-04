@@ -1,3 +1,10 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({});
+const {inject} = Ember;
+export default Ember.Route.extend({
+  moment: inject.service(),
+  beforeModel() {
+    var lang = (navigator.language || navigator.browserLanguage).split('-')[0];
+    this.get('moment').changeLocale(lang);
+  }
+});

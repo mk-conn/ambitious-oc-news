@@ -6,6 +6,10 @@ module.exports = function (environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    moment: {
+      allowEmpty: true,
+      includeLocales: true
+    },
 
     EmberENV: {
       FEATURES: {

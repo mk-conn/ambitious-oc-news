@@ -8,7 +8,7 @@ export default DS.Model.extend({
   url: attr('string'),
   title: attr('string'),
   author: attr('string'),
-  pubDate: attr('date'),
+  pubDate: attr('string'),
   body: attr('string'),
   enclosureMime: attr('string'),
   enclosureLink: attr('string'),

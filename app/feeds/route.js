@@ -38,7 +38,5 @@ export default Ember.Route.extend(Protected, {
       };
 
     });
-
-
   }
 });
