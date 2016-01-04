@@ -11,5 +11,5 @@ export default DS.Model.extend({
   unreadCount: attr('number'),
   url: attr('string'),
   folder: belongsTo('folder', {async: false}),
-  items: hasMany('item')
+  items: hasMany('item', {async: false})
 });
