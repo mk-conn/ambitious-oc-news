@@ -2,7 +2,7 @@
     <a href="{{item.url}}" target="_blank">{{item.title}}</a>
     <span class="pull-right">
         <button type="button" class="btn btn-secondary-outline btn-sm hint--top" data-hint="Star this article"><i class="fa fa-star-o"></i></button>
-        <button type="button" class="btn btn-secondary-outline btn-sm hint--top" data-hint="Open/close this article" {{action "toggleShowFull"}}>
+        <button type="button" class="btn btn-secondary-outline btn-sm hint--left" data-hint="Open article" {{action "toggleShowFull"}}>
           {{#if showFull}}
               <i class="fa fa-angle-up"></i>
           {{else}}

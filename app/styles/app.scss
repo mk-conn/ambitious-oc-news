@@ -3,6 +3,15 @@
 @import '../../bower_components/hint.css/src/hint';
 
 $enable-flex: true;
+body, html {
+  box-shadow: inset 0 0 5rem rgba(111, 111, 111, .5);
+}
+
+.loader {
+  display:table-cell;
+  vertical-align: middle;
+  margin:auto auto;
+}
 
 input {
   margin-top: 15px;
@@ -12,7 +21,15 @@ input {
 }
 
 .app-settings {
-  padding-top: 40px;
+  //padding-top: 40px;
+}
+
+.folder-feeds {
+  padding-top:30px;
+}
+
+.folder-feeds .card-block {
+  padding: 0;
 }
 
 .feed-favicon > img {
@@ -38,28 +55,29 @@ blockquote {
 
 .item-meta {
   font-style: italic;
-  padding-bottom:5px;
+  padding-bottom: 5px;
 }
 
 @mixin firstPicOfArticle {
   float: left;
   width: 65px;
-  height:65px;
+  height: 65px;
   border-radius: 3px;
-  margin-right:20px;
+  margin-right: 20px;
 }
 
 .item.is-unread > .item-title {
-  font-weight:bold;
+  font-weight: bold;
 }
+
 .item-text {
-  clear:both;
+  clear: both;
   min-height: 75px;
 }
 
 .item-body {
   img {
-    max-width:90%
+    max-width: 90%
   }
 }
 
@@ -70,9 +88,22 @@ blockquote {
 .item > .item-container > .item-text > .item-body > a:first-child > img {
   @include firstPicOfArticle();
 }
-.feed-item {
-  cursor:pointer;
-}
-.feed-item:hover {
+
+.item-list {
   background:#eee;
+}
+
+.feed-items-list {
+  margin-top: 30px;
+}
+.feed-items-list > .card > .card-header {
+  margin-bottom: $table-cell-padding;
+}
+
+.feed-item {
+  cursor: pointer;
+}
+
+.feed-item:hover {
+  background: #eee;
 }

@@ -1,8 +1,11 @@
-{{all-items items=model.items}}
-{{starred-items items=model.starred}}
+<div class="folder-feeds">
 
-{{#each model.unfoldered as |feed|}}
-  {{feed-item feed=feed}}
-{{/each}}
+  {{all-items items=model.items}}
+  {{starred-items items=model.starred}}
 
-{{folder-list folders=model.folders}}
+  {{#each model.unfoldered as |feed|}}
+    {{feed-item feed=feed}}
+  {{/each}}
+
+  {{folder-list folders=model.folders}}
+</div>
