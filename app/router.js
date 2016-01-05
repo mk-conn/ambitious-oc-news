@@ -14,6 +14,10 @@ Router.map(function () {
 
   this.route('login');
   this.route('settings');
+
+  this.route('items', function() {
+    this.route('starred');
+  });
 });
 
 export default Router;

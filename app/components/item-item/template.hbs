@@ -1,8 +1,15 @@
 <div class="card-header item-url item-title">
     <a href="{{item.url}}" target="_blank">{{item.title}}</a>
     <span class="pull-right">
-        <button type="button" class="btn btn-secondary-outline btn-sm hint--top" data-hint="Star this article"><i class="fa fa-star-o"></i></button>
-        <button type="button" class="btn btn-secondary-outline btn-sm hint--left" data-hint="Open article" {{action "toggleShowFull"}}>
+        <button type="button" class="btn btn-secondary-outline btn-sm hint--top" data-hint="Star this article">
+          {{#if item.starred}}
+              <i class="fa fa-star"></i>
+          {{else}}
+              <i class="fa fa-star-o"></i>
+          {{/if}}
+        </button>
+        <button type="button" class="btn btn-secondary-outline btn-sm hint--left"
+                data-hint="Open article" {{action "toggleShowFull"}}>
           {{#if showFull}}
               <i class="fa fa-angle-up"></i>
           {{else}}
@@ -17,7 +24,7 @@
           {{#if item.author}}
             {{item.author}} |
           {{/if}}
-          {{moment-format item.pubDate 'LLLL' 'X'}} | {{feed.title}}
+          {{moment-format item.pubDate 'LLLL' 'X'}} | {{item.feed.title}}
         </div>
         <div class="item-body">
           {{#if showFull}}

@@ -3,12 +3,12 @@ import Protected from 'ember-oc-news/mixins/protected';
 const {A, RSVP, get} = Ember;
 
 export default Ember.Route.extend(Protected, {
-   model() {
+  model() {
 
     let promises = {
-      folders: this.store.findAll('folder'),
-      feeds: this.store.findAll('feed'),
-      items: this.store.findAll('item')
+      folders: this.store.peekAll('folder'),
+      feeds: this.store.peekAll('feed'),
+      items: this.store.peekAll('item')
     };
 
     let unfoldered = new A();

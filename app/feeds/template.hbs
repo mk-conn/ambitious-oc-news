@@ -1,7 +1,9 @@
 <div class="folder-feeds">
 
-  {{all-items items=model.items}}
-  {{starred-items items=model.starred}}
+  {{#feed-item-nav}}
+    {{all-items items=model.items}}
+    {{starred-items items=model.starred}}
+  {{/feed-item-nav}}
 
   {{#each model.unfoldered as |feed|}}
     {{feed-item feed=feed}}
