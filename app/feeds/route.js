@@ -3,12 +3,12 @@ import Protected from 'ember-oc-news/mixins/protected';
 const {A, RSVP, get} = Ember;
 
 export default Ember.Route.extend(Protected, {
-  model() {
+   model() {
 
     let promises = {
-      folders: this.store.peekAll('folder'),
-      feeds: this.store.peekAll('feed'),
-      items: this.store.peekAll('item')
+      folders: this.store.findAll('folder'),
+      feeds: this.store.findAll('feed')
+      //items: this.store.findAll('item')
     };
 
     let unfoldered = new A();
@@ -24,8 +24,8 @@ export default Ember.Route.extend(Protected, {
           unfoldered.addObject(feed);
         }
 
-        let items = hash.items.filterBy('feedId', get(feed, 'id'));
-        get(feed, 'items').addObjects(items);
+        //let items = hash.items.filterBy('feedId', get(feed, 'id'));
+        //get(feed, 'items').addObjects(items);
 
       });
 
@@ -33,8 +33,8 @@ export default Ember.Route.extend(Protected, {
         feeds: hash.feeds,
         unfoldered: unfoldered,
         folders: this.store.peekAll('folder'),
-        items: hash.items,
-        starred: hash.items.filterBy('starred', true)
+        //items: hash.items,
+        //starred: hash.items.filterBy('starred', true)
       };
 
     });

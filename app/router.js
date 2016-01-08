@@ -7,7 +7,9 @@ const Router = Ember.Router.extend({
 
 Router.map(function () {
   this.route('feeds', {path: 'feeds'}, function () {
-    this.route('feed', {path: '/feed/:feed_id'});
+    this.route('feed', {path: '/feed/:feed_id'}, function() {
+      this.route('items');
+    });
     this.route('starred');
     this.route('all');
   });

@@ -23,7 +23,10 @@ module.exports = function (environment) {
       // when it is created
       OCAPIRootPath: 'index.php/apps/news/api/v1-2',
       DefaultLoginRoute: 'login',
-      DefaultRouteAfterLogin: 'feeds'
+      DefaultRouteAfterLogin: 'index',
+      items: {
+        batchSize: 15
+      }
     },
     contentSecurityPolicy: {
       'default-src': "'none'",

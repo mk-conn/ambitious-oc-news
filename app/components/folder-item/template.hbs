@@ -1,4 +1,3 @@
-
 <div class="card-header">
     <span class="fa-folder-open fa folder-close" {{action "closeFolder"}}></span>
     <span class="card-title">{{folder.name}}</span>
@@ -7,7 +6,11 @@
 
 <div class="card-block">
     <div class="list-group-item-text">
-      {{feed-list feeds=folder.feeds}}
+      {{#each folder.feeds as |feed|}}
+        {{#link-to "feeds.feed.items" feed classNames="list-group-item"}}
+          {{feed-item feed=feed}}
+        {{/link-to}}
+      {{/each}}
     </div>
 </div>
 

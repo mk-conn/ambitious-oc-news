@@ -39,7 +39,7 @@ export default Ember.Route.extend({
       };
 
       configuration.save(options).then((success) => {
-        set(config, 'success', success);
+        set(config, 'success', success + '<p>You are now being redirected to feeds - this may take a while</p>'.htmlSafe());
         this.transitionTo(Env.APP.DefaultRouteAfterLogin);
       }, error => {
         set(config, 'error', error);

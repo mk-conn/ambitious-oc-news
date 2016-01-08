@@ -1,15 +1,26 @@
 <div class="card-header item-url item-title">
-    <a href="{{item.url}}" target="_blank">{{item.title}}</a>
+    <span target="_blank">{{item.title}}</span>
     <span class="pull-right">
-        <button type="button" class="btn btn-secondary-outline btn-sm hint--top" data-hint="Star this article">
-          {{#if item.starred}}
+        <a href={{item.url}} target="_blank" {{action "originalArticle" preventDefault=false}} class="btn btn-sm btn-secondary-outline hint--top"
+           data-hint="Open article in new tab">
+            <span class="fa fa-globe"></span>
+        </a>
+        <button type="button" class="btn btn-sm btn-secondary-outline hint--top" {{action "toggleUnread"}} data-hint={{readUnreadHint}}>
+          {{#if isUnread}}
+              <i class="fa fa-eye"></i>
+          {{else}}
+              <i class="fa fa-eye-slash"></i>
+          {{/if}}
+        </button>
+        <button type="button" class="btn btn-secondary-outline btn-sm hint--top" {{action "toggleStarred"}} data-hint={{starHint}}>
+          {{#if isStarred}}
               <i class="fa fa-star"></i>
           {{else}}
               <i class="fa fa-star-o"></i>
           {{/if}}
         </button>
         <button type="button" class="btn btn-secondary-outline btn-sm hint--left"
-                data-hint="Open article" {{action "toggleShowFull"}}>
+                data-hint={{openCloseHint}} {{action "toggleShowFull"}}>
           {{#if showFull}}
               <i class="fa fa-angle-up"></i>
           {{else}}

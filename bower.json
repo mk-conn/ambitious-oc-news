@@ -13,7 +13,8 @@
     "blob-polyfill": "~1.0.20150320",
     "font-awesome": "fontawesome#~4.5.0",
     "moment": ">= 2.8.0",
-    "moment-timezone": ">= 0.1.0"
+    "moment-timezone": ">= 0.1.0",
+    "uri-templates": "~0.1.9"
   },
   "resolutions": {
     "ember": "2.2.0"
