@@ -10,9 +10,10 @@ const {
 
 export default Ember.Route.extend({
   configuration: inject.service(),
+  auth: inject.service(),
   beforeModel() {
     const config = get(this, 'configuration');
-    if (config.retrieve()) {
+    if (config.retrieve('oc_conn')) {
       this.transitionTo(Env.APP.DefaultRouteAfterLogin);
     }
   },
@@ -26,10 +27,10 @@ export default Ember.Route.extend({
   },
   actions: {
     authenticate() {
-      let config = get(this, 'currentModel');
-      let {domain, username, password, persist} = config.getProperties('domain', 'username', 'password', 'persist');
+      let model = get(this, 'currentModel');
+      let {domain, username, password, persist} = model.getProperties('domain', 'username', 'password', 'persist');
 
-      const configuration = get(this, 'configuration');
+      const auth = get(this, 'auth');
 
       const options = {
         username: username,
@@ -38,11 +39,11 @@ export default Ember.Route.extend({
         domain: domain
       };
 
-      configuration.save(options).then((success) => {
-        set(config, 'success', success + '<p>You are now being redirected to feeds - this may take a while</p>'.htmlSafe());
+      auth.authorize(options).then((success) => {
+        set(model, 'success', success + '<p>You are now being redirected to feeds - this may take a while</p>'.htmlSafe());
         this.transitionTo(Env.APP.DefaultRouteAfterLogin);
       }, error => {
-        set(config, 'error', error);
+        set(model, 'error', error);
       });
 
       return false;

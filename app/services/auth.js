@@ -1,36 +1,11 @@
 import Ember from 'ember';
 import Env from 'ember-oc-news/config/environment';
-const {
-  RSVP,
-  Service,
-  $ : {ajax},
-  run,
-  set,
-  get
-  } = Ember;
 
+const {RSVP, get, set, $ : {ajax}, inject, Service, run} = Ember;
 
 export default Service.extend({
-  error: '',
-  /**
-   *
-   * @returns {null}|{Object}
-   */
-  retrieve() {
-    let config = localStorage.getItem('oc_news_configuration') || sessionStorage.getItem('oc_news_configuration');
-
-    if (config) {
-      return JSON.parse(config);
-    }
-
-    return null;
-  },
-  /**
-   *
-   * @param {Object} options
-   */
-  save(options)
-  {
+  configuration: inject.service(),
+  authorize(options) {
     const url = options.domain + '/' + Env.APP.OCAPIRootPath + '/version';
 
     return new RSVP.Promise((resolve, reject) => {
@@ -45,13 +20,14 @@ export default Service.extend({
           xhr.setRequestHeader('Authorization', 'Basic ' + auth);
         }
       }).then(response => {
-        run(function () {
+        run(() => {
+          const crypt = true;
           if (options.persist) {
-            localStorage.setItem('oc_news_configuration', JSON.stringify(options));
-          } else {
-            sessionStorage.setItem('oc_news_configuration', JSON.stringify(options));
-          }
+            get(this, 'configuration').store('oc_conn', JSON.stringify(options), 'local', crypt);
 
+          } else {
+            get(this, 'configuration').store('oc_conn', JSON.stringify(options), 'session', crypt);
+          }
           resolve('Connected to Owncloud News version: ' + response.version);
         });
 

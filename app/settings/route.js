@@ -1,20 +1,21 @@
 import Ember from 'ember';
 import Protected from 'ember-oc-news/mixins/protected';
 
-const {get, RSVP, set} = Ember;
+const {get, set, inject, Object} = Ember;
 
 export default Ember.Route.extend(Protected, {
-
+  auth: inject.service(),
+  config: inject.service('configuration'),
   model() {
-    return Ember.Object.create(get(this, 'configuration').retrieve());
+    return Object.create(get(this, 'configuration').retrieve('oc_conn'));
   },
   actions: {
-    modifyConfiguration() {
+    alterAuth() {
+      const oldUsername = get(get(this, 'config').retrieve('oc_conn'), 'username');
+      let model = get(this, 'currentModel');
+      let {domain, username, password, persist} = model.getProperties('domain', 'username', 'password', 'persist');
 
-      let config = get(this, 'currentModel');
-      let {domain, username, password, persist} = config.getProperties('domain', 'username', 'password', 'persist');
-
-      const configuration = get(this, 'configuration');
+      const auth = get(this, 'auth');
 
       const options = {
         username: username,
@@ -23,11 +24,14 @@ export default Ember.Route.extend(Protected, {
         domain: domain
       };
 
-      configuration.save(options).then((success) => {
-        set(config, 'success', success);
+      auth.authorize(options).then((success) => {
+        set(model, 'success', success);
+        if (oldUsername !== username) {
+          get(this, 'config').remove('folders');
+        }
         this.store.unloadAll();
       }, error => {
-        set(config, 'error', error);
+        set(model, 'error', error);
       });
 
       return false;

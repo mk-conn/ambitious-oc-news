@@ -8,6 +8,7 @@ const {
   } = Ember;
 
 export default DS.RESTAdapter.extend({
+  configuration: inject.service(),
   updateRecordUrlTemplate: computed(function () {
     const url = get(this, 'host') + '/' + get(this, 'namespace') + '{/updateEndpoint}';
 
@@ -22,9 +23,8 @@ export default DS.RESTAdapter.extend({
     }
 
   },
-  configuration: inject.service(),
   host: Ember.computed(function () {
-    const config = get(this, 'configuration').retrieve();
+    const config = get(this, 'configuration').retrieve('oc_conn');
     if (config) {
       return config.domain;
     }
@@ -32,7 +32,7 @@ export default DS.RESTAdapter.extend({
     return null;
   }).volatile(),
   headers: Ember.computed(function () {
-    const config = get(this, 'configuration').retrieve();
+    const config = get(this, 'configuration').retrieve('oc_conn');
     if (config) {
 
       const auth = btoa(config.username + ':' + config.password);

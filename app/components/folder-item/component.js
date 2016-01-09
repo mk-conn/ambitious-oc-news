@@ -1,12 +1,19 @@
 import Ember from 'ember';
-const {get} = Ember;
+const {get, set, computed} = Ember;
 
 export default Ember.Component.extend({
   classNames: ['card'],
   unreadCount: Ember.computed.sum('feeds.@each.unreadCount'),
+  folderIcon: computed('folderOpen', function () {
+    if (get(this, 'folderOpen')) {
+      return 'fa-folder-open';
+    }
+    return 'fa-folder';
+  }),
+  folderOpen: computed.not('folder.isClosed'),
   actions: {
-    closeFolder() {
-      console.log('component.js:closeFolder', 'clicked');
+    toggleFolderStatus() {
+      get(this, 'folder').toggleClosed();
     }
   }
 });

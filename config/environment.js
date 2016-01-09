@@ -24,6 +24,7 @@ module.exports = function (environment) {
       OCAPIRootPath: 'index.php/apps/news/api/v1-2',
       DefaultLoginRoute: 'login',
       DefaultRouteAfterLogin: 'index',
+      key: "dkdk9e4045r-e0?--dd340ll",
       items: {
         batchSize: 10
       }

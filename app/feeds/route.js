@@ -1,9 +1,10 @@
 import Ember from 'ember';
 import Protected from 'ember-oc-news/mixins/protected';
-const {A, RSVP, get} = Ember;
+const {A, RSVP, get, inject} = Ember;
 
 export default Ember.Route.extend(Protected, {
-   model() {
+  config: inject.service('configuration'),
+  model() {
 
     let promises = {
       folders: this.store.findAll('folder'),
@@ -33,5 +34,30 @@ export default Ember.Route.extend(Protected, {
       };
 
     });
+  },
+  afterModel(model) {
+    this.syncFoldersInConfig(model);
+
+  },
+  syncFoldersInConfig(model) {
+    let changed = false;
+    const folderIds = get(model, 'folders').getEach('id');
+    const folders = get(this, 'config').retrieve('folders');
+
+
+    if (folders) {
+      folders.forEach((folder) => {
+        const id = get(folder, 'id');
+
+        if (folderIds.indexOf(id) < 0) {
+          folders.removeObject(folder);
+          changed = true;
+        }
+      });
+    }
+
+    if (changed) {
+      get(this, 'config').store('folders', JSON.stringify(folders));
+    }
   }
 });
