@@ -7,6 +7,9 @@ const {get, set, Route} = Ember;
 export default Route.extend(InfinityRoute, {
   _offset: undefined,
   _canLoadMore: true,
+  init() {
+    set(this, '_offset', undefined);
+  },
   model() {
     const feed = this.modelFor('feeds.feed');
     const batchSize = Env.APP.items.batchSize || 10;
@@ -25,7 +28,6 @@ export default Route.extend(InfinityRoute, {
     set(model, 'feed', this.modelFor('feeds.feed'));
   },
   afterInfinityModel(items) {
-    const feed = this.modelFor('feeds.feed');
     const lastObjectId = items.get('lastObject.id');
     const loadedAny = items.get('length') > 0;
     this.set('_canLoadMore', loadedAny);
