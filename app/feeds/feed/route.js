@@ -2,7 +2,7 @@ import Ember from 'ember';
 import Protected from 'ember-oc-news/mixins/protected';
 import ResetToTop from 'ember-oc-news/mixins/reset-to-top';
 
-const {Route, RSVP} = Ember;
+const {Route} = Ember;
 
 export default Route.extend(Protected, ResetToTop, {
   model(params) {
@@ -13,11 +13,5 @@ export default Route.extend(Protected, ResetToTop, {
       into: 'application',
       outlet: 'main'
     });
-  },
-  actions: {
-    markRead(item) {
-      console.log('route.js:markRead', item);
-    }
   }
-
 });

@@ -7,9 +7,9 @@
         </a>
         <button type="button" class="btn btn-sm btn-secondary-outline hint--top" {{action "toggleUnread"}} data-hint={{readUnreadHint}}>
           {{#if isUnread}}
-              <i class="fa fa-eye"></i>
-          {{else}}
               <i class="fa fa-eye-slash"></i>
+          {{else}}
+              <i class="fa fa-eye"></i>
           {{/if}}
         </button>
         <button type="button" class="btn btn-secondary-outline btn-sm hint--top" {{action "toggleStarred"}} data-hint={{starHint}}>
@@ -22,9 +22,9 @@
         <button type="button" class="btn btn-secondary-outline btn-sm hint--left"
                 data-hint={{openCloseHint}} {{action "toggleShowFull"}}>
           {{#if showFull}}
-              <i class="fa fa-angle-up"></i>
-          {{else}}
               <i class="fa fa-angle-down"></i>
+          {{else}}
+              <i class="fa fa-angle-up"></i>
           {{/if}}
         </button>
     </span>

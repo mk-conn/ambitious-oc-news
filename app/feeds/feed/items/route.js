@@ -25,12 +25,12 @@ export default Route.extend(InfinityRoute, {
     set(model, 'feed', this.modelFor('feeds.feed'));
   },
   afterInfinityModel(items) {
-
+    const feed = this.modelFor('feeds.feed');
+    const lastObjectId = items.get('lastObject.id');
     const loadedAny = items.get('length') > 0;
     this.set('_canLoadMore', loadedAny);
 
-    console.log('route.js:afterInfinityModel', items.get('lastObject.id'));
-    this.set('_offset', items.get('lastObject.id'));
+    this.set('_offset', lastObjectId);
   }
 
 

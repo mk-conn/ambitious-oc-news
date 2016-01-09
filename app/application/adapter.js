@@ -4,10 +4,24 @@ import Env from 'ember-oc-news/config/environment';
 //import UrlTemplates from 'ember-data-url-templates';
 
 const {
-  inject, get
+  inject, get, computed
   } = Ember;
 
 export default DS.RESTAdapter.extend({
+  updateRecordUrlTemplate: computed(function () {
+    const url = get(this, 'host') + '/' + get(this, 'namespace') + '{/updateEndpoint}';
+
+    return url;
+  }),
+  urlSegments: {
+
+    updateEndpoint(type, id, snapshot) {
+      const endpoint = get(snapshot.record, '_updateEndpoint');
+
+      return endpoint;
+    }
+
+  },
   //session: inject.service(),
   configuration: inject.service(),
   //host: function () {
@@ -28,5 +42,18 @@ export default DS.RESTAdapter.extend({
 
   }).volatile(),
   namespace: Env.APP.OCAPIRootPath,
-  authorizer: 'authorizer:oc'
+  authorizer: 'authorizer:oc',
+
+  updateRecord(store, type, snapshot) {
+    var data = {};
+    var serializer = store.serializerFor(type.modelName);
+
+    serializer.serializeIntoHash(data, type, snapshot);
+
+    var id = snapshot.id;
+    var url = this.buildURL(type.modelName, id, snapshot, 'updateRecord');
+    var verb = get(snapshot.record, '_updateVerb') || "PUT";
+
+    return this.ajax(url, verb, {data: data});
+  }
 });

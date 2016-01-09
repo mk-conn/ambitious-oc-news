@@ -1,0 +1,15 @@
+{{#if hasBlock}}
+  {{#if infinityModel.reachedInfinity}}
+      <div class="alert alert-info">
+          No more items available.
+      </div>
+  {{else}}
+    {{yield}}
+  {{/if}}
+{{else}}
+  {{#if infinityModel.reachedInfinity}}
+      <span>{{loadedText}}</span>
+  {{else}}
+      <span>{{loadingText}}</span>
+  {{/if}}
+{{/if}}

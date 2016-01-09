@@ -8,7 +8,7 @@
     <div class="list-group-item-text">
       {{#each folder.feeds as |feed|}}
         {{#link-to "feeds.feed.items" feed classNames="list-group-item"}}
-          {{feed-item feed=feed}}
+          {{feed-item feed=feed display="list"}}
         {{/link-to}}
       {{/each}}
     </div>

@@ -6,16 +6,4 @@ const {get, computed} = Ember;
 
 export default ApplicationAdapter.extend(UrlTemplates, {
 
-  updateRecordUrlTemplate: computed(function () {
-
-    const url = get(this, 'host') + '/' + get(this, 'namespace') + '{/updateEndpoint}';
-
-    return url;
-  }),
-  urlSegments: {
-    updateEndpoint(type, id, snapshot) {
-      const endpoint = get(snapshot.record, '_updateEndpoint');
-      return endpoint;
-    }
-  }
 });

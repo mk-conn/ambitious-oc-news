@@ -1,8 +1,10 @@
 {{!--{{feed-items-list feed=model}}--}}
-<div class="card-header">
-    {{model.title}}
-    <span class="label label-default label-pill pull-xs-right">
-      {{model.unreadCount}}
-    </span>
+<div class="card">
+    <div class="card-block">
+        <h4 class="card-title">{{feed-item feed=model display="single" markAllRead="markAllRead"}}</h4>
+    </div>
+
+  {{outlet}}
+
 </div>
-{{outlet}}
+

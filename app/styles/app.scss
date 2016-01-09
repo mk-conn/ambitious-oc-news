@@ -90,14 +90,26 @@ blockquote {
   margin-bottom: $table-cell-padding;
 }
 
-.feed-item {
+.feed-item.list {
   cursor: pointer;
 }
 
-.feed-item:hover {
+.feed-item.list:hover {
   background: #eee;
+}
+
+.feed-item.single {
+  display:flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.feed-item.single > .feed-unread-count {
+
 }
 
 .btn-secondary-outline {
   color:#666;
 }
+

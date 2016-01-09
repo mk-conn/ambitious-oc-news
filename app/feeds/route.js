@@ -8,7 +8,6 @@ export default Ember.Route.extend(Protected, {
     let promises = {
       folders: this.store.findAll('folder'),
       feeds: this.store.findAll('feed')
-      //items: this.store.findAll('item')
     };
 
     let unfoldered = new A();
@@ -23,10 +22,6 @@ export default Ember.Route.extend(Protected, {
         } else {
           unfoldered.addObject(feed);
         }
-
-        //let items = hash.items.filterBy('feedId', get(feed, 'id'));
-        //get(feed, 'items').addObjects(items);
-
       });
 
       return {

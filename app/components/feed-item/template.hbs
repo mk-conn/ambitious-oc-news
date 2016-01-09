@@ -1,7 +1,9 @@
-<div class="list-group-item-heading">
-    <span class="feed-favicon pull-xs-left">
+{{#if single}}
+
+    <span class="feed-icon">
       {{#if feed.faviconLink}}
           <img src="{{feed.faviconLink}}" alt="feed-icon"/>
+
       {{else}}
           <span class="fa fa-feed"></span>
       {{/if}}
@@ -9,8 +11,36 @@
 
     <span class="feed-title">{{feed.title}}</span>
 
-    <span class="label label-default label-pill pull-xs-right">
-      {{feed.unreadCount}}
+
+    <span>
+      <span class="label label-default label-pill feed-unread-count">
+        {{feed.unreadCount}}
+      </span>
+      <span class="feed-button-group btn-group feed-button-group">
+        <button type="button" class="btn btn-secondary-outline" {{action "markAllRead"}} disabled={{markReadDisabled}}>
+            <i class="fa fa-eye-slash"></i>
+        </button>
+      </span>
     </span>
 
-</div>
+{{/if}}
+
+{{#if list}}
+    <div class="list-group-item-heading">
+      <span class="feed-favicon pull-xs-left">
+
+        {{#if feed.faviconLink}}
+            <img src="{{feed.faviconLink}}" alt="feed-icon"/>
+        {{else}}
+            <span class="fa fa-feed"></span>
+        {{/if}}
+      </span>
+
+        <span class="feed-title">{{feed.title}}</span>
+
+      <span class="label label-default label-pill pull-xs-right">
+        {{feed.unreadCount}}
+      </span>
+    </div>
+{{/if}}
+
