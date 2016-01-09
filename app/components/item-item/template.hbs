@@ -1,6 +1,6 @@
 <div class="card-header item-url item-title">
     <span target="_blank">{{item.title}}</span>
-    <span class="pull-right">
+    <div class="btn-group-sm item-button-group">
         <a href={{item.url}} target="_blank" {{action "originalArticle" preventDefault=false}} class="btn btn-sm btn-secondary-outline hint--top"
            data-hint="Open article in new tab">
             <span class="fa fa-globe"></span>
@@ -22,13 +22,14 @@
         <button type="button" class="btn btn-secondary-outline btn-sm hint--left"
                 data-hint={{openCloseHint}} {{action "toggleShowFull"}}>
           {{#if showFull}}
-              <i class="fa fa-angle-down"></i>
+              <i class="fa fa-chevron-down"></i>
           {{else}}
-              <i class="fa fa-angle-up"></i>
+              <i class="fa fa-chevron-up"></i>
           {{/if}}
         </button>
-    </span>
+    </div>
 </div>
+
 <div class="card-block item-container">
     <div class="card-text item-text">
         <div class="item-meta">

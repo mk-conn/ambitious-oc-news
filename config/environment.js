@@ -25,7 +25,7 @@ module.exports = function (environment) {
       DefaultLoginRoute: 'login',
       DefaultRouteAfterLogin: 'index',
       items: {
-        batchSize: 15
+        batchSize: 10
       }
     },
     contentSecurityPolicy: {

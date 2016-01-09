@@ -1,27 +1,33 @@
 {{#if single}}
 
-    <span class="feed-icon">
-      {{#if feed.faviconLink}}
-          <img src="{{feed.faviconLink}}" alt="feed-icon"/>
+    <span class="feed-title">
 
-      {{else}}
-          <span class="fa fa-feed"></span>
-      {{/if}}
+        <span class="feed-icon">
+          {{#if feed.faviconLink}}
+              <img src="{{feed.faviconLink}}" alt="feed-icon"/>
+
+          {{else}}
+              <span class="fa fa-feed"></span>
+          {{/if}}
+        </span>
+
+      {{feed.title}}
+
     </span>
 
-    <span class="feed-title">{{feed.title}}</span>
+    <div class="feed-item-actions">
+        <span class="label label-default small feed-unread-count">
+          {{feed.unreadCount}}
+        </span>
+        <span class="feed-button-group btn-group feed-button-group">
+           <button type="button" class="btn btn-secondary-outline" {{action "markAllRead"}}
+                   disabled={{markReadDisabled}}>
+               <i class="fa fa-eye-slash"></i>
+           </button>
 
+      </span>
+    </div>
 
-    <span>
-      <span class="label label-pill label-default feed-unread-count">
-        {{feed.unreadCount}}
-      </span>
-      <span class="feed-button-group btn-group feed-button-group">
-        <button type="button" class="btn btn-secondary-outline" {{action "markAllRead"}} disabled={{markReadDisabled}}>
-            <i class="fa fa-eye-slash"></i>
-        </button>
-      </span>
-    </span>
 
 {{/if}}
 

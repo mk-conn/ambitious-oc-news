@@ -5,9 +5,16 @@
 //$enable-flex: true;
 
 .loader {
-  padding-top:5rem;
+  padding-top: 5rem;
   text-align: center;
   @include center-block;
+}
+
+.header-nav {
+  background-color: #eee;
+  border-top:1px solid #555;
+  border-bottom:1px solid #555;
+  border-radius: 0;
 }
 
 input {
@@ -37,22 +44,32 @@ input {
   cursor: pointer;
 }
 
-blockquote {
-  background: #eee;
-  padding: 5px;
-}
-
-.item-meta {
-  font-style: italic;
-  padding-bottom: 5px;
-}
-
 @mixin firstPicOfArticle {
   float: left;
   width: 65px;
   height: 65px;
   border-radius: 3px;
   margin-right: 20px;
+}
+
+
+.item-container {
+  box-shadow: inset 0 0 2rem rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 0 2rem rgba(0, 0, 0, 0.1);
+}
+
+.item-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.item-button-group {
+  align-self: flex-end;
+}
+
+.item-meta {
+  font-style: italic;
+  padding-bottom: 5px;
 }
 
 .item.is-unread > .item-title {
@@ -62,6 +79,22 @@ blockquote {
 .item-text {
   clear: both;
   min-height: 75px;
+}
+
+.item-body {
+  $item_body_headings_color: #1A5A7A;
+  h1 {
+    font-size: $font-size-h1 - 0.2rem;
+    border-bottom: 0.2rem;
+  }
+  h5 {
+    font-size: $font-size-h5 - 0.2rem;
+  }
+  h1, h2, h3, h4, h5 {
+    border-bottom: 1px solid $item_body_headings_color;
+    padding: 0.2rem;
+    color:$item_body_headings_color;
+  }
 }
 
 .item-body {
@@ -90,26 +123,35 @@ blockquote {
   margin-bottom: $table-cell-padding;
 }
 
-.feed-item.list {
+.feed-item-link {
   cursor: pointer;
 }
 
-.feed-item.list:hover {
+.feed-item-link:hover, .feed-item-link:active {
   background: #eee;
 }
 
 .feed-item.single {
-  display:flex;
-  flex-direction: row;
-  align-items: baseline;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 }
 
-.feed-item.single > .feed-unread-count {
-
+.feed-item.single > .feed-item-actions {
+  align-self: flex-end;
 }
 
 .btn-secondary-outline {
-  color:#666;
+  color: #666;
 }
 
+.item-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+
+@import "media-queries";

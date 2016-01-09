@@ -7,7 +7,7 @@
 <div class="card-block">
     <div class="list-group-item-text">
       {{#each folder.feeds as |feed|}}
-        {{#link-to "feeds.feed.items" feed classNames="list-group-item"}}
+        {{#link-to "feeds.feed.items" feed classNames="list-group-item feed-item-link" tagName='li'}}
           {{feed-item feed=feed display="list"}}
         {{/link-to}}
       {{/each}}

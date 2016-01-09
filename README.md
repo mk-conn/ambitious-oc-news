@@ -44,7 +44,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 Specify what it takes to deploy your app.
 
 ## Further Reading / Useful Links
-
+* [Project page](http://mk-conn.github.io/ember-oc-news)
 * [owncloud/news api](https://github.com/owncloud/news/wiki/API-1.2)
 * [ember.js](http://emberjs.com/)
 * [ember-cli](http://www.ember-cli.com/)
