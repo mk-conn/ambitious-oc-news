@@ -22,23 +22,25 @@ export default DS.RESTAdapter.extend({
     }
 
   },
-  //session: inject.service(),
   configuration: inject.service(),
-  //host: function () {
-  //  const session = get(this, 'session');
-  //  return session.get('data.domain');
-  //}.property(),
   host: Ember.computed(function () {
     const config = get(this, 'configuration').retrieve();
-    return config.domain;
+    if (config) {
+      return config.domain;
+    }
+
+    return null;
   }).volatile(),
   headers: Ember.computed(function () {
     const config = get(this, 'configuration').retrieve();
-    const auth = btoa(config.username + ':' + config.password);
+    if (config) {
 
-    return {
-      Authorization: 'Basic ' + auth
-    };
+      const auth = btoa(config.username + ':' + config.password);
+
+      return {
+        Authorization: 'Basic ' + auth
+      };
+    }
 
   }).volatile(),
   namespace: Env.APP.OCAPIRootPath,

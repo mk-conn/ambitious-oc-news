@@ -4,10 +4,7 @@ import Protected from 'ember-oc-news/mixins/protected';
 const {Route, RSVP, get, A} = Ember;
 
 export default Route.extend(Protected, {
-  beforeModel()
-  {
 
-  },
   model() {
     let promises = {
       folders: this.store.findAll('folder'),

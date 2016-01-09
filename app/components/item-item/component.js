@@ -58,10 +58,10 @@ export default Ember.Component.extend({
     return 'Mark unread';
   }),
   excerpt: computed('item.body', function () {
-    const stripAt = 250;
+    const stripAt = 160;
     let text = $(get(this, 'item.body')).text();
     if (text.length > stripAt) {
-      text = text.slice(0, 250) + ' ...'.htmlSafe();
+      text = text.slice(0, stripAt) + ' ...'.htmlSafe();
     }
     return text;
   }),
