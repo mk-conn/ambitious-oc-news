@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import Protected from 'ember-oc-news/mixins/protected';
+import Protected from 'ambitious-oc-news/mixins/protected';
 
 const {Route, RSVP, get, A} = Ember;
 

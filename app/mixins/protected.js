@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import Env from 'ember-oc-news/config/environment';
+import Env from 'ambitious-oc-news/config/environment';
 const {inject, get} = Ember;
 
 export default Ember.Mixin.create({

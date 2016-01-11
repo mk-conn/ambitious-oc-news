@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import Protected from 'ember-oc-news/mixins/protected';
-import ResetToTop from 'ember-oc-news/mixins/reset-to-top';
+import Protected from 'ambitious-oc-news/mixins/protected';
+import ResetToTop from 'ambitious-oc-news/mixins/reset-to-top';
 
 const {Route} = Ember;
 
