@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   var ENV = {
-    modulePrefix: 'ember-oc-news',
+    modulePrefix: 'ambitious-oc-news',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

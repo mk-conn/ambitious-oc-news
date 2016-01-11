@@ -70,7 +70,6 @@ export default Ember.Route.extend(Protected, {
 
       let withOrWithoutFolder = new RSVP.Promise((resolve, reject) => {
         const folder = get(model, 'folder');
-        debugger;
         if (folder && get(folder, 'isNew')) {
           folder.save().then((folder) => {
             feed.set('folder', folder);
