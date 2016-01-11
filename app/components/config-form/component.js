@@ -1,11 +1,10 @@
 import Ember from 'ember';
-const {get, inject, set} = Ember
+const {get, inject, set, Object} = Ember
 
 export default Ember.Component.extend({
-  classNames: ['container', 'app-settings'],
   actions: {
     submit() {
-     this.sendAction('submit');
+      this.sendAction('submit', get(this, 'config'));
     }
   }
 });

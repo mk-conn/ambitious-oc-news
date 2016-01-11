@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header" {{action toggleProperty "isOpen"}}>
+        <h2 class="card-title">{{title}}</h2>
+      {{#if isOpen}}
+          <span class="fa fa-chevron-down"></span>
+      {{else}}
+        <span class="fa fa-chevron-up"></span>
+      {{/if}}
+    </div>
+  {{#if isOpen}}
+      <div class="card-block">
+        {{yield}}
+      </div>
+  {{/if}}
+</div>
+
+

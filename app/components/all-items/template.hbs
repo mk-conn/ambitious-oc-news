@@ -1,2 +1,15 @@
-<span class="card-title">All</span>
-<span class="label label-default label-pill pull-xs-right">{{unreadCount}}/{{totalCount}}</span>
+<span class="left">
+    <span class="feed-icon">
+          <span class="fa fa-feed"></span>
+    </span>
+    <span class="feed-title">All articles</span>
+</span>
+
+<span class="right">
+    {{#if feed.unreadCount}}
+        <span class="label label-default label-pill unread-count">
+          {{feed.unreadCount}}
+        </span>
+    {{/if}}
+    <span class="fa fa-chevron-right"></span>
+</span>

@@ -2,8 +2,8 @@ import Ember from 'ember';
 const {get, set, computed} = Ember;
 
 export default Ember.Component.extend({
-  classNames: ['card'],
-  unreadCount: Ember.computed.sum('feeds.@each.unreadCount'),
+  classNames: ['card folder-item'],
+  //unreadCount: computed.sum('folder.feeds.@each.unreadCount'),
   folderIcon: computed('folderOpen', function () {
     if (get(this, 'folderOpen')) {
       return 'fa-folder-open';
@@ -12,7 +12,7 @@ export default Ember.Component.extend({
   }),
   folderOpen: computed.not('folder.isClosed'),
   actions: {
-    toggleFolderStatus() {
+    toggleFolderClosed() {
       get(this, 'folder').toggleClosed();
     }
   }

@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import Ember from 'ember';
 const {attr, belongsTo, hasMany} = DS;
 
 export default DS.Model.extend({
@@ -13,7 +14,6 @@ export default DS.Model.extend({
   folder: belongsTo('folder', {async: false}),
   items: hasMany('item', {async: false}),
   newestItemId: attr('number'),
-
   markAllItemsRead() {
     this.set('_updateEndpoint', 'feeds/' + this.get('id') + '/read');
     this.set('_updateVerb', 'PUT');
@@ -22,10 +22,16 @@ export default DS.Model.extend({
     promise.finally(() => {
       this.set('_updateEndpoint', null);
       this.set('_updateVerb', null);
-
+      const unreadCount = this.get('unreadCount');
       this.get('items').setEach('unread', false);
 
       this.set('unreadCount', 0);
+
+      const folder = this.get('folder');
+      if (folder) {
+        folder.set('unreadCount', folder.get('unreadCount') - unreadCount);
+      }
+
     });
 
     return promise;

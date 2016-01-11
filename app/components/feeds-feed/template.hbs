@@ -1,0 +1,32 @@
+<div class="card-block">
+    <div class="card-title">
+
+        <span class="feed-title">
+          <span class="feed-icon">
+            {{#if feed.faviconLink}}
+                <img src="{{feed.faviconLink}}" alt="feed-icon"/>
+            {{else}}
+                <span class="fa fa-feed"></span>
+            {{/if}}
+          </span>
+          {{feed.title}}
+        </span>
+
+        <div class="feed-item-actions">
+            <span class="feed-button-group btn-group feed-button-group">
+              <button type="button" class="btn btn-secondary-outline" {{action "markAllRead"}}
+                      disabled={{markReadDisabled}}>
+                  <i class="fa fa-eye-slash"></i>
+              </button>
+            </span>
+          {{#if feed.unreadCount}}
+              <span class="label label-default small feed-unread-count">
+                {{feed.unreadCount}}
+              </span>
+          {{/if}}
+        </div>
+    </div>
+</div>
+{{yield}}
+
+

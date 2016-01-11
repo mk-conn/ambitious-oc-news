@@ -1,3 +1,18 @@
-{{config-form config=model submit="alterAuth"}}
+<div class="app-settings">
+
+  {{#settings-block class="connection-settings" title="Connection Settings"}}
+    {{config-form config=model.conn submit="setupConnection"}}
+  {{/settings-block}}
+
+  {{#settings-block isOpen=true class="add-feed" title="Add Feed"}}
+
+    {{add-feed folders=model.folders
+    feed=model.feed
+    createFolder=(route-action "createFolder")
+    submit="createFeed"}}
+
+  {{/settings-block}}
+
+</div>
 
 {{outlet}}

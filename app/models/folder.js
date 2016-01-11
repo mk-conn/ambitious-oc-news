@@ -10,6 +10,7 @@ export default DS.Model.extend({
   feeds: hasMany('feed', {async: false}),
   unreadFeedCounts: computed.mapBy('feeds.@each', 'unreadCount'),
   unreadCount: computed.sum('unreadFeedCounts'),
+
   toggleClosed() {
     if (this.get('isClosed')) {
       this.set('isClosed', false);

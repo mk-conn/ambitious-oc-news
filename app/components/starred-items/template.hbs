@@ -1,2 +1,15 @@
-<span class="card-title">Starred</span>
-<span class="label label-default label-pill pull-xs-right">{{unreadCount}}/{{totalCount}}</span>
+<span class="left">
+    <span class="feed-icon">
+          <span class="fa fa-bookmark"></span>
+    </span>
+    <span class="feed-title">Bookmarked</span>
+</span>
+
+<span class="right">
+    {{#if unreadCount}}
+        <span class="label label-default label-pill unread-count">
+          {{feed.unreadCount}}
+        </span>
+    {{/if}}
+    <span class="fa fa-chevron-right"></span>
+</span>

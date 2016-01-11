@@ -8,6 +8,8 @@ module.exports = function (defaults) {
     // Add options here
   });
 
+  app.import('bower_components/bootstrap/js/dist/dropdown.js');
+
   var extraAssets = new Funnel('bower_components/font-awesome/fonts', {
     srcDir: '/',
     include: ['*'],

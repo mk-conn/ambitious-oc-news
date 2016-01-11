@@ -18,5 +18,17 @@ export default ApplicationAdapter.extend(UrlTemplates, {
     }
 
     return this._super(store, type, snapshot);
+  },
+  createRecord(store, type, snapshot) {
+
+    var id = snapshot.id;
+
+    var url = this.buildURL(type.modelName, id, snapshot, 'createRecord');
+    var data = {
+      url: get(snapshot.record, 'url'),
+      folderId: get(snapshot.record, 'folderId')
+    };
+
+    return this.ajax(url, 'POST', {data: data});
   }
 });

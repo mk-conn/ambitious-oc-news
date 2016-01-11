@@ -1,15 +1,19 @@
-<nav class="navbar navbar-light header-nav">
-    <a class="navbar-brand" href="/">OC NEWS</a>
+<header class="navbar navbar-light header">
 
-    <ul class="nav nav-pills navbar-dark">
-      {{#link-to "feeds" classNames="nav-item" tagName="li"}}
-          <a href="#" class="nav-link">Feeds</a>
+    <a class="navbar-brand" href="/">
+        <img class="logo" src="/img/AONews_Logo.png" alt="Ambitious OC News Logo"/>
+    </a>
+
+    <div class="btn-group">
+      {{#link-to "feeds" classNames="btn btn-secondary"}}
+          <i class="fa fa-list"></i>
       {{/link-to}}
-      {{#link-to "settings" classNames="nav-item" tagName="li"}}
-          <a href="#" class="nav-link">Settings</a>
+      {{#link-to "settings" classNames="btn btn-secondary" tagName="li"}}
+          <i class="fa fa-cog"></i>
       {{/link-to}}
-    </ul>
-</nav>
+    </div>
+</header>
+
 <div class="main container-fluid">
   {{outlet}}
 </div>

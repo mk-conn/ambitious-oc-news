@@ -1,8 +1,39 @@
+@import 'color-scheme';
+
+$btn-secondary-color: $color-secondary-1-0;
+$btn-secondary-bg: $color-secondary-1-4;
+//$btn-secondary-color: $color-secondary-1-1;
+$btn-secondary-border: $color-primary-1;
+$label-default-bg: $color-primary-3;
+$enable-flex: true;
+
 @import '../../bower_components/bootstrap/scss/bootstrap';
 @import '../../bower_components/font-awesome/scss/font-awesome';
 @import '../../bower_components/hint.css/src/hint';
 
-//$enable-flex: true;
+$header_height: 6rem;
+
+@mixin default-background {
+  background-color: $color-primary-4;
+  color: $color-secondary-1-0;
+}
+
+body, html {
+  width: 100%;
+}
+
+body {
+  color: $color-primary-4;
+}
+
+body > div.ember-view {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.header, .main {
+  flex: 1 100%;
+}
 
 .loader {
   padding-top: 5rem;
@@ -10,11 +41,29 @@
   @include center-block;
 }
 
-.header-nav {
-  background-color: #eee;
-  border-top:1px solid #555;
-  border-bottom:1px solid #555;
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  //justify-content: space-between;
+  height: $header_height;
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #555;
   border-radius: 0;
+  @include default-background;
+
+  .navbar-brand {
+    //align-self: flex-start;
+    color: #1f7e9a;
+    img.logo {
+      max-width: $header_height;
+      max-height: $header_height;
+    }
+  }
+  .nav-buttons {
+    //align-self: flex-end;
+  }
 }
 
 input {
@@ -24,24 +73,93 @@ input {
   border-width: 0 !important;
 }
 
+.folder-list .folder-item {
+  .folder-action {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @include default-background;
+  }
+  .label {
+    background: $color-secondary-1-0;
+  }
+}
+
 .folder-feeds .card-block {
   padding: 0;
 }
 
-.feed-favicon > img {
-  height: 0.8em;
-  max-height: 0.8em;
-  max-width: 0.8em;
+.feed-icon {
+  max-width: 1rem;
   overflow: hidden;
 }
 
-.feed-title {
-  margin: 0 10px;
-  font-size: 0.9em;
+.feed-item {
+  display: flex;
+  width: inherit;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .feed-title {
+    margin: 0 10px;
+    font-size: 0.9em;
+  }
+
+  .left {
+    align-self: flex-start;
+  }
+
+  .right {
+    align-self: flex-end;
+  }
+
+  .feed-icon {
+    align-self: flex-start;
+    max-width: 1rem;
+
+    img {
+      max-width: inherit;
+    }
+  }
+
+  .feed-title {
+    align-self: flex-start;
+  }
+
+  .fa-chevron-right, .unread-count {
+    align-self: flex-end;
+  }
+
 }
 
-.folder-action {
-  cursor: pointer;
+.feeds-feed {
+
+  .feed-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .feed-icon {
+    max-width: 1.5rem;
+    oveflow: hidden;
+
+    img {
+      max-width: inherit;
+    }
+  }
+
+  .feed-title {
+    font-size: larger;
+  }
+
+  .feed-item-actions {
+    align-self: flex-end;
+  }
+
 }
 
 @mixin firstPicOfArticle {
@@ -52,7 +170,6 @@ input {
   margin-right: 20px;
 }
 
-
 .item-container {
   box-shadow: inset 0 0 .6rem rgba(111, 111, 111, 0.2);
   -webkit-box-shadow: inset 0 0 .6rem rgba(111, 111, 111, 0.2);
@@ -62,7 +179,9 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  @include default-background;
 }
+
 .item-button-group {
   align-self: flex-end;
 }
@@ -93,7 +212,7 @@ input {
   h1, h2, h3, h4, h5 {
     border-bottom: 1px solid $item_body_headings_color;
     padding: 0.2rem;
-    color:$item_body_headings_color;
+    color: $item_body_headings_color;
   }
 }
 
@@ -128,26 +247,12 @@ input {
 }
 
 .feed-item-link:hover, .feed-item-link:active {
-  background: #eee;
+  background: $color-secondary-1-0;
 }
 
-.feed-item.single {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.feed-item.single .feed-title {
-  font-size:larger;
-}
-.feed-item.single > .feed-item-actions {
-  align-self: flex-end;
-}
-
-.btn-secondary-outline {
-  color: #666;
-}
+//.btn-secondary-outline {
+//  color: #666;
+//}
 
 .item-title {
   display: flex;
@@ -156,5 +261,13 @@ input {
   justify-content: center;
 }
 
+.app-settings .card .card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
 
 @import "media-queries";
+@import "ember-power-select";

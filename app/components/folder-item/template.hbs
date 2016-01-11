@@ -1,16 +1,22 @@
-<div class="card-header">
-    <span class="folder-action fa {{folderIcon}}" {{action "toggleFolderStatus"}}></span>
-    <span class="card-title">{{folder.name}}</span>
-    <span class="label label-default label-pill pull-xs-right">{{folder.unreadCount}}</span>
+<div class="card-header folder-action" {{action "toggleFolderClosed"}}>
+    <div class="left">
+        <span class="fa {{folderIcon}}"></span> {{folder.name}}
+    </div>
+    <div class="right">
+        <span class="label label-default label-info">{{folder.unreadCount}}</span>
+      {{#if folderOpen}}
+          <i class="fa fa-chevron-down"></i>
+      {{else}}
+          <i class="fa fa-chevron-up"></i>
+      {{/if}}
+    </div>
 </div>
 
 {{#if folderOpen}}
     <div class="card-block">
-        <div class="list-group-item-text">
+        <div class="list-group list-group-flush">
           {{#each folder.feeds as |feed|}}
-            {{#link-to "feeds.feed.items" feed classNames="list-group-item feed-item-link" tagName='li'}}
-              {{feed-item feed=feed display="list"}}
-            {{/link-to}}
+            {{feed-item feed=feed display="list"}}
           {{/each}}
         </div>
     </div>

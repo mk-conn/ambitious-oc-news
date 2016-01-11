@@ -9,7 +9,7 @@ export default Ember.Route.extend({
     });
   },
   renderTemplate() {
-    this.render('items/starred', {
+    this.render('feeds/items/starred', {
       into: 'application',
       outlet: 'main'
     });

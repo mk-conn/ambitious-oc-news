@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import Protected from 'ember-oc-news/mixins/protected';
-const {A, RSVP, get, inject} = Ember;
+const {A, RSVP, get, set, inject} = Ember;
 
 export default Ember.Route.extend(Protected, {
   config: inject.service('configuration'),
@@ -37,6 +37,8 @@ export default Ember.Route.extend(Protected, {
   },
   afterModel(model) {
     this.syncFoldersInConfig(model);
+  },
+  markAllRead() {
 
   },
   syncFoldersInConfig(model) {

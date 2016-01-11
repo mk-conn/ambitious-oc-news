@@ -1,15 +1,13 @@
-<h3>Connection settings</h3>
-
 {{#if config.error}}
     <div class="alert alert-danger">
         <strong>Failure:</strong> {{config.error}}
     </div>
-{{else}}
-  {{#if config.success}}
-      <div class="alert alert-success">
-          <strong>Success:</strong> {{config.success}}
-      </div>
-  {{/if}}
+{{/if}}
+
+{{#if config.success}}
+    <div class="alert alert-success">
+        <strong>Success:</strong> {{config.success}}
+    </div>
 {{/if}}
 
 <form {{action "submit" on="submit"}} class="form-horizontal">
@@ -30,7 +28,8 @@
 
     <button type="submit" class="btn btn-primary-outline">Submit</button>
     <label for="persist-settings"
-           class="control-label">{{input type="checkbox" checked=config.persist id="persist-settings" }} Remember
+           class="control-label">{{input type="checkbox" checked=config.persist id="persist-settings" }}
+        Remember
         this
         (stored in local storage of your browser)</label>
 </form>

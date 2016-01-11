@@ -1,0 +1,47 @@
+{{#if feed.error}}
+    <div class="alert alert-danger">
+        <strong>Failure:</strong> {{feed.error}}
+    </div>
+{{else}}
+  {{#if feed.success.title}}
+      <div class="alert alert-success">
+          <strong>Success:</strong>
+          <div>
+            {{#link-to "feeds.feed.items" feed.success.id}}
+              {{#if feed.success.faviconLink}}
+                  <span class="feed-icon">
+                <img src="{{feed.success.faviconLink}}" alt="feed-icon"/>
+            </span>
+              {{else}}
+                  <span class="fa fa-feed"></span>
+              {{/if}}
+
+              {{feed.success.title}}
+            {{/link-to}}
+          </div>
+      </div>
+  {{/if}}
+{{/if}}
+
+<form {{action "submit" on="submit"}} class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label">Feed URL</label>
+      {{input type="text" placeholder="https://feed-url.com/" value=feed.url class="form-control"}}
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Folder</label>
+
+      {{#power-select options=folders
+      selected=selected
+      noMatchesMessage="Create new folder"
+      onkeydown=(action "handleKeydown")
+      onchange=(action (mut selected)) as |folder|}}
+        {{folder.name}}
+      {{/power-select}}
+
+    </div>
+
+    <button type="submit" class="btn btn-primary-outline">Submit</button>
+
+</form>

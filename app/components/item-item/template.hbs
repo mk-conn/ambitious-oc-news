@@ -1,22 +1,25 @@
 <div class="card-header item-url item-title">
     <span target="_blank">{{item.title}}</span>
     <div class="btn-group-sm item-button-group">
-        <a href={{item.url}} target="_blank" {{action "originalArticle" preventDefault=false}} class="btn btn-sm btn-secondary-outline hint--top"
+        <a href={{item.url}} target="_blank" {{action "originalArticle" preventDefault=false}}
+           class="btn btn-sm btn-secondary-outline hint--top"
            data-hint="Open article in new tab">
             <span class="fa fa-globe"></span>
         </a>
-        <button type="button" class="btn btn-sm btn-secondary-outline hint--top" {{action "toggleUnread"}} data-hint={{readUnreadHint}}>
+        <button type="button" class="btn btn-sm btn-secondary-outline hint--top" {{action "toggleUnread"}}
+                data-hint={{readUnreadHint}}>
           {{#if isUnread}}
               <i class="fa fa-eye-slash"></i>
           {{else}}
               <i class="fa fa-eye"></i>
           {{/if}}
         </button>
-        <button type="button" class="btn btn-secondary-outline btn-sm hint--top" {{action "toggleStarred"}} data-hint={{starHint}}>
+        <button type="button" class="btn btn-secondary-outline btn-sm hint--top" {{action "toggleStarred"}}
+                data-hint={{starHint}}>
           {{#if isStarred}}
-              <i class="fa fa-star"></i>
+              <i class="fa fa-bookmark"></i>
           {{else}}
-              <i class="fa fa-star-o"></i>
+              <i class="fa fa-bookmark-o"></i>
           {{/if}}
         </button>
         <button type="button" class="btn btn-secondary-outline btn-sm hint--left"
@@ -32,17 +35,18 @@
 
 <div class="card-block item-container">
     <div class="card-text item-text">
-        <div class="item-meta">
-          {{#if item.author}}
-            {{item.author}} |
-          {{/if}}
-          {{moment-format item.pubDate 'LLLL' 'X'}} | {{item.feed.title}}
-        </div>
         <div class="item-body">
           {{#if showFull}}
-            {{body}}
+              <div class="item-meta">
+                {{#if item.author}}
+                  {{item.author}} |
+                {{/if}}
+                {{moment-format item.pubDate 'LLLL' 'X'}} | {{item.feed.title}}
+              </div>
+              {{body}}
           {{else}}
             {{excerpt}}
+            <div class="item-meta">{{item.feed.title}}</div>
           {{/if}}
         </div>
     </div>
