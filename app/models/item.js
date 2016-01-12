@@ -24,7 +24,7 @@ export default DS.Model.extend({
     promise.finally(() => {
 
       this.get('feed').then((feed) => {
-        const unreadCount = feed.get('unreadCount') - 1;
+        const unreadCount = feed.decrementProperty('unreadCount');
 
         feed.set('unreadCount', unreadCount);
       });
@@ -42,7 +42,7 @@ export default DS.Model.extend({
     promise.finally(() => {
 
       this.get('feed').then(feed => {
-        const unreadCount = feed.get('unreadCount') + 1;
+        const unreadCount = feed.incrementProperty('unreadCount');
         feed.set('unreadCount', unreadCount);
       });
 

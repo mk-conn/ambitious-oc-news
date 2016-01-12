@@ -25,13 +25,7 @@ export default DS.Model.extend({
       const unreadCount = this.get('unreadCount');
       this.get('items').setEach('unread', false);
 
-      this.set('unreadCount', 0);
-
-      const folder = this.get('folder');
-      if (folder) {
-        folder.set('unreadCount', folder.get('unreadCount') - unreadCount);
-      }
-
+      this.set('unreadCount', Number(0));
     });
 
     return promise;

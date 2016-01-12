@@ -2,13 +2,16 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 const {attr, hasMany} = DS;
-const {computed, inject, A, get, set, Object} = Ember;
+const {computed, inject, A, get, set, Object, observer} = Ember;
 
 export default DS.Model.extend({
   configuration: inject.service(),
   name: attr('string'),
   feeds: hasMany('feed', {async: false}),
-  unreadFeedCounts: computed.mapBy('feeds.@each', 'unreadCount'),
+  unreadFeedCounts: computed('feeds.@each.unreadCount', function() {
+    var feeds = this.get('feeds');
+    return feeds.mapBy('unreadCount');
+  }),
   unreadCount: computed.sum('unreadFeedCounts'),
 
   toggleClosed() {

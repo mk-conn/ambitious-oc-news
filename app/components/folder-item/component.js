@@ -11,6 +11,7 @@ export default Ember.Component.extend({
     return 'fa-folder';
   }),
   folderOpen: computed.not('folder.isClosed'),
+
   actions: {
     toggleFolderClosed() {
       get(this, 'folder').toggleClosed();
