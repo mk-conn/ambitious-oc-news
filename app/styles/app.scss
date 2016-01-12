@@ -1,11 +1,12 @@
 @import 'color-scheme';
-
+$border-radius:0;
 $btn-secondary-color: $color-secondary-1-0;
 $btn-secondary-bg: $color-secondary-1-4;
 //$btn-secondary-color: $color-secondary-1-1;
 $btn-secondary-border: $color-primary-1;
 $label-default-bg: $color-primary-3;
 $enable-flex: true;
+$card-border-color: $color-secondary-1-0;
 
 @import '../../bower_components/bootstrap/scss/bootstrap';
 @import '../../bower_components/font-awesome/scss/font-awesome';
@@ -33,6 +34,13 @@ body > div.ember-view {
 
 .header, .main {
   flex: 1 100%;
+}
+
+.main {
+  .card {
+    border-left: none;
+    border-right:none;
+  }
 }
 
 .loader {
@@ -65,11 +73,24 @@ header {
     //align-self: flex-end;
   }
 }
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
+
+@include placeholder {
+  font-style:italic;
+  color:#666;
+  font-weight:normal;
+}
+
 
 input {
   margin-top: 15px;
   margin-bottom: 15px;
-  background: #F1F1F1 !important;
+  background: $color-secondary-1-0 !important;
   border-width: 0 !important;
 }
 
@@ -267,6 +288,7 @@ input {
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  @include default-background;
 }
 
 @import "media-queries";

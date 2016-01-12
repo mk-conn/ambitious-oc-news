@@ -12,9 +12,15 @@ export default ApplicationAdapter.extend(UrlTemplates, {
 
     var url = this.buildURL(type.modelName, id, snapshot, 'updateRecord');
     var verb = get(snapshot, 'record._updateVerb') || "PUT";
+
     if (url.match(/.*read$/)) {
       const newestItemId = get(snapshot.record, 'newestItemId');
       return this.ajax(url, verb, {data: {newestItemId: newestItemId}});
+    }
+
+    if (url.match(/.*rename$/)) {
+      const feedTitle = get(snapshot.record, 'title');
+      return this.ajax(url, verb, {data: {feedTitle: feedTitle}});
     }
 
     return this._super(store, type, snapshot);
