@@ -49,6 +49,9 @@ body > div.ember-view {
   @include center-block;
 }
 
+.action {
+  cursor:pointer;
+}
 header {
   width: 100%;
   display: flex;
