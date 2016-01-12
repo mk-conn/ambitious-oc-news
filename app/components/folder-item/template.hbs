@@ -3,7 +3,9 @@
         <span class="fa {{folderIcon}}"></span> {{folder.name}}
     </div>
     <div class="right">
+      {{#if folder.unreadCount}}
         <span class="label label-default label-info">{{folder.unreadCount}}</span>
+      {{/if}}
       {{#if folderOpen}}
           <i class="fa fa-chevron-down"></i>
       {{else}}
