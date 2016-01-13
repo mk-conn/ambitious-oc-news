@@ -55,7 +55,7 @@ body > div.ember-view {
 }
 
 iframe {
-  max-width:100%;
+  max-width: 100%;
 }
 
 header {
@@ -157,9 +157,12 @@ input {
   .feed-icon {
     align-self: flex-start;
     max-width: 1rem;
+    max-height: 1rem;
 
     img {
       max-width: inherit;
+      max-height: inherit;
+      overflow: hidden;
     }
   }
 
