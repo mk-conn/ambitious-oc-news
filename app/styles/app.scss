@@ -54,6 +54,10 @@ body > div.ember-view {
   cursor: pointer;
 }
 
+iframe {
+  max-width:100%;
+}
+
 header {
   width: 100%;
   display: flex;
