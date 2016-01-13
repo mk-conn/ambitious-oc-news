@@ -1,13 +1,23 @@
-@import 'color-scheme';
 
-$border-radius: 0;
-$btn-secondary-color: $color-secondary-1-0;
-$btn-secondary-bg: $color-secondary-1-4;
-//$btn-secondary-color: $color-secondary-1-1;
-$btn-secondary-border: $color-primary-1;
-$label-default-bg: $color-primary-3;
 $enable-flex: true;
-$card-border-color: $color-secondary-1-0;
+//$border-radius: 0;
+
+$color-0: #fff;
+$color-1: #0570b0;
+$color-4: #f1eef6;
+$color-3: #74a9cf;
+$color-2: #bdc9e1;
+
+//$btn-secondary-color: $color-secondary-1-0;
+//$btn-secondary-bg: $color-secondary-1-4;
+//$btn-secondary-border: $color-primary-1;
+//$label-default-bg: $color-primary-3;
+//$card-border-color: $color-secondary-1-0;
+
+$btn-secondary-color:$color-2;
+$btn-secondary-border:$color-2;
+$label-default-bg:$color-4;
+$card-border-color:$color-1;
 
 @import '../../bower_components/bootstrap/scss/bootstrap';
 @import '../../bower_components/font-awesome/scss/font-awesome';
@@ -16,8 +26,8 @@ $card-border-color: $color-secondary-1-0;
 $header_height: 6rem;
 
 @mixin default-background {
-  background-color: $color-primary-4;
-  color: $color-secondary-1-0;
+  background-color: $color-1;
+  color: $color-2;
 }
 
 body, html {
@@ -25,7 +35,8 @@ body, html {
 }
 
 body {
-  color: $color-primary-4;
+  color: $color-1;
+  background: $color-0;
 }
 
 body > div.ember-view {
@@ -101,14 +112,14 @@ header {
 
 @include placeholder {
   font-style: italic;
-  color: #666;
+  color: $color-3;
   font-weight: normal;
 }
 
 input {
   margin-top: 15px;
   margin-bottom: 15px;
-  background: $color-secondary-1-0 !important;
+  background: $color-4 !important;
   border-width: 0 !important;
 }
 
@@ -121,7 +132,7 @@ input {
     @include default-background;
   }
   .label {
-    background: $color-secondary-1-0;
+    background: $color-3;
   }
 }
 
@@ -299,12 +310,8 @@ input {
 }
 
 .feed-item-link:hover, .feed-item-link:active {
-  background: $color-secondary-1-0;
+  background: $color-2;
 }
-
-//.btn-secondary-outline {
-//  color: #666;
-//}
 
 .item-title {
   display: flex;
