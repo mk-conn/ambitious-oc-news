@@ -1,7 +1,7 @@
 <div class="card-block">
     <div class="card-title">
 
-        <div class="feed-title">
+        <div class="feed-items-header">
 
             <div class="feed-icon">
               {{#if feed.faviconLink}}
@@ -11,24 +11,25 @@
               {{/if}}
             </div>
 
-          {{rename-property model=feed property="title" renameFunction="rename"}}
+            <div class="feed-title">
+              {{rename-property model=feed property="title" renameFunction="rename"}}
+            </div>
 
           {{#if feed.unreadCount}}
               <span class="label label-default small feed-unread-count">
                 {{feed.unreadCount}}
               </span>
           {{/if}}
-
-        </div>
-
-        <div class="feed-item-actions">
-            <div class="feed-button-group btn-group feed-button-group">
-                <button type="button" class="btn btn-secondary-outline hint--rounded hint--top"
-                        data-hint="Set all articles read" {{action "markAllRead"}}
-                        disabled={{markReadDisabled}}>
-                    <i class="fa fa-eye-slash"></i>
-                </button>
+            <div class="feed-item-actions">
+                <div class="feed-button-group btn-group feed-button-group">
+                    <button type="button" class="btn btn-secondary-outline hint--rounded hint--top"
+                            data-hint="Set all articles read" {{action "markAllRead"}}
+                            disabled={{markReadDisabled}}>
+                        <i class="fa fa-eye-slash"></i>
+                    </button>
+                </div>
             </div>
+
         </div>
     </div>
 </div>

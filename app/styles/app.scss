@@ -1,5 +1,6 @@
 @import 'color-scheme';
-$border-radius:0;
+
+$border-radius: 0;
 $btn-secondary-color: $color-secondary-1-0;
 $btn-secondary-bg: $color-secondary-1-4;
 //$btn-secondary-color: $color-secondary-1-1;
@@ -39,7 +40,7 @@ body > div.ember-view {
 .main {
   .card {
     border-left: none;
-    border-right:none;
+    border-right: none;
   }
 }
 
@@ -50,8 +51,9 @@ body > div.ember-view {
 }
 
 .action {
-  cursor:pointer;
+  cursor: pointer;
 }
+
 header {
   width: 100%;
   display: flex;
@@ -76,19 +78,27 @@ header {
     //align-self: flex-end;
   }
 }
+
 @mixin placeholder {
-  ::-webkit-input-placeholder {@content}
-  :-moz-placeholder           {@content}
-  ::-moz-placeholder          {@content}
-  :-ms-input-placeholder      {@content}
+  ::-webkit-input-placeholder {
+    @content
+  }
+  :-moz-placeholder {
+    @content
+  }
+  ::-moz-placeholder {
+    @content
+  }
+  :-ms-input-placeholder {
+    @content
+  }
 }
 
 @include placeholder {
-  font-style:italic;
-  color:#666;
-  font-weight:normal;
+  font-style: italic;
+  color: #666;
+  font-weight: normal;
 }
-
 
 input {
   margin-top: 15px;
@@ -160,28 +170,38 @@ input {
 
 .feeds-feed {
 
-  .feed-title {
+  .feed-items-header {
+    width:100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-  }
 
-  .feed-icon {
-    max-width: 1.5rem;
-    oveflow: hidden;
-
-    img {
-      max-width: inherit;
+    .feed-icon {
+      max-width: 1.5rem;
+      oveflow: hidden;
+      img {
+        max-width: inherit;
+      }
     }
-  }
 
-  .feed-title {
-    font-size: larger;
-  }
+    .feed-title {
+      margin-left:1rem;
+      flex:1;
+      text-align: center;
+      font-size: x-large;
+    }
 
-  .feed-item-actions {
-    align-self: flex-end;
+    .feed-unread-count {
+      //width:3rem;
+    }
+
+    .feed-item-actions {
+      margin-right:1rem;
+      margin-left:1rem;
+      width:2rem;
+      align-self: flex-end;
+    }
   }
 
 }
