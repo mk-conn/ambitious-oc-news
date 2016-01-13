@@ -59,7 +59,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  //justify-content: space-between;
+  justify-content: space-between;
   height: $header_height;
   border-top: 1px solid #555;
   border-bottom: 1px solid #555;
@@ -67,14 +67,15 @@ header {
   @include default-background;
 
   .navbar-brand {
-    //align-self: flex-start;
+    flex: 1;
+    align-self: flex-start;
     color: #1f7e9a;
     img.logo {
       max-width: $header_height;
       max-height: $header_height;
     }
   }
-  .nav-buttons {
+  .global-actions {
     //align-self: flex-end;
   }
 }
@@ -171,7 +172,7 @@ input {
 .feeds-feed {
 
   .feed-items-header {
-    width:100%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -186,8 +187,8 @@ input {
     }
 
     .feed-title {
-      margin-left:1rem;
-      flex:1;
+      margin-left: 1rem;
+      flex: 1;
       text-align: center;
       font-size: x-large;
     }
@@ -197,9 +198,9 @@ input {
     }
 
     .feed-item-actions {
-      margin-right:1rem;
-      margin-left:1rem;
-      width:2rem;
+      margin-right: 1rem;
+      margin-left: 1rem;
+      width: 2rem;
       align-self: flex-end;
     }
   }
