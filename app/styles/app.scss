@@ -1,23 +1,26 @@
-
 $enable-flex: true;
-//$border-radius: 0;
+$enable-rounded:false;
 
 $color-0: #fff;
-$color-1: #0570b0;
-$color-4: #f1eef6;
-$color-3: #74a9cf;
-$color-2: #bdc9e1;
+$color-1: rgb(85,95,103);
+$color-4: rgb(92,126,158);
+$color-2: rgb(242,242,242);
+$color-3: rgb(194,70,36);
 
-//$btn-secondary-color: $color-secondary-1-0;
-//$btn-secondary-bg: $color-secondary-1-4;
-//$btn-secondary-border: $color-primary-1;
-//$label-default-bg: $color-primary-3;
-//$card-border-color: $color-secondary-1-0;
+// buttons
+$btn-primary-color:$color-3;
+$btn-primary-bg:$color-3;
+$btn-primary-border:$color-3;
 
-$btn-secondary-color:$color-2;
-$btn-secondary-border:$color-2;
-$label-default-bg:$color-4;
-$card-border-color:$color-1;
+$btn-secondary-color: $color-2;
+$btn-secondary-bg: $color-4;
+$btn-secondary-border: $color-2;
+
+// label
+$label-default-bg: $color-1;
+
+// card
+$card-border-color: $color-1;
 
 @import '../../bower_components/bootstrap/scss/bootstrap';
 @import '../../bower_components/font-awesome/scss/font-awesome';
@@ -27,7 +30,7 @@ $header_height: 6rem;
 
 @mixin default-background {
   background-color: $color-1;
-  color: $color-2;
+  color: #eee;
 }
 
 body, html {
@@ -132,7 +135,7 @@ input {
     @include default-background;
   }
   .label {
-    background: $color-3;
+    background: $color-4;
   }
 }
 
@@ -320,13 +323,16 @@ input {
   justify-content: center;
 }
 
-.app-settings .card .card-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  @include default-background;
+.settings {
+  padding-top:2.5rem;
+  .card .card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    @include default-background;
+  }
 }
 
 @import "media-queries";
