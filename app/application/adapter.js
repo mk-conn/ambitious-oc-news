@@ -10,7 +10,7 @@ const {
 export default DS.RESTAdapter.extend({
   configuration: inject.service(),
   updateRecordUrlTemplate: computed(function () {
-    const url = get(this, 'host') + '/' + get(this, 'namespace') + '{/updateEndpoint}';
+    const url = get(this, 'host') + '/' + get(this, 'namespace') + '{+updateEndpoint}';
 
     return url;
   }),

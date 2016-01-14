@@ -15,7 +15,7 @@ export default DS.Model.extend({
   items: hasMany('item', {async: false}),
   newestItemId: attr('number'),
   markAllItemsRead() {
-    this.set('_updateEndpoint', 'feeds/' + this.get('id') + '/read');
+    this.set('_updateEndpoint', '/feeds/' + this.get('id') + '/read');
     this.set('_updateVerb', 'PUT');
 
     let promise = this.save();
@@ -31,7 +31,7 @@ export default DS.Model.extend({
     return promise;
   },
   rename() {
-    this.set('_updateEndpoint', 'feeds/' + this.get('id') + '/rename');
+    this.set('_updateEndpoint', '/feeds/' + this.get('id') + '/rename');
     this.set('_updateVerb', 'PUT');
     //this.set('title', title);
 

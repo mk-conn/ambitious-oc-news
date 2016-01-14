@@ -1,17 +1,17 @@
 $enable-flex: true;
-$enable-rounded:true;
+$enable-rounded: true;
 
 $color-0: #fff;
-$color-1: rgb(85,95,103);
-$color-2: rgb(242,242,242);
-$color-4: rgb(92,126,158);
-$color-3: rgb(194,70,36);
+$color-1: rgb(85, 95, 103);
+$color-2: rgb(242, 242, 242);
+$color-3: rgb(194, 70, 36);
+$color-4: rgb(92, 126, 158);
+$color-5: rgb(180, 180, 180);
 
 // buttons
-$btn-primary-color:$color-3;
-$btn-primary-bg:$color-3;
-$btn-primary-border:$color-3;
-
+$btn-primary-color: $color-3;
+$btn-primary-bg: $color-3;
+$btn-primary-border: $color-3;
 
 $btn-secondary-color: $color-2;
 $btn-secondary-bg: $color-1;
@@ -48,6 +48,12 @@ body > div.ember-view {
   flex-flow: row wrap;
 }
 
+blockquote {
+  border-left:.7rem solid $color-5;
+  background: $color-0;
+  padding:1rem;
+}
+
 .header, .main {
   flex: 1 100%;
 }
@@ -72,7 +78,8 @@ body > div.ember-view {
 iframe {
   max-width: 100%;
 }
-.card, .card-header:first-child, .navbar{
+
+.card, .card-header:first-child, .navbar {
   border-radius: 0;
 }
 
@@ -125,7 +132,7 @@ header {
 input {
   margin-top: 15px;
   margin-bottom: 15px;
-  color:$color-2;
+  color: $color-2;
   background: #ccc !important;
   border-width: 0 !important;
 }
@@ -328,7 +335,7 @@ input {
 }
 
 .settings {
-  padding-top:2.5rem;
+  padding-top: 2.5rem;
   .card .card-header {
     display: flex;
     flex-direction: row;

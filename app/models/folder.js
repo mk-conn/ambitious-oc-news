@@ -64,7 +64,5 @@ export default DS.Model.extend({
 
       return closed;
     }
-
-
   })
 });
