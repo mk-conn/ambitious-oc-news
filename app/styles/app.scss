@@ -99,8 +99,8 @@ header {
     align-self: flex-start;
     color: #1f7e9a;
     img.logo {
-      max-width: $header_height;
-      max-height: $header_height;
+      max-width: $header_height - 1rem;
+      max-height: $header_height - 1rem;
     }
   }
   .global-actions {
