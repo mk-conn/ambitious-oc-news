@@ -6,6 +6,10 @@
            data-hint="Open article in new tab">
             <span class="fa fa-globe"></span>
         </a>
+        <a href="mailto:mail@address.com?subject=Article: {{item.title}}&body={{item.title}}%0A%0A{{item.url}}%0A%0A{{excerpt}}"
+           class="btn btn-sm btn-secondary">
+            <i class="fa fa-share-square-o"></i>
+        </a>
         <button type="button" class="btn btn-sm btn-secondary-outline hint--top" {{action "toggleUnread"}}
                 data-hint={{readUnreadHint}}>
           {{#if isUnread}}
@@ -43,10 +47,10 @@
                 {{/if}}
                 {{moment-format item.pubDate 'LLLL' 'X'}} | {{item.feed.title}}
               </div>
-              {{body}}
+            {{body}}
           {{else}}
             {{excerpt}}
-            <div class="item-meta">{{item.feed.title}}</div>
+              <div class="item-meta">{{item.feed.title}}</div>
           {{/if}}
         </div>
     </div>

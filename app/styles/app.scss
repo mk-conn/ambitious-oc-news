@@ -1,10 +1,10 @@
 $enable-flex: true;
-$enable-rounded:false;
+$enable-rounded:true;
 
 $color-0: #fff;
 $color-1: rgb(85,95,103);
-$color-4: rgb(92,126,158);
 $color-2: rgb(242,242,242);
+$color-4: rgb(92,126,158);
 $color-3: rgb(194,70,36);
 
 // buttons
@@ -12,8 +12,9 @@ $btn-primary-color:$color-3;
 $btn-primary-bg:$color-3;
 $btn-primary-border:$color-3;
 
+
 $btn-secondary-color: $color-2;
-$btn-secondary-bg: $color-4;
+$btn-secondary-bg: $color-1;
 $btn-secondary-border: $color-2;
 
 // label
@@ -71,6 +72,9 @@ body > div.ember-view {
 iframe {
   max-width: 100%;
 }
+.card, .card-header:first-child, .navbar{
+  border-radius: 0;
+}
 
 header {
   width: 100%;
@@ -81,7 +85,6 @@ header {
   height: $header_height;
   border-top: 1px solid #555;
   border-bottom: 1px solid #555;
-  border-radius: 0;
   @include default-background;
 
   .navbar-brand {
@@ -115,14 +118,15 @@ header {
 
 @include placeholder {
   font-style: italic;
-  color: $color-3;
+  color: $color-2;
   font-weight: normal;
 }
 
 input {
   margin-top: 15px;
   margin-bottom: 15px;
-  background: $color-4 !important;
+  color:$color-2;
+  background: #ccc !important;
   border-width: 0 !important;
 }
 
