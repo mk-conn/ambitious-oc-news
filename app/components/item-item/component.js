@@ -41,15 +41,15 @@ export default Ember.Component.extend({
   }),
   starHint: computed('isStarred', function () {
     if (get(this, 'isStarred')) {
-      return 'Unstar article';
+      return 'Unpin article';
     }
-    return 'Star article';
+    return 'Pin article';
   }),
   openCloseHint: computed('showFull', function () {
     if (get(this, 'showFull')) {
       return 'Close article';
     }
-    return 'Open article (-description)';
+    return 'Open article';
   }),
   readUnreadHint: computed('isUnread', function () {
     if (get(this, 'isUnread')) {

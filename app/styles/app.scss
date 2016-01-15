@@ -151,6 +151,10 @@ input {
   }
 }
 
+.folder-item.card {
+  border: none;
+}
+
 .folder-feeds .card-block {
   padding: 0;
 }
@@ -286,12 +290,12 @@ input {
   }
 }
 
-.item-button-group {
+.btn-group.item-button-group {
 
   .btn-secondary-outline {
     color: $color-3;
   }
-  text-align: right;
+
 }
 
 .item-meta {
@@ -327,7 +331,6 @@ input {
     text-align: center;
   }
 }
-
 
 .item > .item-container > .item-text > .item-body > img:first-child {
   @include firstPicOfArticle();
@@ -367,6 +370,25 @@ input {
     cursor: pointer;
     @include default-background;
   }
+}
+
+footer {
+  display:flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 100%;
+  text-align: center;
+  a {
+    color: #eee;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+
+  background: $gray-dark;
 }
 
 @import "media-queries";
