@@ -50,9 +50,9 @@ body > div.ember-view {
 }
 
 blockquote {
-  border-left:.7rem solid $color-5;
+  border-left: .7rem solid $color-5;
   background: $color-0;
-  padding:1rem;
+  padding: 1rem;
 }
 
 .header, .main {
@@ -256,12 +256,21 @@ input {
 .item-title {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: baseline;
+  justify-content: center;
   @include default-background;
-}
 
-.item-button-group {
-  align-self: flex-end;
+  .unread {
+    width: 2rem;
+  }
+
+  .title {
+    flex: 1;
+  }
+
+  .item-button-group {
+    align-self: flex-end;
+  }
 }
 
 .item-meta {
@@ -328,12 +337,12 @@ input {
   background: $color-2;
 }
 
-.item-title {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
+//.item-title {
+//  display: flex;
+//  flex-direction: column;
+//  align-items: flex-start;
+//  justify-content: center;
+//}
 
 .settings {
   padding-top: 2.5rem;
