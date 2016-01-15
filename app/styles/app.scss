@@ -1,6 +1,6 @@
 $enable-flex: true;
 $enable-rounded: true;
-$enable-hover-media-query:true;
+$enable-hover-media-query: true;
 
 $color-0: #fff;
 $color-1: rgb(85, 95, 103);
@@ -248,29 +248,50 @@ input {
   margin-right: 20px;
 }
 
+.card.item {
+  border: $card-border-width solid $card-border-color;
+}
+
 .item-container {
   box-shadow: inset 0 0 .6rem rgba(111, 111, 111, 0.2);
   -webkit-box-shadow: inset 0 0 .6rem rgba(111, 111, 111, 0.2);
 }
 
 .item-title {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: center;
+
   @include default-background;
 
-  .unread {
-    width: 2rem;
-  }
+  .unread-title {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
 
-  .title {
-    flex: 1;
-  }
+    .unread {
+      align-self: flex-start;
+      color: $color-4;
+      margin-left: -1rem;
+      vertical-align: baseline;
+      width: .1rem;
+    }
 
-  .item-button-group {
-    align-self: flex-end;
+    .title {
+      margin-left: 1rem;
+      color: darken($color-2, 10%);
+      flex: 1;
+      align-self: flex-end;
+      text-align: left;
+    }
+
   }
+}
+
+.item-button-group {
+
+  .btn-secondary-outline {
+    color: $color-3;
+  }
+  text-align: right;
 }
 
 .item-meta {
@@ -301,13 +322,12 @@ input {
     padding: 0.2rem;
     color: $item_body_headings_color;
   }
-}
-
-.item-body {
   img {
-    max-width: 90%
+    max-width: 90%;
+    text-align: center;
   }
 }
+
 
 .item > .item-container > .item-text > .item-body > img:first-child {
   @include firstPicOfArticle();
@@ -336,13 +356,6 @@ input {
 .feed-item-link:hover, .feed-item-link:active {
   background: $color-2;
 }
-
-//.item-title {
-//  display: flex;
-//  flex-direction: column;
-//  align-items: flex-start;
-//  justify-content: center;
-//}
 
 .settings {
   padding-top: 2.5rem;
