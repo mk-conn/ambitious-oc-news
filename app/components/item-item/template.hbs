@@ -1,5 +1,12 @@
 <div class="card-header item-url item-title">
-    <span target="_blank">{{item.title}}</span>
+    <div class="unread">
+      {{#if isUnread}}
+          <span class="fa fa-circle"></span>
+      {{/if}}
+    </div>
+
+    <span class="title">{{item.title}}</span>
+
     <div class="btn-group-sm item-button-group">
         <a href={{item.url}} target="_blank" {{action "originalArticle" preventDefault=false}}
            class="btn btn-sm btn-secondary-outline hint--top"
