@@ -72,6 +72,11 @@ blockquote {
   @include center-block;
 }
 
+.label-info {
+  background: #ccc;
+  color:#fff;
+}
+
 .action {
   cursor: pointer;
 }
@@ -217,7 +222,7 @@ input {
 
 }
 
-.feeds-feed {
+.feeds-feed, .starred {
 
   .feed-items-header {
     width: 100%;
