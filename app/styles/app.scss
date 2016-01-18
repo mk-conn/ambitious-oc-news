@@ -37,16 +37,20 @@ $header_height: 6rem;
 
 body, html {
   width: 100%;
+  height:100%;
 }
 
 body {
   color: $color-1;
   background: $color-0;
+  display:flex;
+  flex-direction: column;
 }
 
 body > div.ember-view {
   display: flex;
-  flex-flow: row wrap;
+  flex:auto;
+  flex-flow: column;
 }
 
 blockquote {
@@ -55,11 +59,44 @@ blockquote {
   padding: 1rem;
 }
 
-.header, .main {
-  flex: 1 100%;
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: $header_height;
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #555;
+  @include default-background;
+
+  .navbar-brand {
+    flex: 1;
+    align-self: flex-start;
+    color: #1f7e9a;
+    img.logo {
+      max-width: $header_height - 1rem;
+      max-height: $header_height - 1rem;
+    }
+  }
+  .global-actions {
+    //align-self: flex-end;
+  }
 }
 
 .main {
+  flex:1;
+  align-self: flex-start;
+  height:inherit;
+  max-height: 100%;
+  width:100%;
+  align-self: flex-start;
+  //display: flex;
+  //flex-direction: row;
+  //align-items: flex-start;
+  //justify-content: flex-start;
+
   .card {
     border-left: none;
     border-right: none;
@@ -89,30 +126,6 @@ iframe {
   border-radius: 0;
 }
 
-header {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  height: $header_height;
-  border-top: 1px solid #555;
-  border-bottom: 1px solid #555;
-  @include default-background;
-
-  .navbar-brand {
-    flex: 1;
-    align-self: flex-start;
-    color: #1f7e9a;
-    img.logo {
-      max-width: $header_height - 1rem;
-      max-height: $header_height - 1rem;
-    }
-  }
-  .global-actions {
-    //align-self: flex-end;
-  }
-}
 
 @mixin placeholder {
   ::-webkit-input-placeholder {
@@ -171,9 +184,13 @@ input {
   border: none;
 }
 
-.folder-feeds .card-block {
-  padding: 0;
+.folder-feeds {
+
 }
+
+//.folder-feeds .card-block {
+//  padding: 0;
+//}
 
 .feed-icon {
   max-width: 1rem;
@@ -389,6 +406,7 @@ input {
 }
 
 footer {
+  align-self: flex-end;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
