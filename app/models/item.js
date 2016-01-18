@@ -53,8 +53,9 @@ export default DS.Model.extend({
     return promise;
   },
   star() {
-    this.set('_updateEndpoint', 'items/' + this.get('feedId') + '/' + this.get('guidHash') + '/star');
+    this.set('_updateEndpoint', '/items/' + this.get('feedId') + '/' + this.get('guidHash') + '/star');
     let promise = this.save();
+
     promise.finally(() => {
       this.set('_updateEndpoint', null);
       this.set('starred', true);
@@ -63,7 +64,7 @@ export default DS.Model.extend({
     return promise;
   },
   unstar() {
-    this.set('_updateEndpoint', 'items/' + this.get('feedId') + '/' + this.get('guidHash') + '/unstar');
+    this.set('_updateEndpoint', '/items/' + this.get('feedId') + '/' + this.get('guidHash') + '/unstar');
     let promise = this.save();
     promise.finally(() => {
       this.set('_updateEndpoint', null);
