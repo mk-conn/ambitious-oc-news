@@ -15,6 +15,9 @@ export default Ember.Component.extend({
   actions: {
     toggleFolderClosed() {
       get(this, 'folder').toggleClosed();
+    },
+    markFolderRead() {
+      get(this, 'folder').markAllRead();
     }
   }
 });

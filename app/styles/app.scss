@@ -139,12 +139,23 @@ input {
 }
 
 .folder-list .folder-item {
-  .folder-action {
-    cursor: pointer;
+  .card-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     @include default-background;
+    .left {
+      flex: 1;
+      align-self: flex-start;
+    }
+    .right {
+
+      align-self: flex-end;
+    }
+  }
+  .folder-action {
+    cursor: pointer;
+
   }
   .label {
     background: $color-4;
@@ -373,7 +384,7 @@ input {
 }
 
 footer {
-  display:flex;
+  display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;

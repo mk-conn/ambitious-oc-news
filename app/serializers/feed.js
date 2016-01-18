@@ -1,11 +1,17 @@
 import DS from 'ember-data';
+import Ember from 'ember';
+
+const {inject, set,get} = Ember;
 
 export default DS.RESTSerializer.extend({
+  meta: inject.service(),
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
     if (payload && payload.feeds) {
-      payload.feeds.forEach(feed => {
-        feed.newestItemId = payload.newestItemId;
-      });
+
+      const meta = get(this, 'meta');
+      set(meta, 'newestItemId', payload.newestItemId);
+      set(meta, 'starredCount', payload.starredCount);
+
       delete payload.newestItemId;
       delete payload.starredCount;
     }

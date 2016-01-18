@@ -13,7 +13,6 @@ export default DS.Model.extend({
   url: attr('string'),
   folder: belongsTo('folder', {async: false}),
   items: hasMany('item', {async: false}),
-  newestItemId: attr('number'),
   markAllItemsRead() {
     this.set('_updateEndpoint', '/feeds/' + this.get('id') + '/read');
     this.set('_updateVerb', 'PUT');
