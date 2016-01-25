@@ -1,13 +1,13 @@
-{{log isEditing}}
 {{#if isEditing}}
     <form {{action "submit" on="submit"}}>
+
       {{input type="text" id="rename-property" value=(mut (get model property))}}
 
       {{#if hasChanged}}
-          <span class="action fa fa-check-circle" {{action "rename"}}></span>
+          <span class="action fa fa-check-circle fa-2x" {{action "rename"}}></span>
       {{/if}}
 
-        <span class="action fa fa-times-circle" {{action "cancel"}}></span>
+        <span class="action fa fa-times-circle fa-2x" {{action "cancel"}}></span>
     </form>
 {{else}}
     <span class="action hint--top"

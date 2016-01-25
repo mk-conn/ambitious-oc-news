@@ -151,8 +151,22 @@ input {
   }
 }
 
+.left {
+  align-self: flex-start;
+}
+
+.right {
+  align-self: flex-end;
+}
+
 .folder-item.card {
   border: none;
+}
+
+.folder-feeds {
+  .card {
+    border: none;
+  }
 }
 
 .folder-feeds .card-block {
@@ -174,14 +188,6 @@ input {
   .feed-title {
     margin: 0 10px;
     font-size: 0.9em;
-  }
-
-  .left {
-    align-self: flex-start;
-  }
-
-  .right {
-    align-self: flex-end;
   }
 
   .feed-icon {
@@ -211,35 +217,35 @@ input {
   .feed-items-header {
     width: 100%;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
 
-    .feed-icon {
-      max-width: 1.5rem;
-      oveflow: hidden;
-      img {
-        max-width: inherit;
+    div:first-child {
+      justify-content: space-between;
+      align-items: stretch;
+
+      .feed-icon {
+        max-width: 1.5rem;
+        overflow: hidden;
+        img {
+          max-width: inherit;
+        }
+
+      }
+
+      .feed-unread-count {
+        align-self: flex-start;
+      }
+
+      .feed-item-actions {
+        align-self: flex-end;
       }
     }
 
     .feed-title {
-      margin-left: 1rem;
-      flex: 1;
       text-align: center;
-      font-size: x-large;
+      font-weight: bold;
     }
 
-    .feed-unread-count {
-      //width:3rem;
-    }
-
-    .feed-item-actions {
-      margin-right: 1rem;
-      margin-left: 1rem;
-      width: 2rem;
-      align-self: flex-end;
-    }
   }
 
 }
@@ -373,7 +379,7 @@ input {
 }
 
 footer {
-  display:flex;
+  display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
