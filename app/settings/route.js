@@ -73,15 +73,17 @@ export default Ember.Route.extend(Protected, {
         if (folder && get(folder, 'isNew')) {
           folder.save().then((folder) => {
             feed.set('folder', folder);
-            resolve(feed);
           }, error => {
             reject(error);
           });
+        } else {
+          feed.set('folder', folder);
         }
         resolve(feed);
       });
 
       withOrWithoutFolder.then((feed) => {
+
         feed.save().then((feed) => {
           set(model, 'success', {
             id: get(feed, 'id'),
@@ -91,6 +93,7 @@ export default Ember.Route.extend(Protected, {
         }, error => {
           set(model, 'error', error);
         });
+
       });
     }
   }

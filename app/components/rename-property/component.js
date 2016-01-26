@@ -33,18 +33,14 @@ export default Component.extend({
     }
     this.send('cancel');
   },
-  focusOut() {
-    if (get(this, 'hasChanged')) {
-      this.send('rename');
-    }
-  },
-
   actions: {
     rename() {
-      const renameFunction = get(this, 'renameFunction');
+      const model = this.attrs.model.value;
+      const renameFunction = this.attrs.renameFunction;
+
       if (get(this, 'value')) {
 
-        get(this, 'model')[renameFunction]().then(() => {
+        model[renameFunction]().then(() => {
           set(this, 'isEditing', false);
         }, error => {
           throw error;
@@ -53,8 +49,10 @@ export default Component.extend({
     },
     cancel() {
       set(this, 'isEditing', false);
+
       if (get(this, 'hasChanged')) {
-        set(this, 'value', get(this, 'model').get(get(this, 'property')));
+        const model = this.attrs.model.value;
+        model.rollbackAttributes();
       }
     },
     submit() {
