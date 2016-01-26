@@ -14,25 +14,27 @@
                       {{/if}}
                     </span>
 
+                    <button type="button" class="btn btn-sm btn-primary-outline" {{action "deleteFeed"}}>
+                        <i class="fa fa-trash"></i>
+                    </button>
+
                   {{#if feed.unreadCount}}
                       <span class="label label-default small feed-unread-count">
                         {{feed.unreadCount}}
                       </span>
                   {{/if}}
+
                 </div>
 
                 <div class="feed-item-actions">
                     <div class="feed-button-group btn-group feed-button-group">
-
-                        <button type="button" class="btn btn-sm btn-primary-outline">
-                            <i class="fa fa-trash"></i>
-                        </button>
 
                         <button type="button" class="btn btn-sm btn-primary-outline hint--rounded hint--left"
                                 data-hint="Set all articles read" {{action "markAllRead"}}
                                 disabled={{markReadDisabled}}>
                             <i class="fa fa-eye-slash"></i>
                         </button>
+
                     </div>
                 </div>
             </div>

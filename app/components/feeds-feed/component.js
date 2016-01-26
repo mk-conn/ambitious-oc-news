@@ -6,7 +6,12 @@ export default Ember.Component.extend({
   markReadDisabled: computed.not('feed.unreadCount'),
   actions: {
     markAllRead() {
-      get(this, 'feed').markAllItemsRead();
+      this.attrs.feed.value.markAllItemsRead();
+    },
+    deleteFeed() {
+      if (confirm('Really delete this feed?')) {
+        this.attrs.delete();
+      }
     }
   }
 });

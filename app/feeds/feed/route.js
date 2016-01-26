@@ -13,5 +13,18 @@ export default Route.extend(Protected, ResetToTop, {
       into: 'application',
       outlet: 'main'
     });
+  },
+  actions: {
+    delete() {
+      let feed = this.modelFor(this.routeName);
+
+      feed.deleteRecord();
+
+      if (feed.get('isDeleted')) {
+        feed.save().then(() => {
+          this.transitionTo('feeds');
+        });
+      }
+    }
   }
 });
