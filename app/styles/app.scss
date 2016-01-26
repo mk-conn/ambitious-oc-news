@@ -139,13 +139,13 @@ input {
 }
 
 .folder-list .folder-item {
-  .folder-action {
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  .card-header {
     @include default-background;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
   }
+
   .label {
     background: $color-4;
   }
@@ -260,6 +260,16 @@ input {
 
 .card.item {
   border: $card-border-width solid $card-border-color;
+
+  .item-button-group {
+
+    .btn-secondary-outline {
+      color: $color-3;
+    }
+
+  }
+
+
 }
 
 .item-container {
@@ -296,13 +306,6 @@ input {
   }
 }
 
-.btn-group.item-button-group {
-
-  .btn-secondary-outline {
-    color: $color-3;
-  }
-
-}
 
 .item-meta {
   font-style: italic;
