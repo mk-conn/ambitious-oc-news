@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const {get, $, set, computed, observer} = Ember;
+const {get, $, set, computed, observer, run, typeOf} = Ember;
 
 export default Ember.Component.extend({
   classNames: ['card item'],
@@ -11,7 +11,30 @@ export default Ember.Component.extend({
     if (get(item, 'unread')) {
       item.markRead();
     }
+    run.scheduleOnce('render', this, function () {
+
+      const component = this.$();
+
+      $('iframe, img, video', component).each(function () {
+        const origWidth = typeOf($(this).attr('width')) !== 'undefined' ? $(this).attr('width') : $(this).width();
+        const origHeight = typeOf($(this).attr('height')) !== 'undefined' ? $(this).attr('height') : $(this).height();
+        const currentWidth = $('.item-body', component).width();
+
+        if (origWidth > currentWidth) {
+
+          const factor = origWidth / currentWidth;
+          const scaledWidth = currentWidth;
+          const scaledHeight = Math.round(origHeight / factor);
+
+          $(this).attr('width', scaledWidth);
+          $(this).attr('height', scaledHeight);
+
+        }
+      });
+    });
+
   }),
+
   isUnread: computed('item.unread', {
     get() {
       return get(this, 'item.unread');
