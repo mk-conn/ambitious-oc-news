@@ -13,7 +13,8 @@ export default Ember.Component.extend({
       item.markRead();
     }
 
-    const articleSettings = get(this, 'config').retrieve('article_settings');
+    const config = this.get('config', null);
+    const articleSettings = config.retrieve('article_settings');
 
     run.scheduleOnce('render', this, function () {
 
@@ -37,10 +38,11 @@ export default Ember.Component.extend({
 
         if (this.nodeName.toLowerCase() === 'iframe') {
 
-          if (get(articleSettings, 'allowEmbedded') === true) {
+          $(this).attr('sandbox', '');
+
+          if (articleSettings && get(articleSettings, 'allowEmbedded') === true) {
             $(this).attr('sandbox', 'allow-same-origin allow-scripts');
           } else {
-            $(this).attr('sandbox', 'allow-same-origin');
             const hint = 'Embedded content disabled: <a href="/settings">Enable in settings</a>';
             $(this).after('<div class="text-muted">' + hint + '</div>');
           }

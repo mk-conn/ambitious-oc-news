@@ -130,6 +130,11 @@ header {
   font-weight: normal;
 }
 
+.label-info.unread-count {
+  background:#ccc;
+  color:#e8e8e8 ;
+}
+
 input {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -139,11 +144,24 @@ input {
 }
 
 .folder-list .folder-item {
+
   .card-header {
     @include default-background;
     flex-direction: row;
+    align-content: center !important;
+    align-items: center !important;
     display: flex;
     justify-content: space-between;
+
+    .left {
+      flex:1;
+      align-self: center;
+    }
+
+    .right {
+      align-self:center;
+    }
+
   }
 
   .label {
@@ -210,6 +228,12 @@ input {
     align-self: flex-end;
   }
 
+}
+
+.no-border {
+  .btn {
+    border:none;
+  }
 }
 
 .feeds-feed {
@@ -335,10 +359,6 @@ input {
     padding: 0.2rem;
     color: $item_body_headings_color;
   }
-  //img {
-  //  max-width: 90%;
-  //  text-align: center;
-  //}
 }
 
 .item > .item-container > .item-text > .item-body > img:first-child {
