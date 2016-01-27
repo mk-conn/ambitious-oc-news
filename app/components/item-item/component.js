@@ -1,8 +1,9 @@
 import Ember from 'ember';
 
-const {get, $, set, computed, observer, run, typeOf} = Ember;
+const {get, $, set, computed, observer, run, typeOf, inject} = Ember;
 
 export default Ember.Component.extend({
+  config: inject.service('configuration'),
   classNames: ['card item'],
   classNameBindings: ['isUnread'],
   showFull: false,
@@ -11,6 +12,9 @@ export default Ember.Component.extend({
     if (get(item, 'unread')) {
       item.markRead();
     }
+
+    const articleSettings = get(this, 'config').retrieve('article_settings');
+
     run.scheduleOnce('render', this, function () {
 
       const component = this.$();
@@ -28,8 +32,18 @@ export default Ember.Component.extend({
 
           $(this).attr('width', scaledWidth);
           $(this).attr('height', scaledHeight);
-
         }
+
+        if (this.nodeName.toLowerCase() === 'iframe') {
+
+
+          if (get(articleSettings, 'allowEmbedded') === true) {
+            $(this).attr('sandbox', 'allow-same-origin allow-scripts');
+          } else {
+            $(this).attr('sandbox', '');
+          }
+        }
+
       });
     });
 
