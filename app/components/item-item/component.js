@@ -20,27 +20,29 @@ export default Ember.Component.extend({
       const component = this.$();
 
       $('iframe, img, video', component).each(function () {
-        const origWidth = typeOf($(this).attr('width')) !== 'undefined' ? $(this).attr('width') : $(this).width();
-        const origHeight = typeOf($(this).attr('height')) !== 'undefined' ? $(this).attr('height') : $(this).height();
-        const currentWidth = $('.item-body', component).width();
-
-        if (origWidth > currentWidth) {
-
-          const factor = origWidth / currentWidth;
-          const scaledWidth = currentWidth;
-          const scaledHeight = Math.round(origHeight / factor);
-
-          $(this).attr('width', scaledWidth);
-          $(this).attr('height', scaledHeight);
-        }
+        $(this).addClass('img-fluid');
+        //const origWidth = typeOf($(this).attr('width')) !== 'undefined' ? $(this).attr('width') : $(this).width();
+        //const origHeight = typeOf($(this).attr('height')) !== 'undefined' ? $(this).attr('height') : $(this).height();
+        //const currentWidth = $('.item-body', component).width();
+        //
+        //if (origWidth > currentWidth) {
+        //
+        //  const factor = origWidth / currentWidth;
+        //  const scaledWidth = currentWidth;
+        //  const scaledHeight = Math.round(origHeight / factor);
+        //
+        //  $(this).attr('width', scaledWidth);
+        //  $(this).attr('height', scaledHeight);
+        //}
 
         if (this.nodeName.toLowerCase() === 'iframe') {
-
 
           if (get(articleSettings, 'allowEmbedded') === true) {
             $(this).attr('sandbox', 'allow-same-origin allow-scripts');
           } else {
-            $(this).attr('sandbox', '');
+            $(this).attr('sandbox', 'allow-same-origin');
+            const hint = 'Embedded content disabled: <a href="/settings">Enable in settings</a>';
+            $(this).after('<div class="text-muted">' + hint + '</div>');
           }
         }
 
