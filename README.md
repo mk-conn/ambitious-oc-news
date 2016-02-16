@@ -1,6 +1,6 @@
 # ambitious-oc-news
 
-A Owncloud News RSS Feed Reader
+Feedreader based on the great JavaScript framework EmberJS. Needs Owncloud/News as backend.
 
 ## Prerequisites
 

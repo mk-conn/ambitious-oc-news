@@ -39,5 +39,4 @@ export default Route.extend(InfinityRoute, {
       this.set('_offset', undefined);
     }
   }
-
 });

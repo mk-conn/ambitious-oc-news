@@ -26,13 +26,12 @@ export default ApplicationAdapter.extend(UrlTemplates, {
   },
   createRecord(store, type, snapshot) {
 
-    var url = this.buildURL(type.modelName, null, snapshot, 'createRecord', {});
+    var id = snapshot.id;
 
-    const folderId = snapshot.belongsTo('folder', {id: true}) || 0;
-
+    var url = this.buildURL(type.modelName, id, snapshot, 'createRecord');
     var data = {
       url: get(snapshot.record, 'url'),
-      folderId: folderId
+      folderId: get(snapshot.record, 'folderId')
     };
 
     return this.ajax(url, 'POST', {data: data});

@@ -10,7 +10,8 @@ export default Ember.Route.extend(Protected, {
     return RSVP.hash({
       conn: Object.create(get(this, 'configuration').retrieve('oc_conn')),
       feed: Object.create({}),
-      folders: this.store.findAll('folder')
+      folders: this.store.findAll('folder'),
+      articleSettings: Object.create(get(this, 'configuration').retrieve('article_settings'))
     });
   },
   actions: {
@@ -95,6 +96,9 @@ export default Ember.Route.extend(Protected, {
         });
 
       });
+    },
+    saveArticleSettings(articleSettings) {
+      get(this, 'config').store('article_settings', JSON.stringify(articleSettings), 'local');
     }
   }
 })

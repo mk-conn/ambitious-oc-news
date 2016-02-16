@@ -130,6 +130,11 @@ header {
   font-weight: normal;
 }
 
+.label-info.unread-count {
+  background:#ccc;
+  color:#e8e8e8 ;
+}
+
 input {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -139,13 +144,26 @@ input {
 }
 
 .folder-list .folder-item {
-  .folder-action {
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+
+  .card-header {
     @include default-background;
+    flex-direction: row;
+    align-content: center !important;
+    align-items: center !important;
+    display: flex;
+    justify-content: space-between;
+
+    .left {
+      flex:1;
+      align-self: center;
+    }
+
+    .right {
+      align-self:center;
+    }
+
   }
+
   .label {
     background: $color-4;
   }
@@ -212,6 +230,12 @@ input {
 
 }
 
+.no-border {
+  .btn {
+    border:none;
+  }
+}
+
 .feeds-feed {
 
   .feed-items-header {
@@ -260,6 +284,16 @@ input {
 
 .card.item {
   border: $card-border-width solid $card-border-color;
+
+  .item-button-group {
+
+    .btn-secondary-outline {
+      color: $color-3;
+    }
+
+  }
+
+
 }
 
 .item-container {
@@ -296,13 +330,6 @@ input {
   }
 }
 
-.btn-group.item-button-group {
-
-  .btn-secondary-outline {
-    color: $color-3;
-  }
-
-}
 
 .item-meta {
   font-style: italic;
@@ -331,10 +358,6 @@ input {
     border-bottom: 1px solid $item_body_headings_color;
     padding: 0.2rem;
     color: $item_body_headings_color;
-  }
-  img {
-    max-width: 90%;
-    text-align: center;
   }
 }
 
