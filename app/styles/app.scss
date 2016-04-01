@@ -131,8 +131,8 @@ header {
 }
 
 .label-info.unread-count {
-  background:#ccc;
-  color:#e8e8e8 ;
+  background: #ccc;
+  color: #e8e8e8;
 }
 
 input {
@@ -154,12 +154,12 @@ input {
     justify-content: space-between;
 
     .left {
-      flex:1;
+      flex: 1;
       align-self: center;
     }
 
     .right {
-      align-self:center;
+      align-self: center;
     }
 
   }
@@ -232,7 +232,7 @@ input {
 
 .no-border {
   .btn {
-    border:none;
+    border: none;
   }
 }
 
@@ -293,7 +293,6 @@ input {
 
   }
 
-
 }
 
 .item-container {
@@ -329,7 +328,6 @@ input {
 
   }
 }
-
 
 .item-meta {
   font-style: italic;

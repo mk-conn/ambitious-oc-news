@@ -6,10 +6,11 @@ const {Route, RSVP, get, A} = Ember;
 export default Route.extend(Protected, {
 
   model() {
+
     let promises = {
       folders: this.store.findAll('folder'),
       feeds: this.store.findAll('feed'),
-      items: this.store.findAll('item')
+      //items: this.store.findAll('item')
     };
 
     // just load everthing into the store, so sub routes will just peek records instead of fetching them
@@ -18,7 +19,7 @@ export default Route.extend(Protected, {
       return {
         feeds: hash.feeds,
         folders: this.store.peekAll('folder'),
-        items: hash.items
+        //items: hash.items
       };
 
     });
