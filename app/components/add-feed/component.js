@@ -29,13 +29,9 @@ export default Ember.Component.extend({
       let value = e.target.value;
 
       if (value) {
-        //console.log('component.js:handleKeydown', this.attrs);
         const folder = this.attrs.createFolder(value);
         this.set('selected', folder);
       }
-      //console.log('component.js:handleKeydown', Ember.typeOf(value), value);
-
-
     }
 
   }

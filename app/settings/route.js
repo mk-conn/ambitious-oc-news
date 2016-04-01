@@ -89,7 +89,7 @@ export default Ember.Route.extend(Protected, {
           set(model, 'success', {
             id: get(feed, 'id'),
             title: get(feed, 'title'),
-            faviconLink: get(feed, 'faviconLink')
+            feedIcon: get(feed, 'feedIcon')
           });
         }, error => {
           set(model, 'error', error);

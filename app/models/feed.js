@@ -1,6 +1,8 @@
 import DS from 'ember-data';
 import Ember from 'ember';
+
 const {attr, belongsTo, hasMany} = DS;
+const {computed} = Ember;
 
 export default DS.Model.extend({
   added: attr('date'),
@@ -13,6 +15,18 @@ export default DS.Model.extend({
   url: attr('string'),
   folder: belongsTo('folder', {async: false}),
   items: hasMany('item', {async: false}),
+  feedIcon: computed('faviconLink', function () {
+    let iconUrl = this.get('faviconLink');
+
+    if (iconUrl) {
+      const proto = /^http:|https:/;
+
+      return iconUrl.replace(proto, '');
+    }
+
+    return null;
+
+  }),
   markAllItemsRead() {
     this.set('_updateEndpoint', '/feeds/' + this.get('id') + '/read');
     this.set('_updateVerb', 'PUT');
