@@ -55,6 +55,25 @@ blockquote {
   padding: 1rem;
 }
 
+h1 {
+  font-size:1.6rem;
+}
+h2 {
+  font-size:1.5rem;
+}
+h3 {
+  font-size:1.4rem;
+}
+h4 {
+  font-size:1.3rem;
+}
+h5 {
+  font-size:1.2rem;
+}
+h6 {
+  font-size:1.1rem;
+}
+
 .header, .main {
   flex: 1 100%;
 }
@@ -346,12 +365,9 @@ input {
 .item-body {
   $item_body_headings_color: #1A5A7A;
   h1 {
-    font-size: $font-size-h1 - 0.2rem;
     border-bottom: 0.2rem;
   }
-  h5 {
-    font-size: $font-size-h5 - 0.2rem;
-  }
+
   h1, h2, h3, h4, h5 {
     border-bottom: 1px solid $item_body_headings_color;
     padding: 0.2rem;
