@@ -7,11 +7,14 @@ export default Ember.Route.extend(Protected, {
   auth: inject.service(),
   config: inject.service('configuration'),
   model() {
+
+    let articleSettings = Object.create(get(this, 'configuration').retrieve('article_settings', {allowEmbedded: false}));
+
     return RSVP.hash({
       conn: Object.create(get(this, 'configuration').retrieve('oc_conn')),
       feed: Object.create({}),
       folders: this.store.findAll('folder'),
-      articleSettings: Object.create(get(this, 'configuration').retrieve('article_settings'))
+      articleSettings: articleSettings
     });
   },
   actions: {
@@ -97,8 +100,10 @@ export default Ember.Route.extend(Protected, {
 
       });
     },
-    saveArticleSettings(articleSettings) {
-      get(this, 'config').store('article_settings', JSON.stringify(articleSettings), 'local');
+    saveArticleSettings(settings) {
+      let model = this.get('currentModel');
+      set(model, 'articleSettings', settings);
+      get(this, 'config').store('article_settings', JSON.stringify(settings), 'local');
     }
   }
 })

@@ -1,7 +1,8 @@
 <form {{action "submit" on="submit"}} class="form-horizontal">
     <div class="form-group">
-        <label for="allow-embedded" class="control-label">Allow embed of media (like youtube, vimeo, iframes, etc.)?
-          {{input type="checkbox" checked=articleSettings.allowEmbedded id="allow-embedded" change=(action "submit") }}
+      {{input type="checkbox" checked=articleSettings.allowEmbedded id="allow-embedded" change=(action "submit") }}
+        <label for="allow-embedded" class="control-label">
+            Allow embed of media (like youtube, vimeo, iframes, etc.)?
         </label>
     </div>
 </form>

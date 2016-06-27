@@ -12,7 +12,7 @@ export default Service.extend({
    *
    * @returns {null}|{Object}
    */
-  retrieve(key) {
+  retrieve(key, default_value) {
     let data = this._getItem(key);
 
     if (data) {
@@ -28,7 +28,7 @@ export default Service.extend({
       return JSON.parse(data);
     }
 
-    return null;
+    return default_value || null;
   },
   _getItem(key) {
     return localStorage.getItem(key) || sessionStorage.getItem(key);
