@@ -51,6 +51,7 @@
     "ember-infinity": "~0.2.1",
     "ember-power-select": "0.7.2",
     "ember-route-action-helper": "0.2.0",
-    "ember-cli-fastclick": "1.1.0"
+    "ember-cli-fastclick": "1.1.0",
+    "flexi": "1.1.9"
   }
 }
