@@ -29,10 +29,7 @@ export default Ember.Route.extend(Protected, {
         feeds: hash.feeds,
         unfoldered: unfoldered,
         folders: this.store.peekAll('folder'),
-        //items: hash.items,
-        //starred: hash.items.filterBy('starred', true)
       };
-
     });
   },
   afterModel(model) {
