@@ -1,39 +1,4 @@
-<div class="card-header">
-
-    <div class="left">
-        <span class="fa {{folderIcon}}"></span>
-        <span>{{folder.name}}</span>
-    </div>
-
-    <div class="right no-border">
-      {{#if folder.unreadCount}}
-          <span class="label label-default label-info">{{folder.unreadCount}}</span>
-      {{/if}}
-
-      {{#if folder.unreadCount}}
-          <button type="button" class="btn btn-secondary-outline">
-              <i class="fa fa-eye-slash action" {{action "markFolderRead"}}></i>
-          </button>
-      {{/if}}
-        <button type="button" class="btn btn-secondary-outline" {{action "toggleFolderClosed"}}>
-          {{#if folderOpen}}
-              <i class="fa fa-chevron-down"></i>
-          {{else}}
-              <i class="fa fa-chevron-up"></i>
-          {{/if}}
-        </button>
-    </div>
-</div>
-
-{{#if folderOpen}}
-    <div class="card-block">
-        <div class="list-group list-group-flush">
-          {{#each folder.feeds as |feed|}}
-            {{feed-item feed=feed display="list"}}
-          {{/each}}
-        </div>
-    </div>
-{{/if}}
-
-
-
+<h3>{{folder.name}}</h3>
+{{#each folder.feeds as |feed|}}
+  {{feed-item feed=feed}}
+{{/each}}

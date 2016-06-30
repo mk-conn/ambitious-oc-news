@@ -1,3 +1,11 @@
-{{#each items as |item|}}
-  {{item-item item=item}}
-{{/each}}
+<div class="list-group">
+  {{#each model.feeds as |feed|}}
+      <div class="list-group-item">{{feed-item feed=feed}}</div>
+  {{/each}}
+  {{#if model.folders}}
+      <div class="dropdown-divider"></div>
+    {{#each model.folders as |folder|}}
+        <div class="list-group-item">{{folder-item folder=folder}}</div>
+    {{/each}}
+  {{/if}}
+</div>

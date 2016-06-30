@@ -11,9 +11,13 @@ export default Ember.Route.extend(Protected, {
       feeds: this.store.findAll('feed')
     };
 
-    let unfoldered = new A();
+    let items = Ember.Object.create({
+      folders: [],
+      feeds: []
+    });
 
     return RSVP.hash(promises).then(hash => {
+      let unfoldered = new A();
 
       hash.feeds.forEach(feed => {
         let folder = this.store.peekRecord('folder', get(feed, 'folderId'));
@@ -25,21 +29,26 @@ export default Ember.Route.extend(Protected, {
         }
       });
 
-      return {
-        feeds: hash.feeds,
-        unfoldered: unfoldered,
-        folders: this.store.peekAll('folder'),
-      };
+      unfoldered.forEach(feedItem => {
+        items.get('feeds').addObject(feedItem);
+      });
+
+      this.store.peekAll('folder').forEach(folder => {
+        items.get('folders').addObject(folder);
+      });
+
+      return items;
     });
   },
   afterModel(model) {
-    this.syncFoldersInConfig(model);
+    // this.syncFoldersInConfig(model);
   },
   markAllRead() {
 
   },
   syncFoldersInConfig(model) {
     let changed = false;
+
     const folderIds = get(model, 'folders').getEach('id');
     const folders = get(this, 'config').retrieve('folders');
 

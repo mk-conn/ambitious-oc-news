@@ -7,10 +7,10 @@ const Router = Ember.Router.extend({
 
 Router.map(function () {
   this.route('feeds', {path: 'feeds'}, function () {
-    this.route('feed', {path: '/feed/:feed_id'}, function () {
-      this.route('items');
-    });
-    this.route('items', function () {
+    this.route('index', {path: '/'});
+    this.route('single', {path: '/:id'});
+
+    this.route('articles', function () {
       this.route('starred');
       this.route('all');
     });
@@ -18,7 +18,6 @@ Router.map(function () {
 
   this.route('login');
   this.route('settings');
-
 
 });
 

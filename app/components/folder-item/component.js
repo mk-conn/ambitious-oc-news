@@ -2,7 +2,6 @@ import Ember from 'ember';
 const {get, set, computed} = Ember;
 
 export default Ember.Component.extend({
-  classNames: ['card folder-item'],
   //unreadCount: computed.sum('folder.feeds.@each.unreadCount'),
   folderIcon: computed('folderOpen', function () {
     if (get(this, 'folderOpen')) {

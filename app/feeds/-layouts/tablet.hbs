@@ -1,0 +1,15 @@
+<screen>
+    <page>
+        <box fit class="site-banner">
+          {{sustain 'components/site-header'}}
+        </box>
+        <hbox>
+            <box sm="3">
+              {{sustain 'components/item-list' model}}
+            </box>
+            <box sm="9">
+              {{liquid-outlet "main"}}
+            </box>
+        </hbox>
+    </page>
+</screen>
