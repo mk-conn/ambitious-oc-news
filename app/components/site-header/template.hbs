@@ -1,0 +1,22 @@
+<header class="navbar navbar-light header">
+
+    <a class="navbar-brand" href="/">
+        EMBER OC NEWS
+    </a>
+
+    <div class="global-actions">
+
+        <div class="btn-group">
+          {{#link-to "feeds" current-when="feeds.index" classNames="btn btn-secondary"}}
+              <i class="fa fa-list"></i>
+          {{/link-to}}
+          {{#link-to "settings" classNames="btn btn-secondary" tagName="li"}}
+              <i class="fa fa-cog"></i>
+          {{/link-to}}
+          {{#link-to "feeds" (query-params updated="true") classNames="btn btn-secondary" tagName="li"}}
+              <i class="fa fa-refresh"></i>
+          {{/link-to}}
+        </div>
+
+    </div>
+</header>

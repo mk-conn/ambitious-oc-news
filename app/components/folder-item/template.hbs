@@ -1,4 +1,6 @@
 <h3>{{folder.name}}</h3>
-{{#each folder.feeds as |feed|}}
-  {{feed-item feed=feed}}
-{{/each}}
+<div class="list-group">
+  {{#each folder.feeds as |feed|}}
+      <div class="list-group-item">{{feed-item feed=feed}}</div>
+  {{/each}}
+</div>

@@ -91,13 +91,13 @@ h6 {
 //  @include center-block;
 //}
 //
-//.action {
-//  cursor: pointer;
-//}
+.action {
+  cursor: pointer;
+}
 //
-//iframe {
-//  max-width: 100%;
-//}
+iframe {
+  max-width: 100%;
+}
 //
 //.card, .card-header:first-child, .navbar {
 //  border-radius: 0;
@@ -210,44 +210,43 @@ header {
 //  padding: 0;
 //}
 //
-//.feed-icon {
-//  max-width: 1rem;
-//  overflow: hidden;
-//}
+.feed-icon {
+  max-width: 1rem;
+  overflow: hidden;
+}
 //
-//.feed-item {
-//  display: flex;
-//  width: inherit;
-//  flex-direction: row;
-//  align-items: center;
-//  justify-content: space-between;
-//
-//  .feed-title {
-//    margin: 0 10px;
-//    font-size: 0.9em;
-//  }
-//
-//  .feed-icon {
-//    align-self: flex-start;
-//    max-width: 1rem;
-//    max-height: 1rem;
-//
-//    img {
-//      max-width: inherit;
-//      max-height: inherit;
-//      overflow: hidden;
-//    }
-//  }
-//
-//  .feed-title {
-//    align-self: flex-start;
-//  }
-//
-//  .fa-chevron-right, .unread-count {
-//    align-self: flex-end;
-//  }
-//
-//}
+.feed-item {
+  display: flex;
+  width: inherit;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .feed-title {
+    margin: 0 10px;
+    font-size: 0.9em;
+  }
+
+  .feed-icon {
+    align-self: flex-start;
+    max-width: 1rem;
+    max-height: 1rem;
+
+    img {
+      max-width: inherit;
+      max-height: inherit;
+      overflow: hidden;
+    }
+  }
+
+  .feed-title {
+    align-self: flex-start;
+  }
+
+  .fa-chevron-right, .unread-count {
+    align-self: flex-end;
+  }
+}
 //
 //.no-border {
 //  .btn {

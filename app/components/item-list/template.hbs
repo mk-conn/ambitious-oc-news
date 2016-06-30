@@ -2,10 +2,10 @@
   {{#each model.feeds as |feed|}}
       <div class="list-group-item">{{feed-item feed=feed}}</div>
   {{/each}}
-  {{#if model.folders}}
-      <div class="dropdown-divider"></div>
-    {{#each model.folders as |folder|}}
-        <div class="list-group-item">{{folder-item folder=folder}}</div>
-    {{/each}}
-  {{/if}}
 </div>
+{{#if model.folders}}
+    <div class="dropdown-divider"></div>
+    {{#each model.folders as |folder|}}
+      {{folder-item folder=folder}}
+    {{/each}}
+{{/if}}
