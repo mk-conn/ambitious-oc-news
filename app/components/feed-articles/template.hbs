@@ -1,5 +1,4 @@
-<div class="feed-articles">
-
+<div class="feed-article-head">
                         <span class="feed-icon">
                           {{#if feed.feedIcon}}
                               <img src="{{feed.feedIcon}}" alt="feed-icon"/>
@@ -7,17 +6,12 @@
                               <span class="fa fa-feed"></span>
                           {{/if}}
                         </span>
-
     <div class="feed-title">
       {{rename-property model=feed property="title" renameFunction="rename"}}
     </div>
-
-
     <button type="button" class="btn btn-sm btn-primary-outline" {{action "deleteFeed"}}>
         <i class="fa fa-trash"></i>
     </button>
-
-
 </div>
 
 {{article-list articles=feed.items}}

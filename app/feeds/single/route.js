@@ -1,30 +1,47 @@
 import Ember from 'ember';
-import Protected from 'ambitious-oc-news/mixins/protected';
-import ResetToTop from 'ambitious-oc-news/mixins/reset-to-top';
+import Env from 'ambitious-oc-news/config/environment';
+import InfinityRoute from "ember-infinity/mixins/route";
 
-const {Route} = Ember;
+const {get, set, Route} = Ember;
 
-export default Route.extend(Protected, ResetToTop, {
-  model(params) {
-    return this.store.findRecord('feed', params.id);
+export default Route.extend(InfinityRoute, {
+  _offset: undefined,
+  _canLoadMore: true,
+  init() {
+    set(this, '_offset', undefined);
   },
-  // renderTemplate() {
-  //   this.render('feeds/feed', {
-  //     into: 'application',
-  //     outlet: 'main'
-  //   });
+  model(params) {
+    const batchSize = Env.APP.items.batchSize || 10;
+
+    return this.store.findRecord('feed', params.id).then(feed => {
+
+      this.infinityModel('item', {
+        batchSize: batchSize,
+        type: 0,
+        id: get(feed, 'id'),
+        getRead: true,
+        oldestFirst: false
+      }, {
+        offset: '_offset'
+      });
+
+      return feed;
+
+    });
+  },
+  // afterModel(model) {
+  //   set(model, 'feed', this.modelFor('feed'));
   // },
+  afterInfinityModel(items) {
+    //console.log('route.js:afterInfinityModel', get(this, '_offset'));
+    const lastObjectId = items.get('lastObject.id');
+    const loadedAny = items.get('length') > 0;
+    this.set('_canLoadMore', loadedAny);
+    this.set('_offset', lastObjectId);
+  },
   actions: {
-    delete() {
-      let feed = this.modelFor(this.routeName);
-
-      feed.deleteRecord();
-
-      if (feed.get('isDeleted')) {
-        feed.save().then(() => {
-          this.transitionTo('feeds');
-        });
-      }
+    willTransition() {
+      this.set('_offset', undefined);
     }
   }
 });
