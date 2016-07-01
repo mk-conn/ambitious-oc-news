@@ -15,7 +15,7 @@ $btn-primary-bg: $color-3;
 $btn-primary-border: $color-3;
 
 $btn-secondary-color: $color-2;
-$btn-secondary-bg: $color-1;
+$btn-secondary-bg: $color-4;
 $btn-secondary-border: $color-2;
 
 //// label
@@ -31,7 +31,7 @@ $btn-secondary-border: $color-2;
 $header_height: 5rem;
 
 @mixin default-background {
-  background-color: $color-1;
+  background-color: $color-4;
   color: #eee;
 }
 
@@ -43,6 +43,7 @@ body {
   color: $color-1;
   background: $color-0;
 }
+
 //
 //body > div.ember-view {
 //  display: flex;
@@ -54,29 +55,37 @@ blockquote {
   background: $color-0;
   padding: 1rem;
 }
+
 //
 h1 {
-  font-size:1.6rem;
+  font-size: 1.6rem;
 }
+
 h2 {
-  font-size:1.5rem;
+  font-size: 1.5rem;
 }
+
 h3 {
-  font-size:1.4rem;
+  font-size: 1.4rem;
 }
+
 h4 {
-  font-size:1.3rem;
+  font-size: 1.3rem;
 }
+
 h5 {
-  font-size:1.2rem;
+  font-size: 1.2rem;
 }
+
 h6 {
-  font-size:1.1rem;
+  font-size: 1.1rem;
 }
+
 //
 .header, .main {
   flex: 1 100%;
 }
+
 //
 //.main {
 //  .card {
@@ -94,10 +103,12 @@ h6 {
 .action {
   cursor: pointer;
 }
+
 //
 iframe {
   max-width: 100%;
 }
+
 //
 //.card, .card-header:first-child, .navbar {
 //  border-radius: 0;
@@ -113,20 +124,21 @@ header {
   border-top: 1px solid #555;
   border-bottom: 1px solid #555;
   @include default-background;
-
-  .navbar-brand {
-    flex: 1;
-    align-self: flex-start;
-    color: #1f7e9a;
-    img.logo {
-      //max-width: $header_height - 1rem;
-      max-height: $header_height - 1rem;
-    }
+  a.navbar-brand:link {
+    color: #eee;
+    font-weight: bold;
   }
   .global-actions {
     //align-self: flex-end;
   }
 }
+
+.feed-articles {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 //
 //@mixin placeholder {
 //  ::-webkit-input-placeholder {
@@ -214,6 +226,7 @@ header {
   max-width: 1rem;
   overflow: hidden;
 }
+
 //
 .feed-item {
   display: flex;
@@ -247,6 +260,7 @@ header {
     align-self: flex-end;
   }
 }
+
 //
 //.no-border {
 //  .btn {
@@ -433,5 +447,5 @@ header {
 //  background: $gray-dark;
 //}
 //
-//@import "media-queries";
+@import "media-queries";
 //@import "ember-power-select";
