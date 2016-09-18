@@ -6,14 +6,15 @@ const {Route} = Ember;
 
 export default Route.extend(Protected, ResetToTop, {
   model(params) {
-    return this.store.peekRecord('feed', params.feed_id);
+    console.log('params:', params);
+    return this.store.findRecord('feed', params.feed_id);
   },
-  renderTemplate() {
-    this.render('feeds/feed', {
-      into: 'application',
-      outlet: 'main'
-    });
-  },
+  // renderTemplate() {
+  //   this.render('feeds/feed', {
+  //     into: 'application',
+  //     outlet: 'main'
+  //   });
+  // },
   actions: {
     delete() {
       let feed = this.modelFor(this.routeName);

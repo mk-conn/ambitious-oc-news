@@ -1,35 +1,27 @@
 import Ember from 'ember';
 import ENV from 'ambitious-oc-news/config/environment';
-
+import Protected from 'ambitious-oc-news/mixins/protected';
 const {
   Route,
-  RSVP,
   get,
-  A,
   inject,
-  computed
+  RSVP,
+  A
 } = Ember;
 
-export default Route.extend({
+export default Route.extend(Protected, {
   moment: inject.service(),
   config: inject.service('configuration'),
-  authorized: computed(function () {
-    return !!this.get('config').retrieve('oc_conn');
-  }),
-  beforeModel()
-  {
-    if (this.get('authorized') === false) {
-      let loginPath = ENV.APP.DefaultLoginRoute;
-      this.transitionTo(loginPath);
-    }
+
+  beforeModel() {
+    this._super(...arguments);
 
     var lang = (navigator.language || navigator.browserLanguage).split('-')[0];
     this.get('moment').changeLocale(lang);
 
-    this._super(...arguments);
   },
-  model()
-  {
+
+  model() {
     if (this.get('authorized')) {
       let promises = {
         folders: this.store.findAll('folder'),
@@ -66,14 +58,17 @@ export default Route.extend({
       });
     }
   },
+
   afterModel(model)
   {
     // this.syncFoldersInConfig(model);
   },
+
   markAllRead()
   {
 
   },
+
   syncFoldersInConfig(model)
   {
     let changed = false;
@@ -96,7 +91,14 @@ export default Route.extend({
     if (changed) {
       get(this, 'config').store('folders', JSON.stringify(folders));
     }
+  },
+
+  actions: {
+    transition(route, model) {
+      console.log('route:', model, route);
+      this.transitionTo(route, model);
+    }
+
   }
 
-})
-;
+});

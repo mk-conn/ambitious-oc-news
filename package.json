@@ -51,9 +51,10 @@
     "ember-moment": "5.0.1",
     "ember-cli-moment-shim": "0.7.1",
     "ember-cli-sass": "^5.2.0",
+    "ember-css-transitions": "peec/ember-css-transitions#v0.1.4",
     "ember-infinity": "~0.2.6",
     "ember-power-select": "0.7.2",
-    "ember-route-action-helper": "0.2.0",
+    "ember-route-action-helper": "^2.0.0",
     "ember-cli-fastclick": "1.1.0"
   }
 }

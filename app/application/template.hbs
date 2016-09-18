@@ -1,3 +1,5 @@
+{{page-toolbar pageTitle="" }}
+
 {{#paper-sidenav-container class="inner-sidenav"}}
 
   {{#paper-sidenav
@@ -10,13 +12,16 @@
     {{#paper-toolbar as |toolbar|}}
       {{#paper-toolbar-tools}}Feeds{{/paper-toolbar-tools}}
     {{/paper-toolbar}}
+
     {{#paper-content padding=true}}
       {{#paper-list}}
         {{#each model.folders as |folder|}}
           {{#paper-item}}{{folder.name}}{{/paper-item}}
           {{#paper-list}}
             {{#each folder.feeds as |feed|}}
-            {{#paper-item}}{{feed.title}}{{/paper-item}}
+              {{#submenu-item onClick=(route-action "transition" "feeds.feed.articles" feed)}}
+                {{feed.title}}
+              {{/submenu-item}}
             {{/each}}
           {{/paper-list}}
         {{/each}}
@@ -28,4 +33,5 @@
   <div class="flex layout-column" tabindex="-1" role="main">
     {{outlet}}
   </div>
+
 {{/paper-sidenav-container}}
