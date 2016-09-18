@@ -1,0 +1,32 @@
+INDEX
+
+{{#paper-sidenav-container class="inner-sidenav"}}
+  {{#paper-sidenav class="md-whiteframe-z2 site-sidenav" lockedOpen="gt-sm"
+  open=isSidenavOpen onToggle=(action (mut isSidenavOpen))}}
+
+    {{#paper-toolbar-tools}}
+
+    {{/paper-toolbar-tools}}
+
+    {{#paper-content}}
+      {{#paper-list}}
+        {{#each model.folders as |folder|}}
+          {{#menu-item class="md-3-line"}} {{folder.name}} {{/menu-item}}
+          <div class="sub-menu">
+            {{#each folder.feeds as |feed|}}
+              {{#submenu-item}}{{feed.title}}{{/submenu-item}}
+            {{/each}}
+          </div>
+        {{/each}}
+      {{/paper-list}}
+    {{/paper-content}}
+
+
+  {{/paper-sidenav}}
+
+  <div class="flex layout-column" tabindex="-1" role="main">
+    {{outlet}}
+  </div>
+{{/paper-sidenav-container}}
+
+

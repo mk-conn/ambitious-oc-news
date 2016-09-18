@@ -11,26 +11,41 @@
 {{/if}}
 
 <form {{action "submit" on="submit"}} class="form-horizontal">
-    <div class="form-group">
-        <label class="control-label">OC News URL</label>
-      {{input type="text" placeholder="https://your-owncloud-url.com/" value=config.domain class="form-control"}}
+
+    <div>
+      {{paper-input label="Nextcloud News URL"
+      value=config.domain
+      required=true
+      onChange=(action (mut config.domain))
+      errorMessages=(hash required="URL is required")
+      icon="link"
+      }}
+    </div>
+    <div>
+      {{paper-input label="Username"
+      value=config.username
+      required=true
+      onChange=(action (mut config.username))
+      errorMessages=(hash required="Username is required")
+      icon="perm_identity"
+      }}
+    </div>
+    <div>
+      {{paper-input label="Password"
+      type=password
+      value=config.password
+      required=true
+      onChange=(action (mut config.password))
+      errorMessages=(hash required="Password is required")
+      icon="lock"
+      }}
+    </div>
+    <div>
+      {{#paper-checkbox value=config.persist onChange=(action (mut config.persist))}}
+          Remember settings (will be stored in the localstorage of your browser)
+      {{/paper-checkbox}}
     </div>
 
-    <div class="form-group">
-        <label class="control-label">Username</label>
-      {{input type="text" placeholder="Your username" value=config.username  class="form-control"}}
-    </div>
+  {{#paper-button raised=true primary=true type="submit"}}Submit{{/paper-button}}
 
-    <div class="form-group">
-        <label for="ocPassword" class="control-label">OC News URL</label>
-      {{input type="password" placeholder="Your password" value=config.password class="form-control"}}
-    </div>
-
-    <button type="submit" class="btn btn-primary-outline">Submit</button>
-
-    <label for="persist-settings"
-           class="control-label">{{input type="checkbox" checked=config.persist id="persist-settings" }}
-        Remember
-        this
-        (stored in local storage of your browser)</label>
 </form>

@@ -1,2 +1,31 @@
-{{outlet}}
+{{#paper-sidenav-container class="inner-sidenav"}}
 
+  {{#paper-sidenav
+  class="md-whiteframe-z2"
+  name="left"
+  open=leftSideBarOpen
+  onToggle=(action (mut leftSideBarOpen))
+  }}
+
+    {{#paper-toolbar as |toolbar|}}
+      {{#paper-toolbar-tools}}Feeds{{/paper-toolbar-tools}}
+    {{/paper-toolbar}}
+    {{#paper-content padding=true}}
+      {{#paper-list}}
+        {{#each model.folders as |folder|}}
+          {{#paper-item}}{{folder.name}}{{/paper-item}}
+          {{#paper-list}}
+            {{#each folder.feeds as |feed|}}
+            {{#paper-item}}{{feed.title}}{{/paper-item}}
+            {{/each}}
+          {{/paper-list}}
+        {{/each}}
+      {{/paper-list}}
+    {{/paper-content}}
+
+  {{/paper-sidenav}}
+
+  <div class="flex layout-column" tabindex="-1" role="main">
+    {{outlet}}
+  </div>
+{{/paper-sidenav-container}}

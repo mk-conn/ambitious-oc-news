@@ -28,7 +28,7 @@ export default Service.extend({
       return JSON.parse(data);
     }
 
-    return default_value || null;
+    return default_value || false;
   },
   _getItem(key) {
     return localStorage.getItem(key) || sessionStorage.getItem(key);

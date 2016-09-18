@@ -29,13 +29,22 @@ module.exports = function (environment) {
         batchSize: 10
       }
     },
+    // contentSecurityPolicy: {
+    //   'default-src': "'none'",
+    //   'script-src': "'self'",
+    //   'font-src': "'self'",
+    //   'connect-src': "'self' *",
+    //   'img-src': "'self'",
+    //   'style-src': "'self' *",
+    //   'media-src': "'self'"
+    // }
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self'",
-      'font-src': "'self'",
-      'connect-src': "'self' *",
-      'img-src': "'self'",
-      'style-src': "'self' *",
+      'script-src': "'self' 'unsafe-inline'",
+      'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
+      'font-src': "'self' fonts.gstatic.com",
+      'connect-src': "'self'",
+      'img-src': "'self' data:",
       'media-src': "'self'"
     }
   };
