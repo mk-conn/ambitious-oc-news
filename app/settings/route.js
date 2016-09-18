@@ -8,10 +8,10 @@ export default Ember.Route.extend(Protected, {
   config: inject.service('configuration'),
   model() {
 
-    let articleSettings = Object.create(get(this, 'configuration').retrieve('article_settings', {allowEmbedded: false}));
+    let articleSettings = Object.create(get(this, 'config').retrieve('article_settings', {allowEmbedded: false}));
 
     return RSVP.hash({
-      conn: Object.create(get(this, 'configuration').retrieve('oc_conn')),
+      conn: Object.create(get(this, 'config').retrieve('oc_conn')),
       feed: Object.create({}),
       folders: this.store.findAll('folder'),
       articleSettings: articleSettings

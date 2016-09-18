@@ -19,7 +19,7 @@
           {{#paper-item}}{{folder.name}}{{/paper-item}}
           {{#paper-list}}
             {{#each folder.feeds as |feed|}}
-              {{#submenu-item onClick=(route-action "transition" "feeds.feed.articles" feed)}}
+              {{#submenu-item onClick=(route-action "transition" "feeds.show.items" feed)}}
                 {{feed.title}}
               {{/submenu-item}}
             {{/each}}
@@ -30,8 +30,12 @@
 
   {{/paper-sidenav}}
 
-  <div class="flex layout-column" tabindex="-1" role="main">
+  {{#paper-content padding=true}}
     {{outlet}}
+  {{/paper-content}}
+  {{!--
+  <div class="flex layout-column" tabindex="-1" role="main">
   </div>
+  --}}
 
 {{/paper-sidenav-container}}

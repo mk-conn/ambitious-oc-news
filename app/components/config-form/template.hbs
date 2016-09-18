@@ -14,6 +14,7 @@
 
     <div>
       {{paper-input label="Nextcloud News URL"
+      block=true
       value=config.domain
       required=true
       onChange=(action (mut config.domain))
@@ -25,6 +26,7 @@
       {{paper-input label="Username"
       value=config.username
       required=true
+      block=true
       onChange=(action (mut config.username))
       errorMessages=(hash required="Username is required")
       icon="perm_identity"
@@ -32,7 +34,8 @@
     </div>
     <div>
       {{paper-input label="Password"
-      type=password
+      type="password"
+      block=true
       value=config.password
       required=true
       onChange=(action (mut config.password))

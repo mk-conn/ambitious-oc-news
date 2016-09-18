@@ -13,8 +13,8 @@ export default DS.Model.extend({
   title: attr('string'),
   unreadCount: attr('number'),
   url: attr('string'),
-  folder: belongsTo('folder', {async: false}),
-  items: hasMany('item', {async: false}),
+  folder: belongsTo('folder'),
+  articles: hasMany('article'),
   feedIcon: computed('faviconLink', function () {
     let iconUrl = this.get('faviconLink');
 

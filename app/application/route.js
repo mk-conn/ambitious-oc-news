@@ -95,7 +95,6 @@ export default Route.extend(Protected, {
 
   actions: {
     transition(route, model) {
-      console.log('route:', model, route);
       this.transitionTo(route, model);
     }
 

@@ -4,9 +4,6 @@ import Protected from 'ambitious-oc-news/mixins/protected';
 
 const {
   Route,
-  RSVP,
-  get,
-  A
 } = Ember;
 
 export default Route.extend(Protected, {

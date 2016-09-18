@@ -5,8 +5,13 @@ import InfinityRoute from "ember-infinity/mixins/route";
 const {get} = Ember;
 
 export default Ember.Route.extend(InfinityRoute, {
-  model() {
-    const feed = this.modelFor('feeds.feed');
+  init() {
+    Ember.debug('articles-route');
+  },
+  model(params) {
+    Ember.debug('items-route');
+    const feed = this.modelFor('feeds/show');
+    console.log('feed(modelfor):', feed.id);
     const batchSize = ENV.APP.items.batchSize || 10;
 
     return this.infinityModel('item', {
@@ -20,7 +25,7 @@ export default Ember.Route.extend(InfinityRoute, {
     });
   },
   renderTemplate() {
-    this.render('feeds/feed/articles', {
+    this.render('feeds/show/items', {
       into: 'application',
       outlet: 'main'
     });

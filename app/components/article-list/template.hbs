@@ -1,3 +1,18 @@
-{{#each articles as |article|}}
+{{!--{{#each articles as |article|}}
   {{article-item article=article}}
 {{/each}}
+--}}
+
+{{#paper-content class="md-whiteframe-z1"}}
+
+  {{#paper-list}}
+    {{#each articles as |article|}}
+      {{#paper-item class="md-3-line"}}
+        {{article-item article=article}}
+      {{/paper-item}}
+    {{/each}}
+  {{/paper-list}}
+
+{{/paper-content}}
+
+
