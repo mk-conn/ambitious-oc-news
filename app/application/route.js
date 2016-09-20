@@ -61,7 +61,7 @@ export default Route.extend(Protected, {
 
   afterModel(model)
   {
-    // this.syncFoldersInConfig(model);
+    this.syncFoldersInConfig(model);
   },
 
   markAllRead()
@@ -96,6 +96,10 @@ export default Route.extend(Protected, {
   actions: {
     transition(route, model) {
       this.transitionTo(route, model);
+    },
+
+    toggle(id) {
+      $(`#${id}`).sidebar('toggle');
     }
 
   }

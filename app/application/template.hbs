@@ -1,41 +1,22 @@
-{{page-toolbar pageTitle="" }}
-
-{{#paper-sidenav-container class="inner-sidenav"}}
-
-  {{#paper-sidenav
-  class="md-whiteframe-z2"
-  name="left"
-  open=leftSideBarOpen
-  onToggle=(action (mut leftSideBarOpen))
-  }}
-
-    {{#paper-toolbar as |toolbar|}}
-      {{#paper-toolbar-tools}}Feeds{{/paper-toolbar-tools}}
-    {{/paper-toolbar}}
-
-    {{#paper-content padding=true}}
-      {{#paper-list}}
+<div class="ui pushable segment component context">
+  {{#ui-sidebar class="visible very wide menu left inline vertical" context=".component.context" id="sub-sidebar"}}
+      <div class="ui relaxed celled list">
         {{#each model.folders as |folder|}}
-          {{#paper-item}}{{folder.name}}{{/paper-item}}
-          {{#paper-list}}
-            {{#each folder.feeds as |feed|}}
-              {{#submenu-item onClick=(route-action "transition" "feeds.show.items" feed)}}
-                {{feed.title}}
-              {{/submenu-item}}
-            {{/each}}
-          {{/paper-list}}
+            <div class="item">
+                <div class="content">
+                    <div class="header">{{folder.name}}</div>
+                  {{feed-list feeds=folder.feeds}}
+                </div>
+            </div>
         {{/each}}
-      {{/paper-list}}
-    {{/paper-content}}
 
-  {{/paper-sidenav}}
+          {{feed-list feeds=model.feeds}}
 
-  {{#paper-content padding=true}}
-    {{outlet}}
-  {{/paper-content}}
-  {{!--
-  <div class="flex layout-column" tabindex="-1" role="main">
-  </div>
-  --}}
-
-{{/paper-sidenav-container}}
+      </div>
+  {{/ui-sidebar}}
+    <div class="pusher">
+        <div class="ui basic segment" style="min-height: 300px">
+          {{outlet}}
+        </div>
+    </div>
+</div>

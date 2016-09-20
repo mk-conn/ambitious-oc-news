@@ -38,7 +38,6 @@
     "ember-data": "^2.8.0",
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
-    "ember-paper": "1.0.0-alpha.3",
     "ember-resolver": "^2.0.3",
     "ember-welcome-page": "^1.0.1",
     "loader.js": "^4.0.1"
@@ -47,14 +46,15 @@
     "broccoli-funnel": "^1.0.1",
     "crypto-js": "3.1.6",
     "ember-browserify": "^1.1.4",
-    "ember-data-url-templates": "0.1.0",
-    "ember-moment": "5.0.1",
+    "ember-cli-fastclick": "1.1.0",
     "ember-cli-moment-shim": "0.7.1",
     "ember-cli-sass": "^5.2.0",
     "ember-css-transitions": "peec/ember-css-transitions#v0.1.4",
+    "ember-data-url-templates": "0.1.0",
     "ember-infinity": "~0.2.6",
+    "ember-moment": "5.0.1",
     "ember-power-select": "0.7.2",
     "ember-route-action-helper": "^2.0.0",
-    "ember-cli-fastclick": "1.1.0"
+    "semantic-ui-ember": "2.0.0-beta.0"
   }
 }

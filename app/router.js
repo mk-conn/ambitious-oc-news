@@ -8,15 +8,16 @@ const Router = Ember.Router.extend({
 
 Router.map(function () {
 
-  this.route('feeds', function () {
-    this.route('show', {path: ':feed_id'}, function () {
-      this.route('items', function () {
+  this.route('feeds', {path: '/feeds'}, function () {
+    this.route('show', {path: '/:feed_id'}, function () {
+      this.route('items', {path: '/items'}, function () {
       });
     });
   });
 
   this.route('login');
-  this.route('settings');
+  this.route('settings', {path: '/settings'}, function () {
+  });
 
 });
 
