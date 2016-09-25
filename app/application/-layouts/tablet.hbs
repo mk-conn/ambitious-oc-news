@@ -1,15 +1,15 @@
-<screen>
-    <page>
-        <hbox class="ui pushable component segment component context">
-
-          {{sustain 'components/side-bar' model}}
-
-            <div class="pusher">
-                <hbox id="main" class="ui basic segment">
-                  {{liquid-outlet "main"}}
-                </hbox>
+<div class="ui bottom attached segment">
+    <div class="sidebar-container">
+      {{sustain 'components/side-bar' model}}
+    </div>
+    <div class="pusher">
+        <div id="main" class="ui container">
+            <div class="ui basic segment">
+              {{liquid-outlet "main"}}
             </div>
-        </hbox>
-
-    </page>
-</screen>
+        </div>
+    </div>
+    <div class="fixed inverted vertical footer segment">
+        See project at Github
+    </div>
+</div>

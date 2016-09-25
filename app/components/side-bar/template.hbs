@@ -1,5 +1,9 @@
-{{#ui-sidebar class="inverted visible menu left inline vertical" context=".component.context" id="sub-sidebar"}}
-
+<div class="ui visible fixed inverted left vertical sidebar menu" id="sidebar">
+    <div class="item">
+        <div class="header">
+            AOC NEWS
+        </div>
+    </div>
   {{#if model.feeds}}
       <div class="item">
           <div class="header">Feeds</div>
@@ -13,4 +17,4 @@
         {{feed-list feeds=folder.feeds}}
       </div>
   {{/each}}
-{{/ui-sidebar}}
+</div>

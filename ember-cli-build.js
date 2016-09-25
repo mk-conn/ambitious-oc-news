@@ -1,7 +1,7 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
-var Funnel = require('broccoli-funnel');
+// var Funnel = require('broccoli-funnel');
 
 var shim = require('flexi/lib/pod-templates-shim');
 shim(EmberApp);
@@ -11,13 +11,11 @@ module.exports = function (defaults) {
     // Add options here
   });
 
-  app.import('bower_components/bootstrap/js/dist/dropdown.js');
-
-  var extraAssets = new Funnel('bower_components/font-awesome/fonts', {
-    srcDir: '/',
-    include: ['*'],
-    destDir: '/fonts'
-  });
+  // var extraAssets = new Funnel('bower_components/font-awesome/fonts', {
+  //   srcDir: '/',
+  //   include: ['*'],
+  //   destDir: '/fonts'
+  // });
 
 
   // Use `app.import` to add additional libraries to the generated
@@ -33,5 +31,6 @@ module.exports = function (defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  return app.toTree(extraAssets);
+  // return app.toTree(extraAssets);
+  return app.toTree();
 };

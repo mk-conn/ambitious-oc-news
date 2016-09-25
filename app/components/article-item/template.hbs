@@ -1,70 +1,36 @@
-<div class="card-header item-url item-title">
-
-    <div class="unread-title">
-        <div class="unread">
-          {{#if isUnread}}
-              <span class="fa fa-circle"></span>
-          {{/if}}
-        </div>
-        <div class="title">
-          {{article.title}}
-        </div>
-    </div>
-</div>
-
-<div class="item-button-group pull-right">
-    <a href={{article.url}} target="_blank" {{action "originalArticle" preventDefault=false}}
-       class="btn btn-outline-secondary hint--top"
-       data-hint="Open article in new tab">
-        <span class="fa fa-globe"></span>
-    </a>
-    <a href="mailto:mail@address.com?subject=Article: {{article.title}}&body={{article.title}}%0A%0A{{excerpt}}%0A%0A{{article.url}}"
-       class="btn btn-outline-secondary">
-        <i class="fa fa-share-square-o"></i>
-    </a>
-    <button type="button" class="btn btn-outline-secondary hint--top" {{action "toggleUnread"}}
-            data-hint={{readUnreadHint}}>
+{{!--
+<div class="label">
+    <div class="unread">
       {{#if isUnread}}
-          <i class="fa fa-eye-slash"></i>
-      {{else}}
-          <i class="fa fa-eye"></i>
+          <i class="circle icon"></i>
       {{/if}}
-    </button>
-    <button type="button" class="btn btn-outline-secondary hint--top" {{action "toggleStarred"}}
-            data-hint={{starHint}}>
-      {{#if isStarred}}
-          <i class="fa fa-bookmark"></i>
-      {{else}}
-          <i class="fa fa-bookmark-o"></i>
-      {{/if}}
-    </button>
-    <button type="button" class="btn btn-outline-secondary"
-            data-hint={{openCloseHint}} {{action "toggleShowFull"}}>
-      {{#if showFull}}
-          <i class="fa fa-chevron-down"></i>
-      {{else}}
-          <i class="fa fa-chevron-up"></i>
-      {{/if}}
-    </button>
-</div>
-
-<div class="card-block item-container">
-    <div class="card-text item-text">
-        <div class="item-body">
-          {{#if showFull}}
-              <div class="item-meta">
-                {{#if article.author}}
-                  {{article.author}} |
-                {{/if}}
-                {{moment-format article.pubDate 'LLLL' 'X'}} | {{article.feed.title}}
-              </div>
-            {{body}}
-          {{else}}
-            {{excerpt}}
-              <div class="item-meta">{{article.feed.title}}</div>
-          {{/if}}
-        </div>
+    </div>
+    <div class="title">
+      {{article.title}}
     </div>
 </div>
 
+--}}
 
+<div class="content">
+    <div class="header">
+      {{article.title}}
+    </div>
+    <div class="meta">
+        <div>
+          {{#if article.author}}
+            {{article.author}} |
+          {{/if}}
+          {{moment-format article.pubDate 'LLLL' 'X'}} | {{article.feed.title}}
+        <div class="ui right floated main menu">{{article-buttons article=article}}</div>
+        </div>
+    </div>
+    <div class="description">
+      {{#if showFull}}
+        {{body}}
+      {{else}}
+        {{excerpt}}
+        {{article.feed.title}}
+      {{/if}}
+    </div>
+</div>
