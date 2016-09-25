@@ -1,13 +1,7 @@
-<div class="relaxed divided list">
-  {{#each feeds as |feed|}}
-      <div class="item">
-          <img class="ui avatar image" src="{{feed.feedIcon}}"/>
-
-          <div class="content">
-            {{#link-to "feeds.show.items" feed classNames="header"}}
-              {{feed.title}}
-            {{/link-to}}
-          </div>
-      </div>
-  {{/each}}
-</div>
+{{#each feeds as |feed|}}
+  {{#link-to "feeds.show.items" feed classNames="item"}}
+    {{feed.title}}
+    <i class="feed icon"></i>
+    <div class="ui label">{{feed.unreadCount}}</div>
+  {{/link-to}}
+{{/each}}

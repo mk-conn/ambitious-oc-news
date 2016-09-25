@@ -4,11 +4,16 @@ const {get, $, set, computed, observer, run, typeOf, inject} = Ember;
 
 export default Ember.Component.extend({
   config: inject.service('configuration'),
-  classNames: ['card item'],
+  classNames: ['article'],
   classNameBindings: ['isUnread'],
   showFull: false,
+  articleImage: computed('article', function () {
+    // get first image
+    const component = this.$();
+    let img = $('img', component).first().attr('src');
+  }),
   articleOpen: observer('showFull', function () {
-    const item = get(this, 'item');
+    const item = get(this, 'article');
     if (get(item, 'unread')) {
       item.markRead();
     }
@@ -56,12 +61,12 @@ export default Ember.Component.extend({
 
   }),
 
-  isUnread: computed('item.unread', {
+  isUnread: computed('article.unread', {
     get() {
-      return get(this, 'item.unread');
+      return get(this, 'article.unread');
     },
     set(type, unread) {
-      const item = get(this, 'item');
+      const item = get(this, 'article');
       if (unread === true) {
         item.markUnread();
       } else {
@@ -69,12 +74,12 @@ export default Ember.Component.extend({
       }
     }
   }),
-  isStarred: computed('item.starred', {
+  isStarred: computed('article.starred', {
     get() {
-      return get(this, 'item.starred');
+      return get(this, 'article.starred');
     },
     set(type, star) {
-      const item = get(this, 'item');
+      const item = get(this, 'article');
 
       if (star === true) {
         item.star();
@@ -101,16 +106,16 @@ export default Ember.Component.extend({
     }
     return 'Mark unread';
   }),
-  excerpt: computed('item.body', function () {
+  excerpt: computed('article.body', function () {
     const stripAt = 160;
-    let text = $(get(this, 'item.body')).text();
+    let text = $(get(this, 'article.body')).text();
     if (text.length > stripAt) {
       text = text.slice(0, stripAt) + ' ...'.htmlSafe();
     }
     return text;
   }),
-  body: computed('item.body', function () {
-    return get(this, 'item.body').htmlSafe();
+  body: computed('article.body', function () {
+    return get(this, 'article.body').htmlSafe();
   }),
   actions: {
     toggleShowFull() {
@@ -123,8 +128,8 @@ export default Ember.Component.extend({
       this.toggleProperty('isStarred');
     },
     originalArticle() {
-      if (get(this, 'item.unread')) {
-        get(this, 'item').markRead();
+      if (get(this, 'article.unread')) {
+        get(this, 'article').markRead();
       }
     }
   }

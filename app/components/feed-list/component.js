@@ -4,7 +4,6 @@ const {
   Component
 } = Ember;
 
-export default Ember.Component.extend({
-  classNames: [],
-  tagName: ''
+export default Component.extend({
+  classNames: ['menu', 'feed-item'],
 });

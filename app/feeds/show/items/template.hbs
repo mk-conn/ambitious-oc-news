@@ -1,11 +1,9 @@
 <div id="articles">
-  {{#each model as |article|}}
-    {{article-item article=article}}
-  {{/each}}
+  {{article-list articles=model}}
 </div>
 
-{{#infinity-loader infinityModel=model scrollable="#articles"}}
-    <div class="card-block">{{partial "loading"}}</div>
+{{#infinity-loader infinityModel=model scrollable="main"}}
+    <div>{{partial "loading"}}</div>
 {{/infinity-loader}}
 
 {{outlet}}

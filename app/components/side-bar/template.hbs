@@ -1,0 +1,16 @@
+{{#ui-sidebar class="inverted visible menu left inline vertical" context=".component.context" id="sub-sidebar"}}
+
+  {{#if model.feeds}}
+      <div class="item">
+          <div class="header">Feeds</div>
+        {{feed-list feeds=model.feeds}}
+      </div>
+  {{/if}}
+
+  {{#each model.folders as |folder|}}
+      <div class="item">
+          <div class="header">{{folder.name}}</div>
+        {{feed-list feeds=folder.feeds}}
+      </div>
+  {{/each}}
+{{/ui-sidebar}}
