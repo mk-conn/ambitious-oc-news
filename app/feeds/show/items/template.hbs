@@ -2,7 +2,10 @@
   {{article-list articles=model}}
 </div>
 
-{{#infinity-loader infinityModel=model scrollable="#main"}}
-    <div>{{partial "loading"}}</div>
+{{#infinity-loader infinityModel=model destroyOnInfinity=true}}
+    <div>
+      {{partial "loading-articles"}}
+    </div>
 {{/infinity-loader}}
 
+{{outlet}}

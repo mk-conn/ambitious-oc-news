@@ -1,7 +1,6 @@
 {{#each feeds as |feed|}}
   {{#link-to "feeds.show.items" feed classNames="item"}}
     {{feed.title}}
-    <i class="large feed icon"></i>
     <div class="ui label">{{feed.unreadCount}}</div>
   {{/link-to}}
 {{/each}}
