@@ -23,11 +23,10 @@
       <i class="bookmark remove icon"></i>
   {{/if}}
 </a>
-<a class="popup icon item"
-        data-content={{openCloseHint}} {{action "toggleShowFull"}}>
-  {{#if showFull}}
-      <i class="chevron down icon"></i>
+<div class="popup icon item" {{action 'openModal' 'article' article}}>
+  {{#if articleIsOpen}}
+      <i class="compress icon"></i>
   {{else}}
-      <i class="chevron up icon"></i>
+      <i class="expand icon"></i>
   {{/if}}
-</a>
+</div>

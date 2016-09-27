@@ -5,17 +5,21 @@ const {get, $, set, computed, observer, run, typeOf, inject} = Ember;
 export default Ember.Component.extend({
   config: inject.service('configuration'),
   classNames: ['ui', 'icon', 'menu'],
+
   color: computed('color', {
     get() {
       return this.get('color') || 'green';
     }
   }),
+
   showFull: false,
+
   articleImage: computed('article', function () {
     // get first image
     const component = this.$();
     let img = $('img', component).first().attr('src');
   }),
+
   articleOpen: observer('showFull', function () {
     const item = get(this, 'article');
     if (get(item, 'unread')) {
@@ -78,6 +82,7 @@ export default Ember.Component.extend({
       }
     }
   }),
+
   isStarred: computed('article.starred', {
     get() {
       return get(this, 'article.starred');
@@ -92,18 +97,21 @@ export default Ember.Component.extend({
       }
     }
   }),
+
   starHint: computed('isStarred', function () {
     if (get(this, 'isStarred')) {
       return 'Unpin article';
     }
     return 'Pin article';
   }),
+
   openCloseHint: computed('showFull', function () {
     if (get(this, 'showFull')) {
       return 'Close article';
     }
     return 'Open article';
   }),
+
   readUnreadHint: computed('isUnread', function () {
     if (get(this, 'isUnread')) {
       return 'Mark read';
@@ -112,19 +120,27 @@ export default Ember.Component.extend({
   }),
 
   actions: {
+    openArticle() {
+      this.sendAction('openModal', this.get('article'));
+    },
+
     toggleShowFull() {
       this.toggleProperty('showFull');
     },
+
     toggleUnread() {
       this.toggleProperty('isUnread');
     },
+
     toggleStarred() {
       this.toggleProperty('isStarred');
     },
+
     originalArticle() {
       if (get(this, 'article.unread')) {
         get(this, 'article').markRead();
       }
     }
+
   }
 });

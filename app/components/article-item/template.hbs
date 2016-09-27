@@ -11,7 +11,9 @@
 </div>
 
 --}}
-
+<div class="ui small image">
+    <img src={{articleImage}}>
+</div>
 <div class="content">
     <div class="header">
       {{article.title}}
@@ -22,15 +24,11 @@
             {{article.author}} |
           {{/if}}
           {{moment-format article.pubDate 'LLLL' 'X'}} | {{article.feed.title}}
-        <div class="ui right floated main menu">{{article-buttons article=article}}</div>
+            <div class="ui right floated main menu">{{article-buttons article=article}}</div>
         </div>
     </div>
     <div class="description">
-      {{#if showFull}}
-        {{body}}
-      {{else}}
-        {{excerpt}}
-        {{article.feed.title}}
-      {{/if}}
+      {{excerpt}}
+      {{article.feed.title}}
     </div>
 </div>

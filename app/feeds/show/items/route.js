@@ -20,7 +20,7 @@ export default Ember.Route.extend(InfinityRoute, {
   },
 
   model() {
-    Ember.debug('feeds.show.items');
+    Ember.debug('-------- loading model for: feeds.show.items --------');
 
     const feed = this.modelFor('feeds/show');
     const batchSize = ENV.APP.articles.batchSize || 10;
@@ -57,6 +57,11 @@ export default Ember.Route.extend(InfinityRoute, {
   },
 
   actions: {
+
+    loading() {
+      this.render('loading', {into : 'application'});
+    },
+
     willTransition() {
       set(this, '_offset', undefined);
     }

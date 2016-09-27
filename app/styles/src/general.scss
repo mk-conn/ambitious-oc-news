@@ -1,6 +1,11 @@
+$sideBarWidth:10rem;
 .pusher {
   margin-bottom:80px;
   padding-left: 260px;
+}
+
+.sidebar-container {
+  width:$sideBarWidth;
 }
 
 //#feeds-main {

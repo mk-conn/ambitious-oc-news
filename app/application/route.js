@@ -1,12 +1,14 @@
 import Ember from 'ember';
-import ENV from 'ambitious-oc-news/config/environment';
+// import ENV from 'ambitious-oc-news/config/environment';
 import Protected from 'ambitious-oc-news/mixins/protected';
+
 const {
   Route,
   get,
   inject,
   RSVP,
-  A
+  A,
+  $
 } = Ember;
 
 export default Route.extend(Protected, {
@@ -94,6 +96,11 @@ export default Route.extend(Protected, {
   },
 
   actions: {
+
+    openModal(name) {
+      $('.ui.' + name + '.modal').modal('show');
+    },
+
     transition(route, model) {
       this.transitionTo(route, model);
     },
