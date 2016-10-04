@@ -1,20 +1,18 @@
-<div class="ui visible fixed inverted left vertical sidebar menu" id="sidebar">
-    <div class="item">
-        <div class="header">
-            <a href="/">AOC NEWS</a>
-        </div>
+<div class="item">
+    <div class="header">
+        <a href="/">AOC NEWS</a>
     </div>
-  {{#if model.feeds}}
-      <div class="item">
-          <div class="header">Feeds</div>
-        {{feed-list feeds=model.feeds}}
-      </div>
-  {{/if}}
-
-  {{#each model.folders as |folder|}}
-      <div class="item">
-          <div class="header">{{folder.name}}</div>
-        {{feed-list feeds=folder.feeds}}
-      </div>
-  {{/each}}
 </div>
+{{#if model.feeds}}
+    <div class="item">
+        <div class="header">Feeds</div>
+      {{feed-list feeds=model.feeds}}
+    </div>
+{{/if}}
+
+{{#each model.folders as |folder|}}
+    <div class="item">
+        <div class="header">{{folder.name}}</div>
+      {{feed-list feeds=folder.feeds}}
+    </div>
+{{/each}}

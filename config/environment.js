@@ -26,7 +26,7 @@ module.exports = function (environment) {
       DefaultRouteAfterLogin: 'index',
       key: "dkdk9e4045r-e0?--dd340ll",
       articles: {
-        batchSize: 10
+        batchSize: "10"
       }
     },
     // contentSecurityPolicy: {

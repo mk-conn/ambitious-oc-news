@@ -1,52 +1,66 @@
 import Ember from 'ember';
-import ENV from 'ambitious-oc-news/config/environment';
+import Env from 'ambitious-oc-news/config/environment';
 import InfinityRoute from "ember-infinity/mixins/route";
 
 const {
   get,
-  set
+  set,
+  computed
 } = Ember;
 
 export default Ember.Route.extend(InfinityRoute, {
-  _offset: undefined,
+
+  offset: "0",
+
   _canLoadMore: true,
 
-  perPageParam: "batchSize",
-  pageParam: "_offset",
-  totalPagesParam: "",
+  batchSize: Env.APP.articles.batchSize || "10",
+
+  getRead: "true",
+
+  oldestFirst: "true",
+
+  feed: null,
+
+  type: "0",
+
+  // perPageParam: "",
+  // pageParam: "offset",
+  // totalPagesParam: "",
 
   init() {
-    set(this, '_offset', undefined);
+    set(this, 'offset', undefined);
   },
 
   model() {
     Ember.debug('-------- loading model for: feeds.show.items --------');
 
-    const feed = this.modelFor('feeds/show');
-    const batchSize = ENV.APP.articles.batchSize || 10;
+    set(this, 'feed', get(this.modelFor('feeds.show'), 'id'));
 
-    return this.infinityModel('item', {
-        batchSize: batchSize,
-        type: 0,
-        id: get(feed, 'id'),
-        getRead: true,
-        oldestFirst: false
-      },
+    return this.infinityModel('item', {},
       {
-        offset: '_offset'
+        batchSize: 'batchSize',
+        offset: 'offset',
+        type: 'type',
+        id: 'feed',
+        getRead: 'getRead',
+        oldestFirst: 'oldestFirst'
       });
   },
 
   afterModel(model) {
-    set(model, 'feed', this.modelFor('feed/show'));
+    set(model, 'feed', this.modelFor('feeds.show'));
   },
 
-  afterinfinityModel(articles) {
+  afterInfinityModel(articles) {
+
     const lastObjectId = articles.get('lastObject.id');
     const loadedAny = articles.get('length') > 0;
 
     set(this, '_canLoadMore', loadedAny);
-    set(this, '_offset', lastObjectId);
+    set(this, 'offset', lastObjectId);
+
+    Ember.debug('----- Articles offset: ' + get(this, 'offset') + ' -----');
   },
 
   renderTemplate() {
@@ -59,7 +73,7 @@ export default Ember.Route.extend(InfinityRoute, {
   actions: {
 
     loading() {
-      this.render('loading', {into : 'application'});
+      this.render('loading', {into: 'application'});
     },
 
     willTransition() {
