@@ -1,5 +1,10 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
-  classNames: ['ui', 'visible', 'sidebar', 'inverted', 'vertical', 'menu', 'left']
+const {
+  Component
+} = Ember;
+
+export default Component.extend({
+  tagName: '',
+  classNames: []
 });

@@ -1,54 +1,56 @@
 {{#if config.error}}
-    <div class="alert alert-danger">
+    <div class="ui negative message">
         <strong>Failure:</strong> {{config.error}}
     </div>
 {{/if}}
 
 {{#if config.success}}
-    <div class="alert alert-success">
+    <div class="ui positive message">
         <strong>Success:</strong> {{config.success}}
     </div>
 {{/if}}
+<div class="segment">
+    <form {{action "submit" on="submit"}} class="ui form">
 
-<form {{action "submit" on="submit"}} class="form-horizontal">
+        <div class="field">
+            <label for="">Nextcloud NEWS URL</label>
+          {{input
+          value=config.domain
+          required=true
+          onChange=(action (mut config.domain))
+          icon="link"
+          }}
+        </div>
+        <div class="ui divider"></div>
+        <div class="field">
+            <label>Username</label>
+          {{input label="Username"
+          value=config.username
+          required=true
+          onChange=(action (mut config.username))
+          }}
+        </div>
+        <div class="ui divider"></div>
+        <div class="field">
+            <label>Password</label>
+          {{input label="Password"
+          type="password"
+          block=true
+          value=config.password
+          required=true
+          onChange=(action (mut config.password))
+          errorMessages=(hash required="Password is required")
+          icon="lock"
+          }}
+        </div>
+        <div class="ui divider"></div>
+        <div class="field">
+          {{ui-checkbox class="toggle" label="Remember settings (will be stored in the localstorage of your browser)"
+          checked=config.persist onChange=(action (mut config.persist))
+          }}
+        </div>
 
-    <div>
-      {{paper-input label="Nextcloud News URL"
-      block=true
-      value=config.domain
-      required=true
-      onChange=(action (mut config.domain))
-      errorMessages=(hash required="URL is required")
-      icon="link"
-      }}
-    </div>
-    <div>
-      {{paper-input label="Username"
-      value=config.username
-      required=true
-      block=true
-      onChange=(action (mut config.username))
-      errorMessages=(hash required="Username is required")
-      icon="perm_identity"
-      }}
-    </div>
-    <div>
-      {{paper-input label="Password"
-      type="password"
-      block=true
-      value=config.password
-      required=true
-      onChange=(action (mut config.password))
-      errorMessages=(hash required="Password is required")
-      icon="lock"
-      }}
-    </div>
-    <div>
-      {{#paper-checkbox value=config.persist onChange=(action (mut config.persist))}}
-          Remember settings (will be stored in the localstorage of your browser)
-      {{/paper-checkbox}}
-    </div>
+        <button class="ui button" type="submit">Submit</button>
 
-  {{#paper-button raised=true primary=true type="submit"}}Submit{{/paper-button}}
-
-</form>
+    </form>
+</div>

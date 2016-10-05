@@ -1,11 +1,5 @@
-<div id="articles">
-  {{article-list articles=model}}
-</div>
+{{article-list articles=model}}
 
 {{#infinity-loader infinityModel=model destroyOnInfinity=true}}
-    <div>
-      {{partial "loading-articles"}}
-    </div>
+  {{partial "loading-articles"}}
 {{/infinity-loader}}
-
-{{outlet}}

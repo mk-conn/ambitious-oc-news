@@ -1,9 +1,16 @@
-<container>
-    <vbox>
-        <hbox>
-            <centered>
-                <h2>Select a feed on the left to get started</h2>
-            </centered>
-        </hbox>
-    </vbox>
-</container>
+{{sustain 'components/side-bar' model}}
+
+<!-- Top Fixed Menu -->
+<div class="ui top fixed menu">
+    <a class="item menu-trigger">Menu</a>
+    <a class="item">Page 1</a>
+    <a class="item">Page 2</a>
+</div>
+
+<div class="pusher">
+    <div class="ui basic segment">
+        <div class="content">
+          {{liquid-outlet "main" class="articles-outlet-class"}}
+        </div>
+    </div>
+</div>

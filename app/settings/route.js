@@ -6,9 +6,17 @@ const {get, set, inject, Object, RSVP} = Ember;
 export default Ember.Route.extend(Protected, {
   auth: inject.service(),
   config: inject.service('configuration'),
+
   model() {
 
-    let articleSettings = Object.create(get(this, 'config').retrieve('article_settings', {allowEmbedded: false}));
+    Ember.debug('--- settings.route');
+
+    let articleSettings = Object.create(
+      get(
+        this, 'config').retrieve('article_settings',
+        {allowEmbedded: false}
+      )
+    );
 
     return RSVP.hash({
       conn: Object.create(get(this, 'config').retrieve('oc_conn')),
@@ -17,6 +25,7 @@ export default Ember.Route.extend(Protected, {
       articleSettings: articleSettings
     });
   },
+
   actions: {
     setupConnection(model) {
       set(model, 'success', null);

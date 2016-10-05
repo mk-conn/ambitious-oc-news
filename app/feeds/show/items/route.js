@@ -18,7 +18,7 @@ export default Ember.Route.extend(InfinityRoute, {
 
   getRead: "true",
 
-  oldestFirst: "true",
+  oldestFirst: "false",
 
   feed: null,
 

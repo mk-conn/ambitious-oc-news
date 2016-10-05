@@ -11,12 +11,17 @@ const {
 export default Ember.Route.extend({
   configuration: inject.service(),
   auth: inject.service(),
+
   beforeModel() {
+
+    Ember.debug('---- login.beforeModel()');
+
     const config = get(this, 'configuration');
     if (config.retrieve('oc_conn')) {
       this.transitionTo(Env.APP.DefaultRouteAfterLogin);
     }
   },
+
   model() {
     return Ember.Object.create({
       username: null,
@@ -25,7 +30,9 @@ export default Ember.Route.extend({
       persist: false
     });
   },
+
   actions: {
+
     authenticate() {
       let model = get(this, 'currentModel');
       let {domain, username, password, persist} = model.getProperties('domain', 'username', 'password', 'persist');

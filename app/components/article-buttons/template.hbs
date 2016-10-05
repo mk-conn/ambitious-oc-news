@@ -3,6 +3,7 @@
    data-content="Open article in new tab">
     <i class="external icon"></i>
 </a>
+
 <a href="mailto:?subject=Article: {{article.title}}&body={{article.title}}%0A%0A{{excerpt}}%0A%0A{{article.url}}"
    class="popup icon item">
     <i class="mail forward icon"></i>
@@ -23,7 +24,8 @@
       <i class="bookmark remove icon"></i>
   {{/if}}
 </a>
-<div class="popup icon item" {{action 'openModal' 'article' article}}>
+
+<div class="popup icon item action" {{action 'openArticle' 'article' article}}>
   {{#if articleIsOpen}}
       <i class="compress icon"></i>
   {{else}}

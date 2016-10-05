@@ -1,18 +1,21 @@
-<div class="item">
-    <div class="header">
-        <a href="/">AOC NEWS</a>
-    </div>
-</div>
-{{#if model.feeds}}
+{{#aoc-sidebar class="ui visible sidebar inverted vertical left menu"}}
     <div class="item">
-        <div class="header">Feeds</div>
-      {{feed-list feeds=model.feeds}}
+        <div class="header">
+            <a href="/">AOC NEWS</a>
+        </div>
     </div>
-{{/if}}
+    {{#if model.feeds}}
+        <div class="item">
+            <div class="header">Feeds</div>
+          {{feed-list feeds=model.feeds}}
+        </div>
+    {{/if}}
 
-{{#each model.folders as |folder|}}
-    <div class="item">
-        <div class="header">{{folder.name}}</div>
-      {{feed-list feeds=folder.feeds}}
-    </div>
-{{/each}}
+    {{#each model.folders as |folder|}}
+        <div class="item">
+            <div class="header">{{folder.name}}</div>
+          {{feed-list feeds=folder.feeds}}
+        </div>
+    {{/each}}
+
+{{/aoc-sidebar}}

@@ -4,6 +4,7 @@ const {get, $, set, computed, observer, run, typeOf, inject} = Ember;
 
 export default Ember.Component.extend({
   config: inject.service('configuration'),
+
   classNames: ['ui', 'icon', 'menu'],
 
   color: computed('color', {
@@ -13,12 +14,6 @@ export default Ember.Component.extend({
   }),
 
   showFull: false,
-
-  articleImage: computed('article', function () {
-    // get first image
-    const component = this.$();
-    let img = $('img', component).first().attr('src');
-  }),
 
   articleOpen: observer('showFull', function () {
     const item = get(this, 'article');

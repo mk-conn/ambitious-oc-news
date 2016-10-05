@@ -1,19 +1,31 @@
 import Ember from 'ember';
-import ENV from 'ambitious-oc-news/config/environment';
-const {inject, get, computed} = Ember;
+import Env from 'ambitious-oc-news/config/environment';
+const {
+  inject,
+  get,
+  computed,
+  Mixin
+} = Ember;
 
-export default Ember.Mixin.create({
+export default Mixin.create({
+
   config: inject.service('configuration'),
+
   authorized: computed(function () {
     return !!this.get('config').retrieve('oc_conn');
   }),
+
   beforeModel()
   {
     if (this.get('authorized') === false) {
-      let loginPath = ENV.APP.DefaultLoginRoute;
-      this.transitionTo(loginPath);
+      let loginPath = Env.APP.DefaultLoginRoute;
+      Ember.debug('---- Login path: ' + loginPath + '-----');
+      Ember.debug('--- current route: ' + this.get('routeName'));
+
+      // return this.transitionTo(loginPath);
     }
 
     this._super(...arguments);
-  },
+  }
+
 });
