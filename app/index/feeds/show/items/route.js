@@ -76,6 +76,11 @@ export default Ember.Route.extend(InfinityRoute, {
 
   actions: {
 
+    transitionToFeed(feed) {
+      Ember.debug('>>>> transitionToFeed ' + feed.id);
+      this.send('transition', 'index.feeds.show.items', feed);
+    },
+
     // loading() {
     //   this.render(
     //     'index/feeds/show/items/loading', {

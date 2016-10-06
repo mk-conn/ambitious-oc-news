@@ -1,5 +1,6 @@
-<div class="ui small image">
+<div class="ui tiny image">
     <img src={{articleImage}}>
+  {{article-buttons article=article onOpenArticle=onOpenArticle}}
 </div>
 <div class="content">
     <div class="header">
@@ -11,7 +12,6 @@
             {{article.author}} |
           {{/if}}
           {{moment-format article.pubDate 'LLLL' 'X'}} | {{article.feed.title}}
-            <div class="ui right floated main menu">{{article-buttons article=article onOpenArticle=onOpenArticle}}</div>
         </div>
     </div>
     <div class="description">

@@ -22,7 +22,7 @@ export default Ember.Component.extend({
   }),
 
   excerpt: computed('article.body', function () {
-    const stripAt = 160;
+    const stripAt = 120;
     let text = $(get(this, 'article.body')).text();
     if (text.length > stripAt) {
       text = text.slice(0, stripAt) + ' ...'.htmlSafe();

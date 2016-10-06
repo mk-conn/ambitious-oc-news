@@ -1,11 +1,13 @@
-<div class="articles-container">
-    <div class="article-list">
+<div class="ui grid articles-container">
+
+    <div class="article-list seven wide column">
       {{article-list articles=model onOpenArticle="openModal"}}
     </div>
 
-    <div class="article-content">
+    <div id="article-content-container" class="article-content-container nine wide column">
       {{liquid-outlet "article-content"}}
     </div>
+
 </div>
 
 {{#infinity-loader infinityModel=model destroyOnInfinity=true}}

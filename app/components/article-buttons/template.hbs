@@ -1,15 +1,15 @@
 <a href={{article.url}} target="_blank" {{action "originalArticle" preventDefault=false}}
-   class="popup icon item"
+   class=""
    data-content="Open article in new tab">
     <i class="external icon"></i>
 </a>
 
 <a href="mailto:?subject=Article: {{article.title}}&body={{article.title}}%0A%0A{{excerpt}}%0A%0A{{article.url}}"
-   class="popup icon item">
+   class="">
     <i class="mail forward icon"></i>
 </a>
 
-<a class="popup icon item" data-content="{{readUnreadHint}}" {{action "toggleUnread"}}>
+<a class="" data-content="{{readUnreadHint}}" {{action "toggleUnread"}}>
   {{#if isUnread}}
       <i class="radio icon"></i>
   {{else}}
@@ -17,7 +17,7 @@
   {{/if}}
 </a>
 
-<a class="popup icon item" {{action "toggleStarred"}} data-content={{starHint}}>
+<a class="" {{action "toggleStarred"}} data-content={{starHint}}>
   {{#if isStarred}}
       <i class="bookmark icon"></i>
   {{else}}
@@ -25,6 +25,6 @@
   {{/if}}
 </a>
 
-{{#link-to "index.feeds.show.items.show" article classNames="popup icon item"}}
+{{#link-to "index.feeds.show.items.show" article classNames=""}}
   <i class="expand icon"></i>
 {{/link-to}}

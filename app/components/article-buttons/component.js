@@ -5,7 +5,7 @@ const {get, $, set, computed, observer, run, typeOf, inject} = Ember;
 export default Ember.Component.extend({
   config: inject.service('configuration'),
 
-  classNames: ['ui', 'icon', 'menu'],
+  classNames: [],
 
   color: computed('color', {
     get() {
