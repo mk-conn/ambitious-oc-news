@@ -25,10 +25,6 @@
   {{/if}}
 </a>
 
-<div class="popup icon item action" {{action 'openArticle' 'article' article}}>
-  {{#if articleIsOpen}}
-      <i class="compress icon"></i>
-  {{else}}
-      <i class="expand icon"></i>
-  {{/if}}
-</div>
+{{#link-to "index.feeds.show.items.show" article classNames="popup icon item"}}
+  <i class="expand icon"></i>
+{{/link-to}}

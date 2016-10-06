@@ -116,7 +116,10 @@ export default Ember.Component.extend({
 
   actions: {
     openArticle() {
-      this.sendAction('openModal', this.get('article'));
+      Ember.debug('>>>> action "openArticle" called.');
+
+      $('.ui.article.modal').modal('show');
+      // this.sendAction('onOpenArticle', 'article', this.get('article'));
     },
 
     toggleShowFull() {

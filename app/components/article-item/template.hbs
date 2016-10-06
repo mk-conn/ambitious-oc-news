@@ -1,16 +1,3 @@
-{{!--
-<div class="label">
-    <div class="unread">
-      {{#if isUnread}}
-          <i class="circle icon"></i>
-      {{/if}}
-    </div>
-    <div class="title">
-      {{article.title}}
-    </div>
-</div>
-
---}}
 <div class="ui small image">
     <img src={{articleImage}}>
 </div>
@@ -24,7 +11,7 @@
             {{article.author}} |
           {{/if}}
           {{moment-format article.pubDate 'LLLL' 'X'}} | {{article.feed.title}}
-            <div class="ui right floated main menu">{{article-buttons article=article}}</div>
+            <div class="ui right floated main menu">{{article-buttons article=article onOpenArticle=onOpenArticle}}</div>
         </div>
     </div>
     <div class="description">

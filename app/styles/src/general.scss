@@ -1,5 +1,11 @@
+$sideBarWidth:260px;
+
+.ui.left.sidebar {
+  width:$sideBarWidth;
+}
+
 .pusher {
-  padding-left:260px;
+  padding-left:$sideBarWidth;
 }
 
 .action {
@@ -10,7 +16,3 @@
   padding-top:3.5em;
   margin-bottom:-7.5em;
 }
-
-//#feeds-main {
-//  max-height: 100vh;
-//}

@@ -26,6 +26,8 @@ export default Route.extend(Protected, {
   actions: {
 
     openModal(name) {
+      Ember.debug('>>>> Open modal ' + name);
+
       $('.ui.' + name + '.modal').modal('show');
     },
 

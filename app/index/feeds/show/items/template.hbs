@@ -1,5 +1,8 @@
-{{article-list articles=model}}
+{{article-list articles=model onOpenArticle="openModal"}}
+
+{{outlet}}
 
 {{#infinity-loader infinityModel=model destroyOnInfinity=true}}
   {{partial "loading-articles"}}
 {{/infinity-loader}}
+
