@@ -11,8 +11,6 @@ module.exports = function (defaults) {
     // Add options here
   });
 
-  app.import('bower_components/semantic-ui/dist/semantic.js');
-
   // var extraAssets = new Funnel('bower_components/font-awesome/fonts', {
   //   srcDir: '/',
   //   include: ['*'],

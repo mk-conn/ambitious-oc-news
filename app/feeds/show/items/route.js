@@ -33,9 +33,10 @@ export default Ember.Route.extend(InfinityRoute, {
   },
 
   model() {
-    Ember.debug('-------- loading model for: feeds.show.items --------');
+    Ember.debug('>>>> loading model for: feeds.show.items');
+    Ember.debug('>>>> Feed-ID: ' + get(this.modelFor('feeds.show'), 'id'));
 
-    set(this, 'feed', get(this.modelFor('feeds.show'), 'id'));
+    // set(this, 'feed', get(this.modelFor('feeds.show'), 'id'));
 
     return this.infinityModel('item', {},
       {

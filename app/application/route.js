@@ -6,8 +6,6 @@ const {
   Route,
   get,
   inject,
-  RSVP,
-  A,
   $
 } = Ember;
 
@@ -23,7 +21,6 @@ export default Route.extend(Protected, {
     this.get('moment').changeLocale(lang);
 
   },
-
 
 
   actions: {

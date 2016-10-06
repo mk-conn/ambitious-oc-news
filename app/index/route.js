@@ -9,6 +9,7 @@ const {
 } = Ember;
 
 export default Route.extend(Protected, {
+
   model() {
     let promises = {
       folders: this.store.findAll('folder'),
@@ -46,18 +47,15 @@ export default Route.extend(Protected, {
 
   },
 
-  afterModel(model)
-  {
+  afterModel(model) {
     this.syncFoldersInConfig(model);
   },
 
-  markAllRead()
-  {
+  markAllRead() {
 
   },
 
-  syncFoldersInConfig(model)
-  {
+  syncFoldersInConfig(model)  {
     let changed = false;
 
     const folderIds = get(model, 'folders').getEach('id');
