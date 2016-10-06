@@ -22,7 +22,7 @@ export default Mixin.create({
       Ember.debug('---- Login path: ' + loginPath + '-----');
       Ember.debug('--- current route: ' + this.get('routeName'));
 
-      // return this.transitionTo(loginPath);
+      return this.transitionTo(loginPath);
     }
 
     this._super(...arguments);

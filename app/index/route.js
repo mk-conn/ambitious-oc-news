@@ -47,6 +47,20 @@ export default Route.extend(Protected, {
 
   },
 
+  renderTemplate() {
+
+    this.render('index', {
+      into: 'application',
+      outlet: 'sidebar'
+    });
+
+    this.render('index/index', {
+      into: 'application',
+      outlet: 'main'
+    });
+
+  },
+
   afterModel(model) {
     this.syncFoldersInConfig(model);
   },
@@ -76,5 +90,6 @@ export default Route.extend(Protected, {
     if (changed) {
       get(this, 'config').store('folders', JSON.stringify(folders));
     }
-  },
+  }
+
 });

@@ -12,7 +12,7 @@ export default Component.extend({
 
     // this.$().sidebar('attach events', `#${this.get('elementId')} .item`);
     this.$().sidebar({
-      context: `#${this.get('elementId')}`
+      context: `#${this.get('side-bar-context')}`
     });
   }
 });

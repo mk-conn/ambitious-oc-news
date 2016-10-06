@@ -34,9 +34,9 @@ export default Ember.Route.extend(InfinityRoute, {
 
   model() {
     Ember.debug('>>>> loading model for: feeds.show.items');
-    Ember.debug('>>>> Feed-ID: ' + get(this.modelFor('feeds.show'), 'id'));
+    Ember.debug('>>>> Feed-ID: ' + get(this.modelFor('index.feeds.show'), 'id'));
 
-    // set(this, 'feed', get(this.modelFor('feeds.show'), 'id'));
+    set(this, 'feed', get(this.modelFor('index.feeds.show'), 'id'));
 
     return this.infinityModel('item', {},
       {
@@ -47,10 +47,13 @@ export default Ember.Route.extend(InfinityRoute, {
         getRead: 'getRead',
         oldestFirst: 'oldestFirst'
       });
+
+    // set(this, 'feed', get(this.modelFor('feeds.show'), 'id'));
+
   },
 
   afterModel(model) {
-    set(model, 'feed', this.modelFor('feeds.show'));
+    set(model, 'feed', this.modelFor('index.feeds.show'));
   },
 
   afterInfinityModel(articles) {
@@ -65,7 +68,7 @@ export default Ember.Route.extend(InfinityRoute, {
   },
 
   renderTemplate() {
-    this.render('feeds/show/items', {
+    this.render('index/feeds/show/items', {
       into: 'application',
       outlet: 'main'
     });
@@ -73,12 +76,15 @@ export default Ember.Route.extend(InfinityRoute, {
 
   actions: {
 
-    loading() {
-      this.render('loading', {into: 'application'});
-    },
+    // loading() {
+    //   this.render(
+    //     'index/feeds/show/items/loading', {
+    //       into: 'application'
+    //     });
+    // },
 
     willTransition() {
-      set(this, '_offset', undefined);
+      set(this, 'offset', "0");
     }
   }
 });

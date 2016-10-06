@@ -26,6 +26,13 @@ export default Ember.Route.extend(Protected, {
     });
   },
 
+  renderTemplate() {
+    return this.render('index/settings', {
+      into: "application",
+      outlet: "main"
+    });
+  },
+
   actions: {
     setupConnection(model) {
       set(model, 'success', null);
