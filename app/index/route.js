@@ -51,7 +51,7 @@ export default Route.extend(Protected, {
 
     this.render('index', {
       into: 'application',
-      outlet: 'sidebar'
+      outlet: 'sidebar-left'
     });
 
     this.render('index/index', {

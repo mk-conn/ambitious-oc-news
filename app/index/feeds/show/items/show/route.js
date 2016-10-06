@@ -11,6 +11,13 @@ export default Route.extend({
     Ember.debug('>>>> index/feeds/show/items/show: ' + article.id);
 
     return this.store.peekRecord('item', article.id);
+  },
+
+  renderTemplate() {
+    this.render('index/feeds/show/items/show', {
+      into: 'index/feeds/show/items',
+      outlet: 'article-content'
+    });
   }
 
 });

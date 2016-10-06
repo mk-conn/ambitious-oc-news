@@ -6,13 +6,22 @@ $sideBarWidth:260px;
 
 .pusher {
   padding-left:$sideBarWidth;
+
+  .article-list {
+    padding-top: 3.5em;
+  }
 }
 
 .action {
   cursor:pointer;
 }
 
-.content {
-  padding-top:3.5em;
-  margin-bottom:-7.5em;
+.article-content {
+  position:absolute;
+  top:3.5em;
+  left:0;
+  height:inherit;
+  background:#fff;
+  width:100%;
 }
+

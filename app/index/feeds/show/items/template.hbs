@@ -1,6 +1,12 @@
-{{article-list articles=model onOpenArticle="openModal"}}
+<div class="articles-container">
+    <div class="article-list">
+      {{article-list articles=model onOpenArticle="openModal"}}
+    </div>
 
-{{outlet}}
+    <div class="article-content">
+      {{liquid-outlet "article-content"}}
+    </div>
+</div>
 
 {{#infinity-loader infinityModel=model destroyOnInfinity=true}}
   {{partial "loading-articles"}}
