@@ -15,7 +15,7 @@ const {
 export default ArticleItem.extend({
   config: inject.service('configuration'),
 
-  classNames: ['ui', 'raised', 'large', 'segment'],
+  classNames: ['ui', 'raised', 'segment'],
 
   click() {
     Ember.debug('>>>> clicked in article-full');
