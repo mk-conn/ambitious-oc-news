@@ -15,7 +15,7 @@ const {
 export default ArticleItem.extend({
   config: inject.service('configuration'),
 
-  classNames: ['ui', 'raised', 'segment'],
+  classNames: ['ui', 'basic', 'segment'],
 
   click() {
     Ember.debug('>>>> clicked in article-full');
@@ -39,7 +39,11 @@ export default ArticleItem.extend({
 
           const origWidth = typeOf($(this).attr('width')) !== 'undefined' ? $(this).attr('width') : $(this).width();
           const origHeight = typeOf($(this).attr('height')) !== 'undefined' ? $(this).attr('height') : $(this).height();
-          const currentWidth = $('.item-body', component).width();
+          const currentWidth = $('.article-body', component).width();
+
+          Ember.debug('>>>> Original width,height:' + origWidth + ',' + origHeight);
+          Ember.debug('>>>> Current width:' + currentWidth);
+
 
           if (origWidth > currentWidth) {
 
