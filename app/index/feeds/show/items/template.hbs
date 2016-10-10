@@ -1,16 +1,13 @@
-<div class="ui grid articles-container">
+<div id="article-list-container" class="article-list">
+  {{article-list articles=model onOpenArticle="openModal"}}
 
-    <div id="article-list-container" class="article-list seven wide column">
-      {{article-list articles=model onOpenArticle="openModal"}}
-    </div>
-
-    <div id="article-content-container" class="article-content-container nine wide column">
-      {{liquid-outlet "article-content"}}
-    </div>
+  {{#infinity-loader infinityModel=model scrollable="#article-list-container" destroyOnInfinity=true}}
+    {{partial "loading-articles"}}
+  {{/infinity-loader}}
 
 </div>
 
-{{#infinity-loader infinityModel=model destroyOnInfinity=true}}
-  {{partial "loading-articles"}}
-{{/infinity-loader}}
+<div id="article-content-container" class="article-content-container">
+  {{liquid-outlet "article-content"}}
+</div>
 

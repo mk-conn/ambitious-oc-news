@@ -1,42 +1,61 @@
 html, body {
-  padding:0 !important;
-  margin:0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 body {
   min-height: 100vh;
-  display:flex;
+  display: flex;
   flex-direction: column;
 
   > div.ember-view {
-    display:flex;
-    flex:1;
+    display: flex;
+    flex: 1;
     flex-direction: row;
-    overflow:hidden;
-    height:inherit;
+    overflow: hidden;
+    height: inherit;
     max-height: 100vh;
 
-
     #side-bar {
-      flex:-1;
-      background:#27292a;
+      flex: -1;
+      background: #27292a;
       width: 20%;
-      overflow:auto;
-      height:100%;
+      overflow: auto;
+      height: 100%;
     }
 
     #content {
-      flex:1;
-      overflow: hidden;
+      flex: 1;
+      width:80%;
+
+      > div.liquid-container > div.liquid-child {
+        flex: 1;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        #article-list-container {
+          font-size:.9rem;
+          padding: 1rem;
+          flex: 1;
+          max-height: 100vh;
+          width: 50%;
+          overflow: auto;
+        }
+
+        #article-content-container {
+          flex: 2;
+          max-height: 100vh;
+          overflow: auto;
+        }
+
+      }
     }
 
   }
 
-
-
 }
-
-
 
 .action {
   cursor: pointer;
