@@ -15,6 +15,8 @@ const {
 export default ArticleItem.extend({
   config: inject.service('configuration'),
 
+  showOriginalArticle: false,
+
   classNames: ['ui', 'basic', 'segment'],
 
   click() {

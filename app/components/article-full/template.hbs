@@ -3,9 +3,15 @@
 </h4>
 
 <div class="article-body">
-  {{body}}
+  {{#if showOriginalArticle}}
+      <div class="article-embed">
+          <iframe src={{article.url}} frameborder="0"></iframe>
+      </div>
+  {{else}}
+    {{body}}
+  {{/if}}
 </div>
 
 <div class="extra">
-    Open Original Article
+    <button class="ui button" {{action toggleProperty "showOriginalArticle"}}>Open Original</button>
 </div>
