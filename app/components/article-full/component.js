@@ -17,13 +17,32 @@ export default ArticleItem.extend({
 
   showOriginalArticle: false,
 
+  originalLabel: computed('showOriginalArticle', function() {
+    if(this.get('showOriginalArticle')) {
+      return 'Feed View';
+    }
+
+    return 'Open Original Article';
+  }),
+
   classNames: ['ui', 'basic', 'segment'],
+
+  iframeWidth: computed(function() {
+    const component = this.$();
+    let currentWidth = $('.article-body', component).width();
+
+    return currentWidth - (currentWidth / 100 * 10);
+
+  }),
 
   click() {
     Ember.debug('>>>> clicked in article-full');
   },
 
   didRender() {
+
+    Ember.debug('>>>> Enter article-full::didRender()');
+
     const item = get(this, 'article');
 
     if (get(item, 'unread')) {
@@ -33,45 +52,50 @@ export default ArticleItem.extend({
     const articleSettings = config.retrieve('article_settings');
     // run.scheduleOnce('render', this, function () {
 
-      const component = this.$();
+    const component = this.$();
 
-      $('img, iframe, video', component).each(function () {
+    $('img, iframe, video', component).each(function () {
 
-        if (this.nodeName.toLowerCase() === 'iframe') {
+      const origWidth = typeOf($(this).attr('width')) !== 'undefined' ?
+        $(this).attr('width') :
+        $(this).width();
 
-          const origWidth = typeOf($(this).attr('width')) !== 'undefined' ? $(this).attr('width') : $(this).width();
-          const origHeight = typeOf($(this).attr('height')) !== 'undefined' ? $(this).attr('height') : $(this).height();
-          const currentWidth = $('.article-body', component).width();
+      const origHeight = typeOf($(this).attr('height')) !== 'undefined' ?
+        $(this).attr('height') :
+        $(this).height();
 
-          Ember.debug('>>>> Original width,height:' + origWidth + ',' + origHeight);
-          Ember.debug('>>>> Current width:' + currentWidth);
+      const currentWidth = $('.article-body', component).width();
+
+      if (this.nodeName.toLowerCase() === 'iframe') {
+
+        Ember.debug('>>>> Original width,height:' + origWidth + ',' + origHeight);
+        Ember.debug('>>>> Current width:' + currentWidth);
 
 
-          if (origWidth > currentWidth) {
+        if (origWidth > currentWidth) {
 
-            const factor = origWidth / currentWidth;
-            const scaledWidth = currentWidth;
-            const scaledHeight = Math.round(origHeight / factor);
+          const factor = origWidth / currentWidth;
+          const scaledWidth = currentWidth;
+          const scaledHeight = Math.round(origHeight / factor);
 
-            $(this).attr('width', scaledWidth);
-            $(this).attr('height', scaledHeight);
-          }
-
-          $(this).attr('sandbox', '');
-
-          if (articleSettings && get(articleSettings, 'allowEmbedded') === true) {
-            $(this).attr('sandbox', 'allow-same-origin allow-scripts');
-          } else {
-            const hint = 'Embedded content disabled: <a href="/settings">Enable in settings</a>';
-            $(this).after('<div class="text-muted">' + hint + '</div>');
-          }
-        } else {
-
-          $(this).addClass('ui fluid image');
-
+          $(this).attr('width', scaledWidth);
+          $(this).attr('height', scaledHeight);
         }
-      });
-    // });
+
+        $(this).attr('sandbox', '');
+
+        if (articleSettings && get(articleSettings, 'allowEmbedded') === true) {
+          $(this).attr('sandbox', 'allow-same-origin allow-scripts');
+        } else {
+          const hint = 'Embedded content disabled: <a href="/settings">Enable in settings</a>';
+          $(this).after('<div class="text-muted">' + hint + '</div>');
+        }
+      } else {
+        if (origWidth > currentWidth) {
+          $(this).addClass('ui fluid image');
+        }
+      }
+    });
   }
 
 });

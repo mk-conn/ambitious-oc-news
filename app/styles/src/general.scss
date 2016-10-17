@@ -29,72 +29,59 @@ body {
       width: 80%;
 
       > div.liquid-container > div.liquid-child {
-        flex: 1;
-        overflow: hidden;
+        //overflow: hidden;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         width: 100%;
 
-        #article-list-container {
-          font-size: .9rem;
-          padding: 1rem;
+        #feed-header {
           flex: 1;
-          max-height: 100vh;
-          width: 50%;
-          overflow: auto;
+          height: 3rem;
+          width: inherit;
+          background: #ccc;
         }
 
-        #article-content-container {
+        #articles-container {
           flex: 2;
-          max-height: 100vh;
-          overflow: auto;
+          display: flex;
+          flex-direction: row;
+          overflow: hidden;
+          width: 100%;
+          min-height: 90vh;
+          max-height: 100%;
 
-          .article-embed {
-            iframe {
-              width: 100%;
-              height: 90vh;
+          #article-list-container {
+            font-size: .9rem;
+            padding: 1rem;
+            flex: 1;
+            max-height: 100vh;
+            //width: 50%;
+            overflow: auto;
+          }
+
+          #article-content-container {
+            flex: 2;
+            min-height: 100vh;
+            max-height: 100vh;
+            overflow: auto;
+
+            .article-embed {
+              height: 80vh;
+              iframe {
+                width:100%;
+                height: 100%;
+              }
             }
           }
         }
       }
     }
-
   }
-
 }
 
 .action {
   cursor: pointer;
 }
-
-//.article-list {
-//  border-right: 2px solid #ccc;
-//  max-height: inherit;
-//  overflow: hidden;
-//}
-//
-//.article.item {
-//  position: relative;
-//  top: 0;
-//  right: 0;
-//}
-//
-//.articles-container {
-//  display: flex;
-//  flex-direction: row;
-//  height: 100%;
-//  overflow:hidden;
-//  //max-height:100vh;
-//}
-//
-//#article-list-container, #article-content-container {
-//  position: relative;
-//  //overflow: hidden;
-//  overflow-x: scroll;
-//  min-height: 100%;
-//  max-height: 100%;
-//  height:100%;
-//}
 
 blockquote {
   padding-left: 1.3rem;

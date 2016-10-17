@@ -1,13 +1,23 @@
-<div id="article-list-container" class="article-list">
-  {{article-list articles=model onOpenArticle="openModal"}}
-
-  {{#infinity-loader infinityModel=model scrollable="#article-list-container" destroyOnInfinity=true}}
-    {{partial "loading-articles"}}
-  {{/infinity-loader}}
-
+<div id="feed-header" class="ui three item menu">
+    <a class="item">Delete</a>
+    <a class="item">Mark Read</a>
+    <a class="item">Rename</a>
 </div>
 
-<div id="article-content-container" class="article-content-container">
-  {{liquid-outlet "article-content"}}
+<div id="articles-container">
+
+    <div id="article-list-container">
+      {{article-list articles=model}}
+
+      {{#infinity-loader infinityModel=model scrollable="#article-list-container" destroyOnInfinity=true}}
+        {{partial "loading-articles"}}
+      {{/infinity-loader}}
+
+    </div>
+
+    <div id="article-content-container">
+      {{liquid-outlet "article-content"}}
+    </div>
 </div>
+
 

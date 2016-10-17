@@ -5,7 +5,7 @@
 <div class="article-body">
   {{#if showOriginalArticle}}
       <div class="article-embed">
-          <iframe src={{article.url}} frameborder="0"></iframe>
+          <iframe seamless src={{article.url}} frameborder="0"></iframe>
       </div>
   {{else}}
     {{body}}
@@ -13,5 +13,5 @@
 </div>
 
 <div class="extra">
-    <button class="ui button" {{action toggleProperty "showOriginalArticle"}}>Open Original</button>
+    <button class="ui button" {{action toggleProperty "showOriginalArticle"}}>{{originalLabel}}</button>
 </div>
