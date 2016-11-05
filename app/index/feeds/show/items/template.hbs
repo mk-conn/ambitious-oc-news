@@ -1,6 +1,6 @@
 <div id="feed-header" class="ui three item menu">
-    <a class="item">Delete</a>
-    <a class="item">Mark Read</a>
+    <a class="item" {{action "deleteFeed" model.feed}}>Delete</a>
+    <a class="item" {{action "markAllArticlesAsRead" model.feed}}>Mark Read</a>
     <a class="item">Rename</a>
 </div>
 

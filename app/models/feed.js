@@ -2,7 +2,7 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 const {attr, belongsTo, hasMany} = DS;
-const {computed} = Ember;
+const {computed, get} = Ember;
 
 export default DS.Model.extend({
   added: attr('date'),
@@ -35,9 +35,8 @@ export default DS.Model.extend({
     promise.finally(() => {
       this.set('_updateEndpoint', null);
       this.set('_updateVerb', null);
-      const unreadCount = this.get('unreadCount');
-      this.get('items').setEach('unread', false);
 
+      get(this, 'items').setEach('unread', false);
       this.set('unreadCount', Number(0));
     });
 
