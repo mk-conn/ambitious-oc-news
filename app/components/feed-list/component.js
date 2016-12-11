@@ -6,4 +6,12 @@ const {
 
 export default Component.extend({
   classNames: ['menu', 'feed-item'],
+
+  actions: {
+
+    markAllRead(feed) {
+      feed.markAllItemsRead();
+    }
+
+  }
 });

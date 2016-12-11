@@ -36,7 +36,7 @@ export default DS.Model.extend({
       this.set('_updateEndpoint', null);
       this.set('_updateVerb', null);
 
-      get(this, 'items').setEach('unread', false);
+      get(this, 'articles').setEach('unread', false);
       this.set('unreadCount', Number(0));
     });
 
