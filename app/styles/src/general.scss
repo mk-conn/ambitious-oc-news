@@ -41,15 +41,13 @@ body {
           flex: 1;
           height: 3rem !important;
           margin:0;
-
-
           width: inherit;
           border-radius:0;
-          background: $main-box-background-color;
+          //background: $main-box-background-color;
 
-          .header.item, .item {
-            color: #eee !important;
-          }
+          //.header.item, .item:not('.dropdown.item') {
+          //  color: #eee !important;
+          //}
         }
 
         #articles-container {
