@@ -1,23 +1,36 @@
-<div id="feed-header" class="ui three item menu">
-    <a class="item" {{action "deleteFeed" model.feed}}>Delete</a>
-    <a class="item" {{action "markAllArticlesAsRead" model.feed}}>Mark Read</a>
-    <a class="item">Rename</a>
+<div id="feed-header" class="ui inverted menu">
+  <div class="header item">{{model.feed.title}}</div>
+  <a data-tooltip="Mark all articles read" data-position="bottom center" class="item" {{action "markAllArticlesAsRead"
+                                                                                               model.feed}}>
+    <i class="ui icon check mark"></i>
+  </a>
+
+  <div class="ui dropdown item">
+    <i class="ui icon ellipsis vertical"></i>
+    <div class="menu">
+      <a class="item"><i class="ui icon edit"></i></a>
+      <a class="item" {{action "deleteFeed" model.feed}}><i class="ui icon remove"></i></a>
+    </div>
+  </div>
+
+
 </div>
 
 <div id="articles-container">
 
-    <div id="article-list-container">
-      {{article-list articles=model}}
+  <div id="article-list-container">
+    {{article-list articles=model}}
 
-      {{#infinity-loader infinityModel=model scrollable="#article-list-container" destroyOnInfinity=true}}
-        {{partial "loading-articles"}}
-      {{/infinity-loader}}
+    {{#infinity-loader infinityModel=model scrollable="#article-list-container" destroyOnInfinity=true}}
+      {{partial "loading-articles"}}
+    {{/infinity-loader}}
 
-    </div>
+  </div>
 
-    <div id="article-content-container">
-      {{liquid-outlet "article-content"}}
-    </div>
+  <div id="article-content-container">
+    {{liquid-outlet "article-content"}}
+  </div>
+
 </div>
 
 

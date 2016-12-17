@@ -28,7 +28,7 @@ export default Route.extend(Protected, {
       let unfoldered = new A();
 
       hash.feeds.forEach(feed => {
-        let folder = this.store.findRecord('folder', get(feed, 'folderId'));
+        let folder = this.store.peekRecord('folder', get(feed, 'folderId'));
 
         if (folder) {
           folder.get('feeds').addObject(feed);

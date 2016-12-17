@@ -1,3 +1,5 @@
+$main-box-background-color:#003366;
+
 html, body {
   padding: 0 !important;
   margin: 0 !important;
@@ -18,7 +20,8 @@ body {
 
     #side-bar {
       flex: -1;
-      background: #27292a;
+      background: $main-box-background-color;
+      border-radius:0;
       width: 20%;
       overflow: auto;
       height: 100%;
@@ -36,9 +39,17 @@ body {
 
         #feed-header {
           flex: 1;
-          height: 3rem;
+          height: 3rem !important;
+          margin:0;
+
+
           width: inherit;
-          background: #ccc;
+          border-radius:0;
+          background: $main-box-background-color;
+
+          .header.item, .item {
+            color: #eee !important;
+          }
         }
 
         #articles-container {

@@ -15,6 +15,11 @@ export default Route.extend(Protected, {
   },
 
 
+  beforeModel() {
 
+    this._super(...arguments);
+
+    this.transitionTo('feeds');
+  }
 
 });

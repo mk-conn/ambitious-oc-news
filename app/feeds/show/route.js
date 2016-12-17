@@ -1,11 +1,20 @@
-import Ember from 'ember';
-import Protected from 'ambitious-oc-news/mixins/protected';
-const {Route} = Ember;
+import Ember from "ember";
+import Protected from "ambitious-oc-news/mixins/protected";
+
+const {
+  Route
+} = Ember;
 
 export default Route.extend(Protected, {
-
+  /**
+   *
+   * @param params
+   * @returns {*|DS.Model|null}
+   */
   model(params) {
-    return this.store.peekRecord('feed', params.feed_id);
+    Ember.debug('>>>> Feeds.Show::model()')
+    ;
+    return this.store.findRecord('feed', params.feed_id);
   }
 
 });
