@@ -27,10 +27,12 @@ export default Ember.Route.extend(Protected, {
   },
 
   renderTemplate() {
+
     return this.render('settings', {
       into: "application",
       outlet: "main"
     });
+
   },
 
   actions: {

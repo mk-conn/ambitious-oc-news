@@ -3,9 +3,13 @@
 module.exports = function (environment) {
   var ENV = {
     modulePrefix: 'ambitious-oc-news',
+
     environment: environment,
+
     locationType: 'auto',
-    rootUrl: '/',
+
+    rootURL: '/',
+
     moment: {
       allowEmpty: true,
       includeLocales: true
