@@ -1,20 +1,27 @@
-<div class="settings">
+<div class="ui inverted segment">
+  <div class="ui inverted relaxed divided list">
 
-  {{#settings-block class="connection-settings" title="Connection Settings"}}
-    {{config-form config=model.conn submit="setupConnection"}}
-  {{/settings-block}}
+    {{#settings-block class="connection-settings" title="Connection Settings"}}
+      {{config-form config=model.conn submit="setupConnection"}}
+    {{/settings-block}}
 
-  {{#settings-block class="add-feed" title="Add Feed"}}
-    {{add-feed folders=model.folders
-    feed=model.feed
-    createFolder=(route-action "createFolder")
-    submit="createFeed"}}
-  {{/settings-block}}
+    <div class="ui divider"></div>
 
-  {{#settings-block class="content-settings" title="Article settings"}}
-    {{article-settings articleSettings=model.articleSettings submit="saveArticleSettings"}}
-  {{/settings-block}}
+    {{#settings-block class="add-feed" title="Add Feed"}}
+      {{add-feed
+        folders=model.folders
+        feed=model.feed
+        createFolder=(route-action "createFolder")
+        submit="createFeed"
+      }}
+    {{/settings-block}}
 
+    <div class="ui divider"></div>
+
+    {{#settings-block class="content-settings" title="Article settings"}}
+      {{article-settings articleSettings=model.articleSettings submit="saveArticleSettings"}}
+    {{/settings-block}}
+  </div>
 </div>
 
 {{outlet}}

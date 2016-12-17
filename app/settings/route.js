@@ -55,7 +55,6 @@ export default Ember.Route.extend(Protected, {
       auth.authorize(options).then((success) => {
 
         set(model, 'success', success);
-        console.log('route.js:', success);
         if (oldUsername !== username) {
           get(this, 'config').remove('folders');
         }

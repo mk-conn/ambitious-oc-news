@@ -52,7 +52,7 @@
     "ember-data-url-templates": "0.1.0",
     "ember-infinity": "~0.2.6",
     "ember-moment": "5.0.1",
-    "ember-power-select": "0.7.2",
+    "ember-power-select": "^1.0.0",
     "ember-route-action-helper": "^2.0.0",
     "flexi": "1.2.0",
     "liquid-fire": "0.26.1",

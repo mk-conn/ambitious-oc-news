@@ -23,15 +23,14 @@
   {{/if}}
 {{/if}}
 
-<form {{action "submit" on="submit"}} class="form-horizontal">
-    <div class="form-group">
-        <label class="control-label">Feed URL</label>
+<form {{action "submit" on="submit"}} class="ui inverted form">
+    <div class="required field">
+        <label>Feed URL</label>
       {{input type="text" placeholder="https://feed-url.com/" value=feed.url class="form-control"}}
     </div>
 
-    <div class="form-group">
-        <label class="control-label">Folder</label>
-
+    <div class="field">
+        <label>Folder</label>
       {{#power-select options=folders
       selected=selected
       noMatchesMessage="Create new folder"
@@ -42,6 +41,6 @@
 
     </div>
 
-    <button type="submit" class="btn btn-primary-outline">Submit</button>
+    <button type="submit" class="ui button">Submit</button>
 
 </form>

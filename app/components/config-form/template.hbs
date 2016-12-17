@@ -10,9 +10,9 @@
     </div>
 {{/if}}
 <div class="segment">
-    <form {{action "submit" on="submit"}} class="ui large form">
+    <form {{action "submit" on="submit"}} class="ui inverted form">
 
-        <div class="field">
+        <div class="required field">
             <label for="">Nextcloud NEWS URL</label>
           {{input
           value=config.domain
@@ -21,8 +21,8 @@
           icon="link"
           }}
         </div>
-        <div class="ui divider"></div>
-        <div class="field">
+
+        <div class="required field">
             <label>Username</label>
           {{input label="Username"
           value=config.username
@@ -30,8 +30,8 @@
           onChange=(action (mut config.username))
           }}
         </div>
-        <div class="ui divider"></div>
-        <div class="field">
+
+        <div class="required field">
             <label>Password</label>
           {{input label="Password"
           type="password"
@@ -43,7 +43,7 @@
           icon="lock"
           }}
         </div>
-        <div class="ui divider"></div>
+
         <div class="field">
           {{ui-checkbox class="toggle" label="Remember settings (will be stored in the localstorage of your browser)"
           checked=config.persist onChange=(action (mut config.persist))
