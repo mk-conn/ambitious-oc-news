@@ -7,14 +7,14 @@ const {
 export default Route.extend({
 
   model(article) {
-    Ember.debug('>>>> index/feeds/show/items/show: ' + article.id);
+    Ember.debug('>>>> feeds/show/items/show: ' + article.id);
 
     return this.store.peekRecord('item', article.id);
   },
 
   renderTemplate() {
-    this.render('index/feeds/show/items/show', {
-      into: 'index/feeds/show/items',
+    this.render('feeds/show/items/show', {
+      into: 'feeds/show/items',
       outlet: 'article-content'
     });
   }

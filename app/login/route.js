@@ -14,7 +14,7 @@ export default Ember.Route.extend({
 
   beforeModel() {
 
-    Ember.debug('---- login.beforeModel()');
+    Ember.debug('>>>> login.beforeModel()');
 
     const config = get(this, 'configuration');
     if (config.retrieve('oc_conn')) {
@@ -23,6 +23,9 @@ export default Ember.Route.extend({
   },
 
   model() {
+
+    Ember.debug('>>>> Login-Route::model()');
+
     return Ember.Object.create({
       username: null,
       password: null,

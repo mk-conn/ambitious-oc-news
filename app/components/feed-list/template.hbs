@@ -1,6 +1,6 @@
 {{#each feeds as |feed|}}
     <div class="item">
-      {{#link-to "index.feeds.show.items" feed}}
+      {{#link-to "feeds.show.items" feed}}
         {{feed.title}}
       {{/link-to}}
       {{#if feed.unreadCount}}

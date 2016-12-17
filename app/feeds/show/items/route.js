@@ -34,9 +34,9 @@ export default Ember.Route.extend(InfinityRoute, {
 
   model() {
     Ember.debug('>>>> loading model for: feeds.show.items');
-    Ember.debug('>>>> Feed-ID: ' + get(this.modelFor('index.feeds.show'), 'id'));
+    Ember.debug('>>>> Feed-ID: ' + get(this.modelFor('feeds.show'), 'id'));
 
-    set(this, 'feed', get(this.modelFor('index.feeds.show'), 'id'));
+    set(this, 'feed', get(this.modelFor('feeds.show'), 'id'));
 
     return this.infinityModel('item', {},
       {
@@ -68,7 +68,7 @@ export default Ember.Route.extend(InfinityRoute, {
   },
 
   renderTemplate() {
-    this.render('index/feeds/show/items', {
+    this.render('feeds/show/items', {
       into: 'application',
       outlet: 'main'
     });
@@ -78,7 +78,7 @@ export default Ember.Route.extend(InfinityRoute, {
 
     transitionToFeed(feed) {
       Ember.debug('>>>> transitionToFeed ' + feed.id);
-      this.send('transition', 'index.feeds.show.items', feed);
+      this.send('transition', 'feeds.show.items', feed);
     },
 
     // loading() {

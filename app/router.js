@@ -1,5 +1,5 @@
-import Ember from 'ember';
-import config from './config/environment';
+import Ember from "ember";
+import config from "./config/environment";
 
 const Router = Ember.Router.extend({
   location: config.locationType,
@@ -8,20 +8,22 @@ const Router = Ember.Router.extend({
 
 Router.map(function () {
 
-  this.route('index', {path: '/'}, function () {
-    this.route('feeds', {path: '/feeds'}, function () {
-      this.route('show', {path: '/:feed_id'}, function () {
-        this.route('items', {path: '/items'}, function () {
-          this.route('show', {path: '/:id'});
-        });
-      });
-    });
+  // this.route('index', {path: '/'}, function () {
+  //
+  // });
 
-    this.route('login');
-    this.route('settings', {path: '/settings'}, function () {
+  this.route('feeds', {path: '/feeds'}, function () {
+    this.route('show', {path: '/:feed_id'}, function () {
+      this.route('items', {path: '/items'}, function () {
+        this.route('show', {path: '/:id'});
+      });
     });
   });
 
+  this.route('login', {path: '/login'}, function () {
+  });
+  this.route('settings', {path: '/settings'}, function () {
+  });
 
 });
 

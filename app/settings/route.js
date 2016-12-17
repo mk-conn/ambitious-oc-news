@@ -1,5 +1,5 @@
-import Ember from 'ember';
-import Protected from 'ambitious-oc-news/mixins/protected';
+import Ember from "ember";
+import Protected from "ambitious-oc-news/mixins/protected";
 
 const {get, set, inject, Object, RSVP} = Ember;
 
@@ -27,13 +27,14 @@ export default Ember.Route.extend(Protected, {
   },
 
   renderTemplate() {
-    return this.render('index/settings', {
+    return this.render('settings', {
       into: "application",
       outlet: "main"
     });
   },
 
   actions: {
+
     setupConnection(model) {
       set(model, 'success', null);
       set(model, 'error', null);
@@ -65,13 +66,13 @@ export default Ember.Route.extend(Protected, {
 
       return false;
     },
+
     /**
      *
      * @param name
      * @returns {*}
      **/
     createFolder(name) {
-      console.log('route.js:createFolder', name);
       return this.store.createRecord('folder', {name: name});
     },
 
@@ -116,6 +117,7 @@ export default Ember.Route.extend(Protected, {
 
       });
     },
+
     saveArticleSettings(settings) {
       let model = this.get('currentModel');
       set(model, 'articleSettings', settings);
