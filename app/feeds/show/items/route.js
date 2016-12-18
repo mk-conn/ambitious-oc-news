@@ -1,11 +1,12 @@
-import Ember from 'ember';
-import Env from 'ambitious-oc-news/config/environment';
+import Ember from "ember";
+import Env from "ambitious-oc-news/config/environment";
 import InfinityRoute from "ember-infinity/mixins/route";
 
 const {
   get,
   set,
-  computed
+  computed,
+  $
 } = Ember;
 
 export default Ember.Route.extend(InfinityRoute, {

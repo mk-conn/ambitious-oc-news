@@ -1,11 +1,9 @@
-<div class="ui inverted segment">
-  <div class="ui inverted relaxed divided list">
+<div class="ui segment">
+  <div class="ui relaxed divided list">
 
     {{#settings-block class="connection-settings" title="Connection Settings"}}
       {{config-form config=model.conn submit="setupConnection"}}
     {{/settings-block}}
-
-    <div class="ui divider"></div>
 
     {{#settings-block class="add-feed" title="Add Feed"}}
       {{add-feed
@@ -15,8 +13,6 @@
         submit="createFeed"
       }}
     {{/settings-block}}
-
-    <div class="ui divider"></div>
 
     {{#settings-block class="content-settings" title="Article settings"}}
       {{article-settings articleSettings=model.articleSettings submit="saveArticleSettings"}}

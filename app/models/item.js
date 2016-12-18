@@ -17,6 +17,7 @@ export default DS.Model.extend({
   lastModified: attr('date'),
   feedId: attr('number'),
   searchIndex: attr('string'),
+
   markRead() {
     this.set('_updateEndpoint', '/items/' + this.get('id') + '/read');
     let promise = this.save();
@@ -35,6 +36,7 @@ export default DS.Model.extend({
 
     return promise;
   },
+
   markUnread() {
     this.set('_updateEndpoint', '/items/' + this.get('id') + '/unread');
     let promise = this.save();

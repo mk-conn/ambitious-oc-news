@@ -55,7 +55,7 @@
     "ember-power-select": "^1.0.0",
     "ember-route-action-helper": "^2.0.0",
     "flexi": "1.2.0",
-    "liquid-fire": "0.26.1",
-    "semantic-ui-ember": "2.0.0-beta.0"
+    "liquid-fire": "^0.27.0",
+    "semantic-ui-ember": "2.0.0"
   }
 }

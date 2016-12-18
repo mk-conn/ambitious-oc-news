@@ -7,7 +7,7 @@
   "devDependencies": {
     "blob-polyfill": "~1.0.20150320",
     "fastclick": "~1.0.6",
-    "semantic-ui": "^2.2.4",
+    "semantic-ui": "^2.2.6",
     "font-awesome": "~4.6.0",
     "moment": ">= 2.8.0",
     "moment-timezone": ">= 0.1.0",

@@ -14,7 +14,7 @@ export default Route.extend(Protected, {
   model(params) {
     Ember.debug('>>>> Feeds.Show::model()')
     ;
-    return this.store.findRecord('feed', params.feed_id);
+    return this.store.peekRecord('feed', params.feed_id);
   }
 
 });

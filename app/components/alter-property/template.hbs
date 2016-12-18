@@ -1,0 +1,10 @@
+<form class="ui form">
+  <div class="field">
+    <label for="">{{uc-first property}}</label>
+    {{input type="text" value=(get model property)}}
+  </div>
+  {{#if hasChanged}}
+    <button class="ui button" {{action "rename"}}>Rename</button>
+  {{/if}}
+</form>
+

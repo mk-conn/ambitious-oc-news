@@ -3,6 +3,7 @@ import Ember from 'ember';
 const {get, $, set, computed, observer, run, typeOf, inject} = Ember;
 
 export default Ember.Component.extend({
+
   config: inject.service('configuration'),
   classNames: ['article', 'item'],
   classNameBindings: ['isUnread'],
@@ -14,7 +15,7 @@ export default Ember.Component.extend({
     let src = img.attr('src');
 
     if (!src) {
-      src = 'img/no-image.jpg';
+      src = '/img/no-image.jpg';
     }
 
     return src;

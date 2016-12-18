@@ -9,18 +9,17 @@ const KEY_ENTER = 13;
 export default Component.extend({
   tagName: 'div',
   isEditing: false,
-  hint: 'Rename',
   value: computed.alias('model', 'property', function () {
     return get(this, 'model').get(get(this, 'property'));
   }),
-  setFocus: observer('isEditing', function () {
-    if (get(this, 'isEditing')) {
-
-      run.scheduleOnce('afterRender', this, function () {
-        $('input#rename-property').focus();
-      });
-    }
-  }),
+  // setFocus: observer('isEditing', function () {
+  //   if (get(this, 'isEditing')) {
+  //
+  //     run.scheduleOnce('afterRender', this, function () {
+  //       $('input#rename-property').focus();
+  //     });
+  //   }
+  // }),
   hasChanged: computed('model.hasDirtyAttributes', function () {
     if (get(this, 'model.hasDirtyAttributes')) {
       return true;
@@ -36,11 +35,11 @@ export default Component.extend({
   actions: {
     rename() {
       const model = this.attrs.model.value;
-      const renameFunction = this.attrs.renameFunction;
+      const onUpdate = this.attrs.onUpdate;
 
       if (get(this, 'value')) {
 
-        model[renameFunction]().then(() => {
+        model[onUpdate]().then(() => {
           set(this, 'isEditing', false);
         }, error => {
           throw error;

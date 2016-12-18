@@ -22,8 +22,11 @@ export default Route.extend(Protected, {
 
   },
 
-
   actions: {
+
+    confirm(msg) {
+
+    },
 
     openModal(name) {
       Ember.debug('>>>> Open modal ' + name);

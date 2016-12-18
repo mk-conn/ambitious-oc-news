@@ -14,6 +14,8 @@ export default Route.extend(Protected, {
    *
    */
   model() {
+    Ember.debug('>>>> Feeds.model()');
+
     let promises = {
       folders: this.store.findAll('folder'),
       feeds: this.store.findAll('feed')
@@ -55,8 +57,6 @@ export default Route.extend(Protected, {
    */
   afterModel(model) {
     this.syncFoldersInConfig(model);
-
-    this.transitionTo('feeds');
   },
 
   /**
@@ -110,14 +110,14 @@ export default Route.extend(Protected, {
      * @param feed
      */
     deleteFeed(feed) {
-      Ember.debug('>>>> feeds::deleteFeed()');
+      if (confirm(`Really delete feed ${get(feed, 'title')}?`)) {
+        feed.deleteRecord();
 
-      feed.deleteRecord();
-
-      if (feed.get('isDeleted')) {
-        feed.save().then(() => {
-          this.transitionTo('index');
-        });
+        if (feed.get('isDeleted')) {
+          feed.save().then(() => {
+            this.transitionTo('index');
+          });
+        }
       }
     },
     /**

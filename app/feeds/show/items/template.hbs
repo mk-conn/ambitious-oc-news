@@ -2,18 +2,24 @@
 
   <div class="header item">{{model.feed.title}}</div>
 
-  <a title="Mark all articles read" class="item" {{action "markAllArticlesAsRead" model.feed}}>
-    <i class="ui icon check mark"></i>
-  </a>
+  {{#if model.feed.unreadCount}}
+    <a title="Mark as read" class="item" {{action "markAllArticlesAsRead" model.feed}}>
+      <i class="ui icon radio"></i>
+    </a>
+  {{else}}
+    <div class="item" title="No unread articles">
+      <i class="ui icon check circle outline "></i>
+    </div>
+  {{/if}}
 
   {{#ui-dropdown class="dropdown item"}}
-    More
     <i class="ui icon ellipsis vertical"></i>
+    More
     <div class="ui labeled icon menu">
-      <a class="item" title="Edit feed">
+      {{#link-to "feeds.edit" model.feed title="Edit feed" classNames="item"}}
         <i class="edit icon"></i>
         Edit
-      </a>
+      {{/link-to}}
       <a class="item" {{action "deleteFeed" model.feed}} title="Remove feed">
         <i class="delete icon"></i>
         Delete
@@ -39,5 +45,3 @@
   </div>
 
 </div>
-
-

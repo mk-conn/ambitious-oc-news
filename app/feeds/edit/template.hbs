@@ -1,0 +1,17 @@
+<div class="ui basic segment">
+
+  {{#link-to "feeds.show.items" model tagName="button" classNames="ui vertical animated button"}}
+    <div class="hidden content">Back</div>
+    <div class="visible content">
+      <i class="arrow up icon"></i>
+    </div>
+  {{/link-to}}
+
+  <h4 class="ui divided header">Edit feed {{model.title}}</h4>
+
+  {{alter-property model=model property='title' onUpdate='rename'}}
+
+</div>
+
+
+{{outlet}}

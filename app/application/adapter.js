@@ -1,11 +1,11 @@
-import DS from 'ember-data';
-import Ember from 'ember';
-import Env from 'ambitious-oc-news/config/environment';
+import DS from "ember-data";
+import Ember from "ember";
+import Env from "ambitious-oc-news/config/environment";
 //import UrlTemplates from 'ember-data-url-templates';
 
 const {
   inject, get, computed
-  } = Ember;
+} = Ember;
 
 export default DS.RESTAdapter.extend({
   configuration: inject.service(),
