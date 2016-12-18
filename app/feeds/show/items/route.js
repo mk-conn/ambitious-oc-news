@@ -91,12 +91,25 @@ export default Ember.Route.extend(InfinityRoute, {
   },
 
   actions: {
-
+    /**
+     *
+     * @param feed
+     */
     transitionToFeed(feed) {
       Ember.debug('>>>> transitionToFeed ' + feed.id);
       this.send('transition', 'feeds.show.items', feed);
     },
+    /**
+     *
+     * @param article
+     */
+    openArticle(article) {
+      this.send('transition', 'feeds.show.items.show', article);
+    },
 
+    closeArticle() {
+      this.send('transition', 'feeds.show.items', this.modelFor('feeds.show'));
+    },
     // loading() {
     //   this.render(
     //     'feeds/show/items/loading', {
@@ -105,7 +118,11 @@ export default Ember.Route.extend(InfinityRoute, {
     // },
 
     willTransition() {
+
       set(this, 'offset', "0");
+
+      this._super(...arguments);
+
     }
   }
 });

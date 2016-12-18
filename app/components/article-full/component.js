@@ -1,5 +1,5 @@
-import Ember from 'ember';
-import ArticleItem from '../article-item/component';
+import Ember from "ember";
+import ArticleItem from "../article-item/component";
 
 const {
   get,
@@ -17,8 +17,8 @@ export default ArticleItem.extend({
 
   showOriginalArticle: false,
 
-  originalLabel: computed('showOriginalArticle', function() {
-    if(this.get('showOriginalArticle')) {
+  originalLabel: computed('showOriginalArticle', function () {
+    if (this.get('showOriginalArticle')) {
       return 'Feed View';
     }
 
@@ -27,17 +27,13 @@ export default ArticleItem.extend({
 
   classNames: ['ui', 'basic', 'segment'],
 
-  iframeWidth: computed(function() {
+  iframeWidth: computed(function () {
     const component = this.$();
     let currentWidth = $('.article-body', component).width();
 
     return currentWidth - (currentWidth / 100 * 10);
 
   }),
-
-  click() {
-    Ember.debug('>>>> clicked in article-full');
-  },
 
   didRender() {
 
@@ -96,6 +92,16 @@ export default ArticleItem.extend({
         }
       }
     });
+  },
+
+  actions: {
+    closeArticle(article) {
+      Ember.debug(`ArticleFull-Component::closeArticle(${article})`);
+
+      this.sendAction('onCloseArticle', article);
+
+      $('#article-content-container').hide();
+    }
   }
 
 });

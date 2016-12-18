@@ -1,28 +1,28 @@
 <div class="ui tiny image">
-    <img src={{articleImage}}>
+  <img src={{articleImage}}>
 </div>
 <div class="content">
 
-  {{#link-to "feeds.show.items.show" article tagName="div" classNames="action"}}
-
+  <div class="action" {{action "openArticle" article}}>
     {{#if article.unread}}
-        <h4 class="ui black header">{{article.title}}</h4>
+      <h4 class="ui black header">{{article.title}}</h4>
     {{else}}
-        <h4 class="ui grey header">{{article.title}}</h4>
+      <h4 class="ui grey header">{{article.title}}</h4>
     {{/if}}
 
     {{moment-format article.pubDate 'LLLL' 'X'}}
-      <div class="meta">
-              <i>{{#if article.author}}
-                {{article.author}} |
-              {{/if}}
-                {{article.feed.title}}</i>
-      </div>
-      <div class="description">
-        {{excerpt}}
-      </div>
-  {{/link-to}}
-    <div class="extra">
-      {{article-buttons article=article onOpenArticle=onOpenArticle}}
+    <div class="meta">
+      <i>{{#if article.author}}
+        {{article.author}} |
+      {{/if}}
+        {{article.feed.title}}</i>
     </div>
+    <div class="description">
+      {{excerpt}}
+    </div>
+  </div>
+
+  <div class="extra">
+    {{article-buttons article=article onOpenArticle=onOpenArticle}}
+  </div>
 </div>

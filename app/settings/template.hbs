@@ -1,5 +1,14 @@
 <div class="ui segment">
-  <div class="ui relaxed divided list">
+
+
+  <button class="ui vertical animated button" {{action "goBack"}}>
+    <div class="hidden content">Feeds</div>
+    <div class="visible content">
+      <i class="arrow up icon"></i>
+    </div>
+  </button>
+
+  <div class="ui relaxed list">
 
     {{#settings-block class="connection-settings" title="Connection Settings"}}
       {{config-form config=model.conn submit="setupConnection"}}

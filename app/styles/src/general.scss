@@ -73,9 +73,11 @@ body {
             min-height: 100vh;
             max-height: 100vh;
             overflow: auto;
+            display:none;
 
             .article-embed {
               height: 80vh;
+
               iframe {
                 width:100%;
                 height: 100%;

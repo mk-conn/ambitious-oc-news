@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 const {get, $, set, computed, observer, run, typeOf, inject} = Ember;
 
@@ -33,5 +33,18 @@ export default Ember.Component.extend({
 
   body: computed('article.body', function () {
     return get(this, 'article.body').htmlSafe();
-  })
+  }),
+
+  actions: {
+    /**
+     *
+     * @param article
+     */
+    openArticle(article) {
+
+      this.sendAction('onOpenArticle', article);
+
+      $('#article-content-container').show();
+    }
+  }
 });

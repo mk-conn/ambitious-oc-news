@@ -1,17 +1,22 @@
-<h4 class="ui large header">
+<h3 class="ui right aligned grey header">
+  <span class="action" {{action "closeArticle" article}}>
+    <i class="ui icon close"></i>
+  </span>
+</h3>
+<h4 class="sub-header">
   {{article.title}}
 </h4>
 
 <div class="article-body">
   {{#if showOriginalArticle}}
-      <div class="article-embed">
-          <iframe seamless src={{article.url}} frameborder="0"></iframe>
-      </div>
+    <div class="article-embed">
+      <iframe seamless src={{article.url}} frameborder="0"></iframe>
+    </div>
   {{else}}
     {{body}}
   {{/if}}
 </div>
 
 <div class="extra">
-    <button class="ui button" {{action toggleProperty "showOriginalArticle"}}>{{originalLabel}}</button>
+  <button class="ui button" {{action toggleProperty "showOriginalArticle"}}>{{originalLabel}}</button>
 </div>

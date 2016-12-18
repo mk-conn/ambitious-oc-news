@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Ember from "ember";
 // import ENV from 'ambitious-oc-news/config/environment';
-import Protected from 'ambitious-oc-news/mixins/protected';
+import Protected from "ambitious-oc-news/mixins/protected";
 
 const {
   Route,
@@ -23,9 +23,14 @@ export default Route.extend(Protected, {
   },
 
   actions: {
-
-    confirm(msg) {
-
+    willTransition(){
+      console.log('routename:', this.routeName);
+      console.log('currentRouteName:', this.get('currentRouteName'));
+      this.controllerFor('application').set('lastRoute', this.routeName);
+    },
+    goBack(){
+      let appController = this.controllerFor('application');
+      this.transitionTo(appController.get('lastRoute'));
     },
 
     openModal(name) {
@@ -35,6 +40,8 @@ export default Route.extend(Protected, {
     },
 
     transition(route, model) {
+      Ember.debug(`>>>> AppRoute::transition('${route}, ${model}`);
+
       this.transitionTo(route, model);
     },
 

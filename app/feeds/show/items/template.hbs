@@ -1,6 +1,11 @@
 <div id="feed-header" class="ui horizontal menu">
+  {{liquid-outlet "feed-header"}}
 
-  <div class="header item">{{model.feed.title}}</div>
+  <div class="header item">
+    <a href="{{model.feed.link}}" target="_blank">
+      {{model.feed.title}}
+    </a>
+  </div>
 
   {{#if model.feed.unreadCount}}
     <a title="Mark as read" class="item" {{action "markAllArticlesAsRead" model.feed}}>
@@ -32,7 +37,8 @@
 <div id="articles-container">
 
   <div id="article-list-container">
-    {{article-list articles=model}}
+    {{article-list articles=model onOpenArticle=(route-action "openArticle")
+                   onCloseArticle=(route-action "closeArticle")}}
 
     {{#infinity-loader infinityModel=model scrollable="#article-list-container" destroyOnInfinity=true}}
       {{partial "loading-articles"}}
