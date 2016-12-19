@@ -70,6 +70,7 @@ body {
             flex: 1;
             max-height: 100vh;
             overflow: auto;
+            padding-bottom:5rem;
           }
 
           #article-content-container {
@@ -79,6 +80,10 @@ body {
             max-height: 100vh;
             overflow: auto;
             display: none;
+
+            .article-body {
+              padding-bottom: 3rem;
+            }
 
             .article-embed {
               height: 80vh;
@@ -93,6 +98,10 @@ body {
       }
     }
   }
+}
+
+.article.item {
+  padding-bottom: 4rem;
 }
 
 .action {
