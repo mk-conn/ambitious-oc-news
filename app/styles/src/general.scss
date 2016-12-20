@@ -27,8 +27,8 @@ body {
       height: 100%;
 
       .feed-icon.image {
-        width:2em;
-        height:2em;
+        width: 2em;
+        height: 2em;
       }
 
       .item a.active {
@@ -59,7 +59,7 @@ body {
           //  color: #eee !important;
           //}
         }
-// http://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp  overlay exmaples
+        // http://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp  overlay exmaples
         #articles-container {
           flex: 2;
           display: flex;
@@ -75,7 +75,7 @@ body {
             flex: 1;
             max-height: 100vh;
             overflow: auto;
-            padding-bottom:5rem;
+            padding-bottom: 5rem;
           }
 
           #article-content-container {
@@ -85,6 +85,10 @@ body {
             max-height: 100vh;
             overflow: auto;
             display: none;
+
+            .article-title {
+              text-overflow: ellipsis;
+            }
 
             .article-body {
               padding-bottom: 3rem;

@@ -1,21 +1,22 @@
 import Ember from "ember";
-import ArticleItem from "../article-item/component";
 
 const {
+  Component,
   get,
   $,
-  set,
   computed,
-  observer,
-  run,
   typeOf,
   inject
 } = Ember;
 
-export default ArticleItem.extend({
+export default Component.extend({
   config: inject.service('configuration'),
 
   showOriginalArticle: false,
+
+  body: computed('article.body', function () {
+    return this.get('article.body').htmlSafe();
+  }),
 
   originalLabel: computed('showOriginalArticle', function () {
     if (this.get('showOriginalArticle')) {
@@ -39,10 +40,10 @@ export default ArticleItem.extend({
 
     Ember.debug('>>>> Enter article-full::didRender()');
 
-    const item = get(this, 'article');
+    const article = get(this, 'article');
 
-    if (get(item, 'unread')) {
-      item.markRead();
+    if (get(article, 'unread')) {
+      article.markRead();
     }
     const config = this.get('config', null);
     const articleSettings = config.retrieve('article_settings');
@@ -63,10 +64,6 @@ export default ArticleItem.extend({
       const currentWidth = $('.article-body', component).width();
 
       if (this.nodeName.toLowerCase() === 'iframe') {
-
-        Ember.debug('>>>> Original width,height:' + origWidth + ',' + origHeight);
-        Ember.debug('>>>> Current width:' + currentWidth);
-
 
         if (origWidth > currentWidth) {
 

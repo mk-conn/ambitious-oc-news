@@ -4,12 +4,7 @@
 <div class="content">
 
   <div class="action" {{action "openArticle" article}}>
-    {{#if article.unread}}
-      <h4 class="ui black header">{{article.title}}</h4>
-    {{else}}
-      <h4 class="ui grey header">{{article.title}}</h4>
-    {{/if}}
-
+    <h4 class="ui article-title {{readOrUnread}} header">{{title}}</h4>
     {{moment-format article.pubDate 'LLLL' 'X'}}
     <div class="meta">
       <i>{{#if article.author}}

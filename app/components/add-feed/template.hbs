@@ -1,10 +1,10 @@
 {{#if feed.error}}
-    <div class="alert alert-danger">
+    <div class="ui error message">
         <strong>Failure:</strong> {{feed.error}}
     </div>
 {{else}}
   {{#if feed.success.title}}
-      <div class="alert alert-success">
+      <div class="ui success message">
           <strong>Success:</strong>
           <div>
             {{#link-to "feeds.show.items" feed.success.id}}

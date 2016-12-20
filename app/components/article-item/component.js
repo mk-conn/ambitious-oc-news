@@ -8,6 +8,24 @@ export default Ember.Component.extend({
   classNames: ['article', 'item'],
   classNameBindings: ['isUnread'],
 
+  readOrUnread: computed('article.unread', function () {
+    if (this.get('article.unread')) {
+      return 'blue';
+    }
+    return 'grey';
+  }),
+
+
+  /**
+   * some feeds add the content into the title tag, thats
+   * why we do -this- thing here.
+   */
+  title: computed('article.title', function () {
+    let title = this.get('article.title');
+
+    return title;
+  }),
+
   articleImage: computed('article.body', function () {
     let body = $(get(this, 'article.body'));
 
@@ -31,20 +49,18 @@ export default Ember.Component.extend({
     return text;
   }),
 
-  body: computed('article.body', function () {
-    return get(this, 'article.body').htmlSafe();
-  }),
-
   actions: {
     /**
      *
      * @param article
      */
-    openArticle(article) {
+    openArticle(article)
+    {
 
       this.sendAction('onOpenArticle', article);
 
       $('#article-content-container').show();
     }
   }
-});
+})
+;
