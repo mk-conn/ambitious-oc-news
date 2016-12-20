@@ -26,7 +26,7 @@ export default Component.extend({
     return 'Open Original Article';
   }),
 
-  classNames: ['ui', 'basic', 'segment'],
+  classNames: ['ui', 'basic', 'segment', 'article-full'],
 
   iframeWidth: computed(function () {
     const component = this.$();
@@ -35,6 +35,11 @@ export default Component.extend({
     return currentWidth - (currentWidth / 100 * 10);
 
   }),
+
+  doubleClick() {
+    console.log('doubleclicked!:', 'true');
+    this.send('closeArticle', this.get('article'));
+  },
 
   didRender() {
 
@@ -89,6 +94,9 @@ export default Component.extend({
         }
       }
     });
+
+    $('#article-content-container').show();
+
   },
 
   actions: {

@@ -17,14 +17,15 @@
     </div>
   {{/if}}
 
+  {{#link-to "feeds.edit" model.feed title="Edit feed" classNames="item"}}
+    <i class="edit icon"></i>
+    Edit
+  {{/link-to}}
+
   {{#ui-dropdown class="dropdown item"}}
     <i class="ui icon ellipsis vertical"></i>
     More
     <div class="ui labeled icon menu">
-      {{#link-to "feeds.edit" model.feed title="Edit feed" classNames="item"}}
-        <i class="edit icon"></i>
-        Edit
-      {{/link-to}}
       <a class="item" {{action "deleteFeed" model.feed}} title="Remove feed">
         <i class="delete icon"></i>
         Delete
@@ -37,8 +38,7 @@
 <div id="articles-container">
 
   <div id="article-list-container">
-    {{article-list articles=model onOpenArticle=(route-action "openArticle")
-                   onCloseArticle=(route-action "closeArticle")}}
+    {{article-list articles=model}}
 
     {{#infinity-loader infinityModel=model scrollable="#article-list-container" destroyOnInfinity=true}}
       {{partial "loading-articles"}}
@@ -46,8 +46,8 @@
 
   </div>
 
-  <div id="article-content-container">
-    {{liquid-outlet "article-content"}}
-  </div>
+</div>
 
+<div id="article-content-container">
+  {{liquid-outlet "article-content"}}
 </div>

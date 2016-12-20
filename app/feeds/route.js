@@ -109,11 +109,6 @@ export default Route.extend(Protected, {
    */
   actions: {
 
-    openArticle(article) {
-      Ember.debug(`>>>> Feeds::openArticle(${article})`);
-      this.send('transition', 'feeds.show.items.show', article);
-    },
-
     closeArticle() {
       this.send('transition', 'feeds.show.items', this.modelFor('feeds.show'));
     },

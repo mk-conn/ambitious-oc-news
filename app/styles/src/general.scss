@@ -53,12 +53,8 @@ body {
           margin: 0;
           width: inherit;
           border-radius: 0;
-          //background: $main-box-background-color;
-
-          //.header.item, .item:not('.dropdown.item') {
-          //  color: #eee !important;
-          //}
         }
+
         // http://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp  overlay exmaples
         #articles-container {
           flex: 2;
@@ -77,33 +73,43 @@ body {
             overflow: auto;
             padding-bottom: 5rem;
           }
+        }
 
-          #article-content-container {
-            border: 1.5rem solid rgba(11, 11, 11, .8);
-            flex: 2;
-            min-height: 100vh;
-            max-height: 100vh;
-            overflow: auto;
-            display: none;
+        #article-content-container {
+          min-height: 100vh;
+          max-height: 100vh;
+          overflow: auto;
+          display: none;
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 70%;
+          z-index: 10;
+          box-shadow: 3px 3px rgba(0, 0, 0, .16), -1em 0 0.4em rgba(0, 0, 0, .16);
+          background: rgba(11, 11, 11, .9);
 
-            .article-title {
-              text-overflow: ellipsis;
-            }
+          .article-full {
+            background: #fff;
+          }
 
-            .article-body {
-              padding-bottom: 3rem;
-            }
+          .article-title {
+            text-overflow: ellipsis;
+          }
 
-            .article-embed {
-              height: 80vh;
+          .article-body {
+            padding-bottom: 3rem;
+          }
 
-              iframe {
-                width: 100%;
-                height: 100%;
-              }
+          .article-embed {
+            height: 80vh;
+
+            iframe {
+              width: 100%;
+              height: 100%;
             }
           }
         }
+
       }
     }
   }
@@ -113,11 +119,19 @@ body {
   padding-bottom: 4rem;
 }
 
+.article.item:hover {
+  background: lighten(#1F88BE, 50);
+}
+
+//.article.item < .ember-view.action.active {
+//  background: lighten(#1F88BE, 40);
+//}
+
 .action {
   cursor: pointer;
 }
 
 blockquote {
   padding-left: 1.3rem;
-  border-left: 1px solid #ccc;
+  border-left: .3rem solid #ccc;
 }

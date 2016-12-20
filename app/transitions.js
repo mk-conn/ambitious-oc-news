@@ -6,7 +6,7 @@ export default function () {
   this.transition(
     this.fromRoute('feeds.show.items'),
     this.toRoute('feeds.edit'),
-    this.use('toDown'),
-    this.reverse('toUp')
+    this.use('toDown', {duration: 350}),
+    this.reverse('toUp', {duration: 300})
   );
-};
+}

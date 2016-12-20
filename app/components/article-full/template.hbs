@@ -1,12 +1,12 @@
-<div class="ui basic right aligned segment">
-  <button class="ui basic circular huge icon button" {{action "closeArticle" article}}>
-    <i class="ui icon close"></i>
-  </button>
-</div>
+<button class="ui basic huge circular right floated icon button" {{action "closeArticle" article}}>
+  <i class="ui icon close"></i>
+</button>
 
-<h4 class="header">
-  {{article.title}}
-</h4>
+<div class="ui basic compact segment">
+  <h3 class="ui header">
+    {{article.title}}
+  </h3>
+</div>
 
 <div class="article-body">
   {{#if showOriginalArticle}}
