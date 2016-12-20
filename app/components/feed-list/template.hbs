@@ -1,5 +1,6 @@
 {{#each feeds as |feed|}}
     <div class="item">
+      <img src="{{feed.feedIcon}}" class="ui mini inline feed-icon image" />
       {{#link-to "feeds.show.items" feed}}
         {{feed.title}}
       {{/link-to}}

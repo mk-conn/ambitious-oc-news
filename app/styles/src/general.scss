@@ -26,6 +26,11 @@ body {
       overflow: auto;
       height: 100%;
 
+      .feed-icon.image {
+        width:2em;
+        height:2em;
+      }
+
       .item a.active {
         font-weight: bold;
         color: #fff;

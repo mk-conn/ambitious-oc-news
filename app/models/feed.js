@@ -16,6 +16,10 @@ export default DS.Model.extend({
   folder: belongsTo('folder'),
   items: hasMany('item'),
   feedIcon: computed('faviconLink', function () {
+    let faviconLink = this.get('faviconLink');
+    if (!faviconLink) {
+      faviconLink = '';
+    }
     return this.get('faviconLink');
   }),
   markAllItemsRead() {
