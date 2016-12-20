@@ -5,10 +5,13 @@ const {
   Route,
   RSVP,
   A,
-  get
+  get,
+  inject
 } = Ember;
 
 export default Route.extend(Protected, {
+
+  meta: inject.service(),
 
   /**
    *
@@ -105,6 +108,16 @@ export default Route.extend(Protected, {
    *
    */
   actions: {
+
+    openArticle(article) {
+      Ember.debug(`>>>> Feeds::openArticle(${article})`);
+      this.send('transition', 'feeds.show.items.show', article);
+    },
+
+    closeArticle() {
+      this.send('transition', 'feeds.show.items', this.modelFor('feeds.show'));
+    },
+
     /**
      *
      * @param feed

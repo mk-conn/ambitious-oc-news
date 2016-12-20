@@ -80,11 +80,13 @@ export default DS.Model.extend({
   unstar() {
     this.set('_updateEndpoint', '/items/' + this.get('feedId') + '/' + this.get('guidHash') + '/unstar');
     let promise = this.save();
+
     promise.finally(() => {
       this.set('_updateEndpoint', null);
       this.set('starred', false);
       this.get('meta').decrementProperty('starredCount');
     });
+
     return promise;
   }
 

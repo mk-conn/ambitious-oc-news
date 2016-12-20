@@ -1,10 +1,3 @@
-{{#if starredCount}}
-  <div class="item">
-    Pinned
-    <div class="ui label action">{{starredCount}}</div>
-  </div>
-{{/if}}
-
 {{#each feeds as |feed|}}
   <div class="item">
     <img src="{{feed.feedIcon}}" class="ui mini inline feed-icon image"/>

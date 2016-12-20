@@ -15,6 +15,7 @@ export default DS.Model.extend({
   url: attr('string'),
   folder: belongsTo('folder'),
   items: hasMany('item'),
+
   feedIcon: computed('faviconLink', function () {
     let faviconLink = this.get('faviconLink');
     if (!faviconLink) {
@@ -22,6 +23,7 @@ export default DS.Model.extend({
     }
     return this.get('faviconLink');
   }),
+
   markAllItemsRead() {
     this.set('_updateEndpoint', '/feeds/' + this.get('id') + '/read');
     this.set('_updateVerb', 'PUT');

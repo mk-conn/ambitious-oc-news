@@ -1,0 +1,35 @@
+<div id="feed-header" class="ui horizontal menu">
+
+  {{liquid-outlet "feed-header"}}
+
+  <div class="header item">
+    <a href="{{model.feed.link}}" target="_blank">
+      {{model.feed.title}}
+    </a>
+  </div>
+
+  {{#if model.feed.unreadCount}}
+    <a title="Mark as read" class="item" {{action "markAllArticlesAsRead" model.feed}}>
+      <i class="ui icon radio"></i>
+    </a>
+  {{else}}
+    <div class="item" title="No unread articles">
+      <i class="ui icon check circle outline "></i>
+    </div>
+  {{/if}}
+
+</div>
+
+<div id="articles-container">
+
+  <div id="article-list-container">
+    {{article-list articles=model onOpenArticle=(route-action "openArticle" "feeds.pinned.show.item")
+                   onCloseArticle=(route-action "closeArticle" "feeds.pinned")}}
+  </div>
+
+</div>
+
+
+<div id="article-content-container">
+  {{liquid-outlet "article-content"}}
+</div>

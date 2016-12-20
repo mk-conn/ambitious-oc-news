@@ -7,9 +7,6 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function () {
-  // this.route('index', {path: '/'}, function () {
-  //
-  // });
 
   this.route('feeds', {path: '/feeds'}, function () {
     this.route('show', {path: '/:feed_id'}, function () {
@@ -18,6 +15,11 @@ Router.map(function () {
       });
     });
     this.route('edit', {path: '/edit/:feed_id'}, function () {
+    });
+    this.route('pinned', function() {
+      this.route('show', function() {
+        this.route('item');
+      });
     });
   });
 
