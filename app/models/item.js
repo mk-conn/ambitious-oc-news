@@ -1,7 +1,14 @@
-import DS from 'ember-data';
+import DS from "ember-data";
+import Ember from "ember";
+
 const {attr, belongsTo} = DS;
+const {inject} = Ember;
+
 
 export default DS.Model.extend({
+
+  meta: inject.service(),
+
   feed: belongsTo('feed'),
   guid: attr('string'),
   guidHash: attr('string'),
@@ -54,6 +61,7 @@ export default DS.Model.extend({
 
     return promise;
   },
+
   star() {
     this.set('_updateEndpoint', '/items/' + this.get('feedId') + '/' + this.get('guidHash') + '/star');
     let promise = this.save();
@@ -61,16 +69,21 @@ export default DS.Model.extend({
     promise.finally(() => {
       this.set('_updateEndpoint', null);
       this.set('starred', true);
+
+      this.get('meta').incrementProperty('starredCount');
+
     });
 
     return promise;
   },
+
   unstar() {
     this.set('_updateEndpoint', '/items/' + this.get('feedId') + '/' + this.get('guidHash') + '/unstar');
     let promise = this.save();
     promise.finally(() => {
       this.set('_updateEndpoint', null);
       this.set('starred', false);
+      this.get('meta').decrementProperty('starredCount');
     });
     return promise;
   }

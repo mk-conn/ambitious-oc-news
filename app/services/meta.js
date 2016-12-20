@@ -1,6 +1,10 @@
-import Ember from 'ember';
+import Ember from "ember";
 
-export default Ember.Service.extend({
+const {
+  Service
+} = Ember
+
+export default Service.extend({
   newestItemId: null,
   starredCount: null
 });

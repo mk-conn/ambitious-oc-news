@@ -1,11 +1,18 @@
+{{#if starredCount}}
+  <div class="item">
+    Pinned
+    <div class="ui label action">{{starredCount}}</div>
+  </div>
+{{/if}}
+
 {{#each feeds as |feed|}}
-    <div class="item">
-      <img src="{{feed.feedIcon}}" class="ui mini inline feed-icon image" />
-      {{#link-to "feeds.show.items" feed}}
-        {{feed.title}}
-      {{/link-to}}
-      {{#if feed.unreadCount}}
-          <div class="ui label action" {{action "markAllRead" feed}}>{{feed.unreadCount}}</div>
-      {{/if}}
-    </div>
+  <div class="item">
+    <img src="{{feed.feedIcon}}" class="ui mini inline feed-icon image"/>
+    {{#link-to "feeds.show.items" feed}}
+      {{feed.title}}
+    {{/link-to}}
+    {{#if feed.unreadCount}}
+      <div class="ui label action" {{action "markAllRead" feed}}>{{feed.unreadCount}}</div>
+    {{/if}}
+  </div>
 {{/each}}

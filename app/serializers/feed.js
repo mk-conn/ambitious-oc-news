@@ -13,7 +13,6 @@ export default DS.RESTSerializer.extend({
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
 
     if (payload && payload.feeds) {
-      console.log(':', 'serializer,feed');
       const meta = get(this, 'meta');
       set(meta, 'newestItemId', payload.newestItemId);
       set(meta, 'starredCount', payload.starredCount);
