@@ -2,7 +2,8 @@ import Ember from "ember";
 import Protected from "ambitious-oc-news/mixins/protected";
 
 const {
-  Route
+  Route,
+  $
 } = Ember;
 
 export default Route.extend(Protected, {
@@ -15,6 +16,6 @@ export default Route.extend(Protected, {
     Ember.debug('>>>> Feeds.Show::model()')
     ;
     return this.store.peekRecord('feed', params.feed_id);
-  }
+  },
 
 });

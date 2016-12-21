@@ -110,7 +110,7 @@ export default Route.extend(Protected, {
   actions: {
 
     closeArticle() {
-      this.send('transition', 'feeds.show.items', this.modelFor('feeds.show'));
+      // this.send('transition', 'feeds.show.items', this.modelFor('feeds.show'));
     },
 
     /**

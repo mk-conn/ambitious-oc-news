@@ -56,11 +56,10 @@ export default Ember.Component.extend({
      */
     openArticle(article)
     {
-      Ember.debug(`>>>> Feeds::openArticle(${article})`);
-      this.get('app').transitionTo('feeds.show.items.show', article);
-      // this.sendAction('onOpenArticle', article);
+      Ember.debug(`>>>> ArticleItemComponent::openArticle(${article})`);
+      // this.get('app').transitionTo('feeds.show.items.show', article);
 
-      $('#article-content-container').show();
+      this.sendAction('onOpenArticle', article);
     }
   }
 })

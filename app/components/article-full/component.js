@@ -10,12 +10,25 @@ const {
 } = Ember;
 
 export default Component.extend({
+
+
+  meta: inject.service(),
+
+  article: computed('meta.openItem', function () {
+    return this.get('meta.openItem');
+  }),
+
   config: inject.service('configuration'),
 
   showOriginalArticle: false,
 
   body: computed('article.body', function () {
-    return this.get('article.body').htmlSafe();
+    let body = this.get('article.body');
+    if (body) {
+      return body.htmlSafe();
+    }
+
+    return null;
   }),
 
   originalLabel: computed('showOriginalArticle', function () {
@@ -37,7 +50,6 @@ export default Component.extend({
   }),
 
   doubleClick() {
-    console.log('doubleclicked!:', 'true');
     this.send('closeArticle', this.get('article'));
   },
 
@@ -95,17 +107,15 @@ export default Component.extend({
       }
     });
 
-    $('#article-content-container').show();
+    $('#article-content-container').addClass('open');
 
   },
 
   actions: {
     closeArticle(article) {
-      Ember.debug(`ArticleFull-Component::closeArticle(${article})`);
+      Ember.debug(`ArticleFullComponent::closeArticle(${article})`);
 
-      this.sendAction('onCloseArticle', article);
-
-      $('#article-content-container').hide();
+      $('#article-content-container').removeClass('open');
     }
   }
 

@@ -6,5 +6,6 @@ const {
 
 export default Service.extend({
   newestItemId: null,
-  starredCount: null
+  starredCount: null,
+  openItem: 'test'
 });

@@ -2,9 +2,7 @@
   <img src={{articleImage}}>
 </div>
 <div class="content">
-
-  {{#link-to "feeds.show.items.show" article activeClass="active" tagName="div" classNames="action"}}
-  {{!--<div class="action" {{action "openArticle" article}}>--}}
+  <div class="action" {{action "openArticle" article}}>
     <h4 class="ui article-title {{readOrUnread}} header">{{title}}</h4>
     {{moment-format article.pubDate 'LLLL' 'X'}}
     <div class="meta">
@@ -16,10 +14,9 @@
     <div class="description">
       {{excerpt}}
     </div>
-  {{!--</div>--}}
-  {{/link-to}}
+  </div>
   <div class="extra">
     {{article-buttons article=article onOpenArticle=onOpenArticle}}
   </div>
-
 </div>
+

@@ -33,6 +33,10 @@ export default Ember.Route.extend(InfinityRoute, {
     set(this, 'offset', undefined);
   },
 
+  beforeModel(transition) {
+
+  },
+
   model() {
     Ember.debug('>>>> loading model for: feeds.show.items');
     Ember.debug('>>>> Feed-ID: ' + get(this.modelFor('feeds.show'), 'id'));
@@ -87,6 +91,7 @@ export default Ember.Route.extend(InfinityRoute, {
     });
   },
 
+
   actions: {
     /**
      *
@@ -109,7 +114,7 @@ export default Ember.Route.extend(InfinityRoute, {
     // },
 
     willTransition() {
-
+      // scroll to top
       set(this, 'offset', "0");
 
       this._super(...arguments);

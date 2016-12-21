@@ -1,3 +1,6 @@
 {{#each articles as |article|}}
-  {{article-item article=article onOpenArticle=onOpenArticle onCloseArticle=onCloseArticle}}
+  {{article-item
+    article=article
+    onOpenArticle=(route-action "openArticle")
+    onCloseArticle=(route-action "closeArticle")}}
 {{/each}}

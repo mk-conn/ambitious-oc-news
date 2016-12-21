@@ -1,6 +1,15 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const {
+  $,
+  Component
+} = Ember;
+
+export default Component.extend({
   classNames: ['ui', 'divided', 'items'],
+
+  didInsertElement() {
+    // $('#article-list-container').animate({scrollTop: 0}, 200);
+  }
 
 });
