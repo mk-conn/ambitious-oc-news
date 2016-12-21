@@ -48,16 +48,7 @@ export default Route.extend({
    * Actions
    */
   actions: {
-    openArticle(article)
-    {
-      this.send('transition', 'feeds.show.items.show', article);
-    },
 
-    closeArticle(article)
-    {
-      Ember.debug(`Feeds.Show.Items.Show-Route::closeArticle(): ${article}`);
-      this.send('transition', 'feeds.show.items', get(article, 'feed'));
-    }
   }
 
 })

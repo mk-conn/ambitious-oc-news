@@ -23,13 +23,7 @@
 <div id="articles-container">
 
   <div id="article-list-container">
-    {{article-list articles=model onOpenArticle=(route-action "openArticle" "feeds.pinned.show.item")
-                   onCloseArticle=(route-action "closeArticle" "feeds.pinned")}}
+    {{article-list articles=model}}
   </div>
 
-</div>
-
-
-<div id="article-content-container">
-  {{liquid-outlet "article-content"}}
 </div>
