@@ -34,7 +34,7 @@ export default Ember.Route.extend(InfinityRoute, {
   },
 
   beforeModel(transition) {
-
+    $('#article-list-container').animate({scrollTop: 0, duration: 400});
   },
 
   model() {
@@ -117,7 +117,9 @@ export default Ember.Route.extend(InfinityRoute, {
       // scroll to top
       set(this, 'offset', "0");
 
-      this._super(...arguments);
+      this._super(...arguments
+    )
+      ;
 
     }
   }
