@@ -102,7 +102,7 @@ export default Component.extend({
         }
       } else {
         if (origWidth > currentWidth) {
-          $(this).addClass('ui fluid image');
+          $(this).addClass('ui adjust image');
         }
       }
     });
