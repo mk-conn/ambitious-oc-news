@@ -1,5 +1,4 @@
-<div id="feed-header" class="ui horizontal menu">
-  {{liquid-outlet "feed-header"}}
+<div id="feed-header" class="ui top fixed five item menu">
 
   <div class="header item">
     <a href="{{model.feed.link}}" target="_blank">
@@ -19,12 +18,12 @@
 
   {{#link-to "feeds.edit" model.feed title="Edit feed" classNames="item"}}
     <i class="edit icon"></i>
-    Edit
+    <span class="menu-icon-label">Edit</span>
   {{/link-to}}
 
   {{#ui-dropdown class="dropdown item"}}
     <i class="ui icon ellipsis vertical"></i>
-    More
+    <span class="menu-icon-label">More</span>
     <div class="ui labeled icon menu">
       <a class="item" {{action "deleteFeed" model.feed}} title="Remove feed">
         <i class="delete icon"></i>
@@ -33,16 +32,18 @@
     </div>
   {{/ui-dropdown}}
 
-</div>
-
-<div id="articles-container">
-  <div id="article-list-container">
-    {{article-list articles=model}}
-
-    {{#infinity-loader infinityModel=model scrollable="#article-list-container" destroyOnInfinity=true}}
-      {{partial "loading-articles"}}
-    {{/infinity-loader}}
+  <div class="item close-feed-articles">
+    {{#link-to "feeds"}}
+      <i class="arrow left icon"></i>
+    {{/link-to}}
   </div>
+
+</div>
+<div id="article-list-container">
+  {{article-list articles=model}}
+
+  {{#infinity-loader infinityModel=model scrollable="#article-list" destroyOnInfinity=true}}
+    {{partial "loading-articles"}}
+  {{/infinity-loader}}
 </div>
 
-{{outlet "article-content"}}

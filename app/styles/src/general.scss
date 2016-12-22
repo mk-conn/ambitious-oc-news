@@ -1,3 +1,9 @@
+$mobile: 468px;
+$tablet: 768px;
+$desktop: 992px;
+$large: 1200px;
+$widescreen: 1920px;
+
 $main-box-background-color: #003366;
 
 html, body {
@@ -19,12 +25,17 @@ body {
     max-height: 100vh;
 
     #side-bar {
-      flex: -1;
+      //flex: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
       background: $main-box-background-color;
       border-radius: 0;
-      width: 20%;
+      width: 100%;
       overflow: auto;
       height: 100%;
+      max-height: 100vh;
+      z-index: 1;
 
       .feed-icon.image {
         width: 2em;
@@ -37,12 +48,61 @@ body {
       }
     }
 
+    #article-list {
+
+      padding-top:5rem;
+
+      #feed-header {
+        .header.item {
+          display: inline-block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width:20%;
+        }
+
+        span.menu-icon-label {
+          display: none !important;
+        }
+      }
+      background: #fff;
+      position: absolute;
+      z-index: 2;
+      overflow: auto;
+      top: 0;
+      right: 0;
+      width: 0;
+      height:100%;
+      transition: all .6s ease;
+
+      #article-list-container {
+        font-size: .9rem;
+        max-height: 100vh;
+        overflow: auto;
+
+        .article.item {
+          padding: 1rem;
+
+          .ui.tiny.image {
+            display: none;
+          }
+        }
+      }
+
+    }
+
+    #article-list.activated {
+      width: 100%;
+    }
+
     #content {
+
       flex: 1;
-      width: 80%;
+      width: 0;
+      background: #fff;
+      transition: all .5s ease;
 
       > div.liquid-container > div.liquid-child {
-        //overflow: hidden;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -56,25 +116,12 @@ body {
         }
 
         // http://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp  overlay exmaples
-        #articles-container {
-          flex: 2;
-          display: flex;
-          flex-direction: row;
-          overflow: hidden;
-          width: 100%;
-          min-height: 90vh;
-          max-height: 100%;
 
-          #article-list-container {
-            font-size: .9rem;
-            padding: 1rem;
-            flex: 1;
-            max-height: 100vh;
-            overflow: auto;
-            padding-bottom: 5rem;
-          }
-        }
       }
+    }
+
+    #content.activated {
+      width: 100%;
     }
   }
 }
@@ -87,10 +134,10 @@ body {
   top: 0;
   right: 0;
   width: 0;
-  z-index: 10;
+  z-index: 4;
   box-shadow: 3px 3px rgba(0, 0, 0, .16), -1em 0 0.4em rgba(0, 0, 0, .16);
   background: rgba(11, 11, 11, .9);
-  transition: 0.5s;
+  transition: all 0.5s ease;
 
   .article-full {
     background: #fff;
@@ -135,10 +182,6 @@ body {
   max-height: 100%;
 }
 
-//.article.item < .ember-view.action.active {
-//  background: lighten(#1F88BE, 40);
-//}
-
 .action {
   cursor: pointer;
 }
@@ -146,4 +189,36 @@ body {
 blockquote {
   padding-left: 1.3rem;
   border-left: .3rem solid #ccc;
+}
+
+@media only screen and (min-width: $tablet) {
+  #side-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30% !important;
+    z-index: 1;
+    transition: all .5s ease;
+  }
+
+  #content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    z-index: 2;
+  }
+
+  #content.activated {
+    width: 100%;
+    z-index: 2;
+  }
+
+  #article-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    z-index: 3;
+  }
 }

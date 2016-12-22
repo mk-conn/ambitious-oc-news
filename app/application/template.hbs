@@ -1,9 +1,11 @@
 <div id="side-bar" class="ui vertical inverted menu">
+
   <div class="item">
     <div class="header">
       <a href="/">AOC NEWS</a>
     </div>
   </div>
+
   <div class="item">
     {{#link-to "settings"}}
       <i class="icon wrench"></i>
@@ -11,13 +13,18 @@
     {{/link-to}}
   </div>
 
-  {{liquid-outlet "sidebar-left"}}
+  {{outlet "sidebar-left"}}
 
+</div>
+
+<div id="article-list">
+  {{outlet "article-list"}}
 </div>
 
 <div id="content">
-  {{liquid-outlet "main"}}
-
-  {{outlet "article-content"}}
+  {{outlet "main"}}
 </div>
 
+<div id="article-overlay">
+  {{outlet "article-overlay"}}
+</div>

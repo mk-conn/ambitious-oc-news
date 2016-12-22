@@ -1,12 +1,9 @@
 <button class="ui basic huge circular right floated icon button" {{action "closeArticle" article}}>
   <i class="ui icon close"></i>
 </button>
-
-<div class="ui basic compact segment">
-  <h3 class="ui header">
-    {{article.title}}
-  </h3>
-</div>
+<h3 class="ui header">
+  {{article.title}}
+</h3>
 
 <div class="article-body">
   {{#if showOriginalArticle}}

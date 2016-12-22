@@ -6,10 +6,13 @@ const {
   get,
   set,
   computed,
-  $
+  $,
+  inject
 } = Ember;
 
 export default Ember.Route.extend(InfinityRoute, {
+
+  gui: inject.service(),
 
   offset: "0",
 
@@ -35,6 +38,7 @@ export default Ember.Route.extend(InfinityRoute, {
 
   beforeModel(transition) {
     $('#article-list-container').animate({scrollTop: 0, duration: 400});
+    this.get('gui').activate('article-list');
   },
 
   model() {
@@ -87,7 +91,7 @@ export default Ember.Route.extend(InfinityRoute, {
   renderTemplate() {
     this.render('feeds/show/items', {
       into: 'application',
-      outlet: 'main'
+      outlet: 'article-list'
     });
   },
 
@@ -116,9 +120,9 @@ export default Ember.Route.extend(InfinityRoute, {
     willTransition() {
       // scroll to top
       set(this, 'offset', "0");
-
+      this.get('gui').deactivate('article-list');
       this._super(...arguments
-    )
+      )
       ;
 
     }
