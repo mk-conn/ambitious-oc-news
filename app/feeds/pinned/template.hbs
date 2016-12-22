@@ -1,6 +1,4 @@
-<div id="feed-header" class="ui horizontal menu">
-
-  {{liquid-outlet "feed-header"}}
+<div id="feed-header" class="ui three item menu">
 
   <div class="header item">
     <a href="{{model.feed.link}}" target="_blank">
@@ -17,6 +15,12 @@
       <i class="ui icon check circle outline "></i>
     </div>
   {{/if}}
+
+  <div class="item close-feed-articles">
+    {{#link-to "feeds"}}
+      <i class="arrow left icon"></i>
+    {{/link-to}}
+  </div>
 
 </div>
 

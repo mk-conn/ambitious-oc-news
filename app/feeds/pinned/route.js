@@ -4,10 +4,18 @@ const {
   Route,
   get,
   set,
-  RSVP
+  RSVP,
+  inject
 } = Ember;
 
 export default Route.extend({
+  gui: inject.service(),
+
+  beforeModel() {
+    $('#article-list-container').animate({scrollTop: 0, duration: 400});
+    this.get('gui').activate('article-list');
+  },
+
   /**
    *
    */
@@ -41,7 +49,7 @@ export default Route.extend({
   {
     this.render('feeds/pinned', {
       into: 'application',
-      outlet: 'main'
+      outlet: 'article-list'
     });
   },
   /**
@@ -49,7 +57,14 @@ export default Route.extend({
    */
   actions: {
 
+    willTransition() {
+      // scroll to top
+
+      this.get('gui').deactivate('article-list');
+      this._super(...arguments);
+
+    }
+
   }
 
-})
-;
+});

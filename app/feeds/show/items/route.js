@@ -121,9 +121,7 @@ export default Ember.Route.extend(InfinityRoute, {
       // scroll to top
       set(this, 'offset', "0");
       this.get('gui').deactivate('article-list');
-      this._super(...arguments
-      )
-      ;
+      this._super(...arguments);
 
     }
   }
