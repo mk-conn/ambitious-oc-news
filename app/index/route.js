@@ -10,16 +10,19 @@ const {
 
 export default Route.extend(Protected, {
 
-  markAllRead() {
+  model() {
 
   },
-
 
   beforeModel() {
 
     this._super(...arguments);
 
+  },
+
+  afterModel() {
     this.transitionTo('feeds');
+
   }
 
 });

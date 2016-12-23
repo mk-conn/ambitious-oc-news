@@ -2,10 +2,18 @@ import Ember from "ember";
 
 const {
   Route,
-  get
+  get,
+  inject
 } = Ember;
 
 export default Route.extend({
+
+  gui: inject.service(),
+
+  beforeModel() {
+    this.get('gui').activate('article-overlay');
+  },
+
   /**
    *
    * @param article
@@ -17,17 +25,17 @@ export default Route.extend({
     return this.store.peekRecord('item', article.id);
   },
 
-  renderTemplate() {
-    this.render('feeds/show/items/show', {
-      into: 'feeds/show/items',
-      outlet: 'article-content'
-    });
-  },
+  // renderTemplate() {
+  //   this.render('feeds/show/items/show', {
+  //     into: 'application',
+  //     outlet: 'article-overlay'
+  //   });
+  // },
 
   actions: {
     closeArticle(article) {
       Ember.debug(`Feeds.Show.Items.Show-Route::closeArticle(): ${article}`);
-      this.send('transition', 'feeds.show.items', get(article, 'feed'));
+      this.send('transition', 'feeds.show.articles', get(article, 'feed'));
     }
   }
 

@@ -37,13 +37,15 @@ export default Ember.Route.extend(InfinityRoute, {
   },
 
   beforeModel(transition) {
+    this._super(...arguments);
     $('#article-list-container').animate({scrollTop: 0, duration: 400});
-    this.get('gui').activate('article-list');
+
+
   },
 
   model() {
-    Ember.debug('>>>> loading model for: feeds.show.items');
-    Ember.debug('>>>> Feed-ID: ' + get(this.modelFor('feeds.show'), 'id'));
+    Ember.debug('++++ loading model for: feeds.show.articles');
+    Ember.debug('++++ Feed-ID: ' + get(this.modelFor('feeds.show'), 'id'));
 
     set(this, 'feed', get(this.modelFor('feeds.show'), 'id'));
 
@@ -66,7 +68,9 @@ export default Ember.Route.extend(InfinityRoute, {
 
     set(model, 'feed', this.modelFor('feeds.show'));
 
-    Ember.debug('>>>> Feeds.Show.Items-Route::afterModel(): after set feed');
+    Ember.run.scheduleOnce('afterRender', this, function () {
+      this.get('gui').activate('article-list');
+    });
   },
   /**
    *
@@ -74,26 +78,24 @@ export default Ember.Route.extend(InfinityRoute, {
    */
   afterInfinityModel(articles) {
 
-    Ember.debug('>>>> Feeds.Show.Items-Route::afterInfinityModel()');
-
     const lastObjectId = articles.get('lastObject.id');
     const loadedAny = articles.get('length') > 0;
 
     set(this, '_canLoadMore', loadedAny);
     set(this, 'offset', lastObjectId);
 
-    Ember.debug('>>>> Feeds.Show.Items-Route::afterInfinityModel(): after set');
+
     Ember.debug('----- Articles offset: ' + get(this, 'offset') + ' -----');
   },
   /**
    *
    */
-  renderTemplate() {
-    this.render('feeds/show/items', {
-      into: 'application',
-      outlet: 'article-list'
-    });
-  },
+  // renderTemplate() {
+  //   this.render('feeds/show/articles', {
+  //     into: 'application',
+  //     outlet: 'article-list'
+  //   });
+  // },
 
 
   actions: {
@@ -103,7 +105,7 @@ export default Ember.Route.extend(InfinityRoute, {
      */
     transitionToFeed(feed) {
       Ember.debug('>>>> transitionToFeed ' + feed.id);
-      this.send('transition', 'feeds.show.items', feed);
+      this.send('transition', 'feeds.show.articles', feed);
     },
     /**
      *
@@ -120,9 +122,8 @@ export default Ember.Route.extend(InfinityRoute, {
     willTransition() {
       // scroll to top
       set(this, 'offset', "0");
-      this.get('gui').deactivate('article-list');
-      this._super(...arguments);
 
+      this._super(...arguments);
     }
   }
 });

@@ -18,18 +18,20 @@ export default Service.extend({
    * @param layoutComponent
    */
   activate(layoutComponent) {
-    $(`#${layoutComponent}`).addClass('activated');
+    Ember.debug(`>>>> GuiService::activate(${layoutComponent})`);
 
-    // this.get('active').push(layoutComponent);
+    if (!$(`#${layoutComponent}`).hasClass('activated')) {
+      $(`#${layoutComponent}`).addClass('activated');
+    }
+
   },
   /**
    *
    * @param layoutComponent
    */
   deactivate(layoutComponent) {
+    Ember.debug(`>>>> GuiService::deactivate(${layoutComponent})`);
     $(`#${layoutComponent}`).removeClass('activated');
-
-    // this.get('active').remove(layoutComponent);
   }
 
 });

@@ -13,18 +13,11 @@
     {{/link-to}}
   </div>
 
-  {{outlet "sidebar-left"}}
+  {{pinned-articles}}
+
+  {{refresh-feeds}}
+
+  {{outlet}}
 
 </div>
 
-<div id="article-list">
-  {{outlet "article-list"}}
-</div>
-
-<div id="content">
-  {{outlet "main"}}
-</div>
-
-<div id="article-overlay">
-  {{outlet "article-overlay"}}
-</div>

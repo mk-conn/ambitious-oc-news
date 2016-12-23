@@ -1,7 +1,3 @@
-{{pinned-articles}}
-
-{{refresh-feeds}}
-
 {{#if model.feeds}}
   <div class="item">
     <div class="header">Feeds</div>
@@ -15,3 +11,5 @@
     {{feed-list feeds=folder.feeds}}
   </div>
 {{/each}}
+
+{{outlet}}

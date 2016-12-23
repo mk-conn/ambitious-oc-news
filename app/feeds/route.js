@@ -91,19 +91,19 @@ export default Route.extend(Protected, {
   /**
    *
    */
-  renderTemplate() {
-
-    this.render('feeds', {
-      into: 'application',
-      outlet: 'sidebar-left'
-    });
-
-    this.render('index/index', {
-      into: 'application',
-      outlet: 'main'
-    });
-
-  },
+  // renderTemplate() {
+  //
+  //   this.render('feeds', {
+  //     into: 'application',
+  //     outlet: 'sidebar-left'
+  //   });
+  //
+  //   this.render('index/index', {
+  //     into: 'application',
+  //     outlet: 'main'
+  //   });
+  //
+  // },
   /**
    *
    */

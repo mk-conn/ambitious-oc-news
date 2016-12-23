@@ -10,7 +10,7 @@ Router.map(function () {
 
   this.route('feeds', {path: '/feeds'}, function () {
     this.route('show', {path: '/:feed_id'}, function () {
-      this.route('items', {path: '/items'}, function () {
+      this.route('articles', {path: '/articles'}, function () {
         this.route('show', {path: '/:id'});
       });
     });
@@ -18,7 +18,7 @@ Router.map(function () {
     });
     this.route('pinned', function() {
       this.route('show', function() {
-        this.route('item');
+        this.route('article');
       });
     });
   });

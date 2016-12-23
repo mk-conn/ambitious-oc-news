@@ -5,7 +5,8 @@ const {
   get,
   set,
   RSVP,
-  inject
+  inject,
+  $,
 } = Ember;
 
 export default Route.extend({

@@ -9,7 +9,7 @@ const {
 
 export default function () {
   this.transition(
-    this.fromRoute('feeds.show.items'),
+    this.fromRoute('feeds.show.articles'),
     this.toRoute('feeds.edit'),
     this.use('toDown', {duration: 350}),
     this.reverse('toUp', {duration: 300})
