@@ -23,9 +23,7 @@ body {
     overflow: hidden;
     height: inherit;
     max-height: 100vh;
-
-
-
+    min-height: 100vh;
   }
 }
 
@@ -42,6 +40,7 @@ body {
   max-height: 100vh;
   min-height: 100vh;
   z-index: 1;
+  margin: 0;
 
   .feed-icon.image {
     width: 2em;
@@ -59,6 +58,10 @@ body {
   padding-top: 5rem;
 
   #feed-header {
+    width: inherit;
+    right:0;
+    left: auto;
+
     .header.item {
       display: inline-block;
       white-space: nowrap;
@@ -71,6 +74,7 @@ body {
       display: none !important;
     }
   }
+
   background: #fff;
   position: absolute;
   z-index: 2;
@@ -83,8 +87,9 @@ body {
 
   #article-list-container {
     font-size: .9rem;
-    max-height: 100vh;
+    height: auto;
     overflow: auto;
+    padding-bottom:5rem;
 
     .article.item {
       padding: 1rem;
@@ -105,7 +110,7 @@ body {
   min-height: 100vh;
   max-height: 100vh;
   overflow: auto;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 0;
@@ -205,33 +210,35 @@ blockquote {
 }
 
 @media only screen and (min-width: $tablet) {
+
   #side-bar {
     position: absolute;
     top: 0;
     left: 0;
-    width: 30% !important;
+    width: 20% !important;
     z-index: 1;
     transition: all .5s ease;
   }
 
-  #content {
+  #article-list, #article-list.activated {
     position: absolute;
-    top: 0;
     right: 0;
-    width: 0;
-    z-index: 2;
-  }
-
-  #content.activated {
-    width: 100%;
-    z-index: 2;
+    top: 0;
+    width: 80%;
   }
 
   #article-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 0;
     z-index: 3;
+    transition: all .5s ease;
   }
+
+  #article-overlay.activated {
+    width: 60%;
+    box-shadow: 3px 3px rgba(0, 0, 0, .16), -1em 0 0.4em rgba(0, 0, 0, .16);
+  }
+
 }

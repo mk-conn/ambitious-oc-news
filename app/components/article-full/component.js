@@ -106,9 +106,6 @@ export default Component.extend({
         }
       }
     });
-
-    $('#article-content-container').addClass('open');
-
   },
 
   actions: {

@@ -25,17 +25,23 @@ export default Route.extend({
     return this.store.peekRecord('item', article.id);
   },
 
-  // renderTemplate() {
-  //   this.render('feeds/show/items/show', {
-  //     into: 'application',
-  //     outlet: 'article-overlay'
-  //   });
-  // },
+  renderTemplate() {
+    this.render('feeds/show/articles/show', {
+      into: 'feeds/show/articles',
+      outlet: 'article-overlay'
+    });
+  },
 
   actions: {
+
+    willTransition() {
+      Ember.debug(`>>>> Feeds.Show.Articles.ShowRoute::willTransition()`);
+      this.get('gui').deactivate('article-overlay');
+    },
+
     closeArticle(article) {
-      Ember.debug(`Feeds.Show.Items.Show-Route::closeArticle(): ${article}`);
-      this.send('transition', 'feeds.show.articles', get(article, 'feed'));
+      // Ember.debug(`Feeds.Show.Items.Show-Route::closeArticle(): ${article}`);
+      // this.send('transition', 'feeds.show.articles', get(article, 'feed'));
     }
   }
 

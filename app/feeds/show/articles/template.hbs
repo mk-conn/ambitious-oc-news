@@ -39,14 +39,15 @@
   </div>
 
 </div>
+
 <div id="article-list-container">
+
   {{article-list articles=model}}
 
-  {{#infinity-loader infinityModel=model scrollable="#article-list-container" destroyOnInfinity=true}}
+  {{#infinity-loader infinityModel=model scrollable="#article-list" destroyOnInfinity=true}}
     {{partial "loading-articles"}}
   {{/infinity-loader}}
+
 </div>
 
-<div id="article-overlay">
-  {{outlet}}
-</div>
+<div id="article-overlay">{{outlet "article-overlay"}}</div>

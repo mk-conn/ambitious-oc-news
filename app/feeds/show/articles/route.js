@@ -38,7 +38,8 @@ export default Ember.Route.extend(InfinityRoute, {
 
   beforeModel(transition) {
     this._super(...arguments);
-    $('#article-list-container').animate({scrollTop: 0, duration: 400});
+
+    // $('#article-list-container').animate({scrollTop: 0, duration: 400});
 
 
   },
@@ -87,16 +88,13 @@ export default Ember.Route.extend(InfinityRoute, {
 
     Ember.debug('----- Articles offset: ' + get(this, 'offset') + ' -----');
   },
-  /**
-   *
-   */
-  // renderTemplate() {
-  //   this.render('feeds/show/articles', {
-  //     into: 'application',
-  //     outlet: 'article-list'
-  //   });
-  // },
 
+  renderTemplate() {
+    this.render('feeds/show/articles', {
+      into: 'application',
+      outlet: 'article-list'
+    });
+  },
 
   actions: {
     /**
@@ -119,10 +117,14 @@ export default Ember.Route.extend(InfinityRoute, {
     //     });
     // },
 
-    willTransition() {
+    willTransition(transition) {
       // scroll to top
-      set(this, 'offset', "0");
 
+      if (transition.targetName === 'feeds.index') {
+        set(this, 'offset', "0");
+        this.get('gui').deactivate('article-list');
+
+      }
       this._super(...arguments);
     }
   }
