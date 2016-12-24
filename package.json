@@ -47,7 +47,6 @@
     "broccoli-funnel": "^1.0.1",
     "crypto-js": "3.1.6",
     "ember-browserify": "^1.1.4",
-    "ember-cli-fastclick": "1.1.0",
     "ember-cli-moment-shim": "0.7.1",
     "ember-cli-sass": "^5.2.0",
     "ember-css-transitions": "peec/ember-css-transitions#v0.1.4",

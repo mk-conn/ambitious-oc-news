@@ -6,6 +6,14 @@ $widescreen: 1920px;
 
 $main-box-background-color: #003366;
 
+@mixin overflow-scroll() {
+  overflow:auto;
+  ////overflow-y: scroll;
+  //overflow-x: hidden;
+  //overflow-scrolling: touch;
+  //-webkit-overflow-scrolling: touch;
+}
+
 html, body {
   padding: 0 !important;
   margin: 0 !important;
@@ -29,13 +37,13 @@ body {
 
 #side-bar {
   //flex: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
+  //position: absolute;
+  //top: 0;
+  //left: 0;
   background: $main-box-background-color;
   border-radius: 0;
   width: 100%;
-  overflow: auto;
+  @include overflow-scroll;
   height: 100%;
   max-height: 100vh;
   min-height: 100vh;
@@ -59,7 +67,7 @@ body {
 
   #feed-header {
     width: inherit;
-    right:0;
+    right: 0;
     left: auto;
 
     .header.item {
@@ -78,7 +86,8 @@ body {
   background: #fff;
   position: absolute;
   z-index: 2;
-  overflow: auto;
+  /* has to be scroll, not auto */
+  @include overflow-scroll();
   top: 0;
   right: 0;
   width: 0;
@@ -88,8 +97,8 @@ body {
   #article-list-container {
     font-size: .9rem;
     height: auto;
-    overflow: auto;
-    padding-bottom:5rem;
+    @include overflow-scroll();
+    padding-bottom: 5rem;
 
     .article.item {
       padding: 1rem;
@@ -109,7 +118,8 @@ body {
 #article-overlay {
   min-height: 100vh;
   max-height: 100vh;
-  overflow: auto;
+  /* has to be scroll, not auto */
+  @include overflow-scroll();
   position: absolute;
   top: 0;
   right: 0;
@@ -147,7 +157,8 @@ body {
 #article-content-container {
   min-height: 100vh;
   max-height: 100vh;
-  overflow: auto;
+  /* has to be scroll, not auto */
+  @include overflow-scroll();
   position: absolute;
   top: 0;
   right: 0;
@@ -228,7 +239,7 @@ blockquote {
   }
 
   #article-overlay {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     width: 0;

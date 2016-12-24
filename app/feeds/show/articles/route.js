@@ -79,14 +79,15 @@ export default Ember.Route.extend(InfinityRoute, {
    */
   afterInfinityModel(articles) {
 
+    Ember.debug('>>>> Articles offset: ' + get(this, 'offset') + ' -----');
     const lastObjectId = articles.get('lastObject.id');
     const loadedAny = articles.get('length') > 0;
 
     set(this, '_canLoadMore', loadedAny);
     set(this, 'offset', lastObjectId);
 
+    Ember.debug('<<<< Articles offset: ' + get(this, 'offset') + ' -----');
 
-    Ember.debug('----- Articles offset: ' + get(this, 'offset') + ' -----');
   },
 
   renderTemplate() {
@@ -110,17 +111,19 @@ export default Ember.Route.extend(InfinityRoute, {
      * @param article
      */
 
-    // loading() {
-    //   this.render(
-    //     'feeds/show/items/loading', {
-    //       into: 'feeds/items'
-    //     });
-    // },
+    loading() {
+      this.render(
+        'loading-articles', {
+          into: 'application',
+          outlet: 'article-list'
+        });
+    },
 
     willTransition(transition) {
       // scroll to top
+      Ember.debug(`>>>> Feeds.Show.Articles::willTransition(${transition.targetName})`);
 
-      if (transition.targetName === 'feeds.index') {
+      if (transition.targetName === 'feeds.show.articles.index' || transition.targetName === 'feeds.show.articles') {
         set(this, 'offset', "0");
         this.get('gui').deactivate('article-list');
 
