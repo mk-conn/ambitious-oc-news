@@ -27,7 +27,7 @@ export default Route.extend({
 
   renderTemplate() {
     this.render('feeds/show/articles/show', {
-      into: 'feeds/show/articles',
+      into: 'application',
       outlet: 'article-overlay'
     });
   },
