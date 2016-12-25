@@ -6,9 +6,9 @@ export default Ember.Component.extend({
 
   config: inject.service('configuration'),
 
-  classNames: ['article', 'item'],
+  classNames: [ 'article', 'item' ],
 
-  classNameBindings: ['isUnread'],
+  classNameBindings: [ 'isUnread' ],
 
   readOrUnread: computed('article.unread', function () {
     if (this.get('article.unread')) {
@@ -31,7 +31,8 @@ export default Ember.Component.extend({
   articleImage: computed('article.body', function () {
     let body = $(get(this, 'article.body'));
 
-    let img = $('img', body).first();
+    let img = $('img', body)
+      .first();
     let src = img.attr('src');
 
     if (!src) {
@@ -43,11 +44,13 @@ export default Ember.Component.extend({
   }),
 
   excerpt: computed('article.body', function () {
-    const stripAt = 120;
-    let text = $(get(this, 'article.body')).text();
+    const stripAt = 240;
+    let text = $(get(this, 'article.body'))
+      .text();
     if (text.length > stripAt) {
       text = text.slice(0, stripAt) + ' ...'.htmlSafe();
     }
+
     return text;
   }),
 
@@ -64,5 +67,4 @@ export default Ember.Component.extend({
       this.sendAction('onOpenArticle', article);
     }
   }
-})
-;
+});
