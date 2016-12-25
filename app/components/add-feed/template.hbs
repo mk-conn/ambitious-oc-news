@@ -31,13 +31,15 @@
 
     <div class="field">
         <label>Folder</label>
+
+      {{!--
       {{#power-select options=folders
       selected=selected
       noMatchesMessage="Create new folder"
       onkeydown=(action "handleKeydown")
       onchange=(action (mut selected)) as |folder|}}
         {{folder.name}}
-      {{/power-select}}
+      {{/power-select}} --}}
     </div>
 
     <button type="submit" class="ui button">Submit</button>

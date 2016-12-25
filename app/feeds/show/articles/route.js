@@ -110,24 +110,30 @@ export default Ember.Route.extend(InfinityRoute, {
      *
      * @param article
      */
-
     loading() {
-      this.render(
-        'loading-articles', {
-          into: 'application',
-          outlet: 'article-list'
-        });
+      if (this.modelFor('feeds.show.articles')) {
+        this.render(
+          'loading-articles', {
+            into: 'application',
+            outlet: 'article-list'
+          });
+      }
     },
 
     willTransition(transition) {
       // scroll to top
       Ember.debug(`>>>> Feeds.Show.Articles::willTransition(${transition.targetName})`);
 
-      if (transition.targetName === 'feeds.show.articles.index' || transition.targetName === 'feeds.show.articles') {
+      const targetName = transition.targetName;
+
+      if (targetName === 'feeds.show.articles.index' || targetName === 'feeds.show.articles') {
         set(this, 'offset', "0");
-        this.get('gui').deactivate('article-list');
 
       }
+      if (targetName === 'feeds.index' || targetName === 'feeds') {
+        this.get('gui').deactivate('article-list');
+      }
+
       this._super(...arguments);
     }
   }

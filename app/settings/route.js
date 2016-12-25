@@ -4,7 +4,11 @@ import Protected from "ambitious-oc-news/mixins/protected";
 const {get, set, inject, Object, RSVP} = Ember;
 
 export default Ember.Route.extend(Protected, {
+
+  gui: inject.service(),
+
   auth: inject.service(),
+
   config: inject.service('configuration'),
 
   model() {
@@ -26,11 +30,15 @@ export default Ember.Route.extend(Protected, {
     });
   },
 
+  afterModel() {
+    this.get('gui').activate('content');
+  },
+
   renderTemplate() {
 
     return this.render('settings', {
       into: "application",
-      outlet: "main"
+      outlet: "content"
     });
 
   },
@@ -123,6 +131,10 @@ export default Ember.Route.extend(Protected, {
       let model = this.get('currentModel');
       set(model, 'articleSettings', settings);
       get(this, 'config').store('article_settings', JSON.stringify(settings), 'local');
+    },
+
+    willTransition() {
+      this.get('gui').deactivate('content');
     }
   }
 })

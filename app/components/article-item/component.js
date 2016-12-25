@@ -5,7 +5,9 @@ const {get, $, set, computed, observer, run, typeOf, inject} = Ember;
 export default Ember.Component.extend({
 
   config: inject.service('configuration'),
+
   classNames: ['article', 'item'],
+
   classNameBindings: ['isUnread'],
 
   readOrUnread: computed('article.unread', function () {
