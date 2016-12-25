@@ -15,6 +15,7 @@ module.exports = function (defaults) {
   //   destDir: '/fonts'
   // });
 
+  app.import('bower_components/fastclick/lib/fastclick.js');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
