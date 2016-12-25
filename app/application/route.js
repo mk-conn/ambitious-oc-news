@@ -22,14 +22,6 @@ export default Route.extend(Protected, {
 
   },
 
-  willTransition(){
-
-    console.log('routename:', this.routeName);
-    console.log('currentRouteName:', this.get('currentRouteName'));
-
-    this.controllerFor('application').set('lastRoute', this.routeName);
-  },
-
   actions: {
     willTransition(){
 
@@ -51,14 +43,18 @@ export default Route.extend(Protected, {
       );
     },
 
+    goBack() {
+      const history = window.history;
+      if (history.length) {
+        window.history.back();
+      } else {
+        this.transition('feeds');
+      }
+    },
+
     closeArticle() {
       Ember.debug(`>>>> ApplicationRoute::closeArticle()`);
       $('#article-content-container').removeClass('open');
-    },
-
-    goBack(){
-      let appController = this.controllerFor('application');
-      this.transitionTo(appController.get('lastRoute'));
     },
 
     transition(route, model) {

@@ -1,11 +1,15 @@
 import Ember from "ember";
 import Protected from "ambitious-oc-news/mixins/protected";
+import ActivateDeactivate from "ambitious-oc-news/mixins/activate-deactivate-view";
 
 const {get, set, inject, Object, RSVP} = Ember;
 
-export default Ember.Route.extend(Protected, {
+export default Ember.Route.extend(Protected, ActivateDeactivate, {
 
-  gui: inject.service(),
+  display: {
+    activate: 'content',
+    deactivate: 'content'
+  },
 
   auth: inject.service(),
 
@@ -13,7 +17,7 @@ export default Ember.Route.extend(Protected, {
 
   model() {
 
-    Ember.debug('--- settings.route');
+    Ember.debug('>>>> Settings::model()');
 
     let articleSettings = Object.create(
       get(
@@ -28,10 +32,6 @@ export default Ember.Route.extend(Protected, {
       folders: this.store.findAll('folder'),
       articleSettings: articleSettings
     });
-  },
-
-  afterModel() {
-    this.get('gui').activate('content');
   },
 
   renderTemplate() {
@@ -132,10 +132,6 @@ export default Ember.Route.extend(Protected, {
       set(model, 'articleSettings', settings);
       get(this, 'config').store('article_settings', JSON.stringify(settings), 'local');
     },
-
-    willTransition() {
-      this.get('gui').deactivate('content');
-    }
   }
 })
 ;

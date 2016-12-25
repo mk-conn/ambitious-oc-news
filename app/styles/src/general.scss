@@ -7,11 +7,11 @@ $widescreen: 1920px;
 $main-box-background-color: #003366;
 
 @mixin overflow-scroll() {
-  overflow: auto;
-  ////overflow-y: scroll;
-  //overflow-x: hidden;
+  //overflow: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
   //overflow-scrolling: touch;
-  //-webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
 }
 
 @mixin full-height() {
@@ -46,15 +46,12 @@ body {
   right: 0;
   top: 0;
   width: 0;
+  background: #fff;
   z-index: 4;
   @include full-height();
 }
 
 #side-bar {
-  //flex: -1;
-  //position: absolute;
-  //top: 0;
-  //left: 0;
   background: $main-box-background-color;
   border-radius: 0;
   width: 100%;
@@ -70,11 +67,6 @@ body {
     width: 2em;
     height: 2em;
   }
-
-  //.item a.active {
-  //  font-weight: bold;
-  //  color: #fff;
-  //}
 }
 
 #article-list {
