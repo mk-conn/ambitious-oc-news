@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import Ember from "ember";
 const {computed, get} = Ember;
 
 export default Ember.Component.extend({
-  classNames: ['feed-articles'],
+  classNames: [ 'feed-articles' ],
   markReadDisabled: computed.not('feed.unreadCount'),
   actions: {
     markAllRead() {

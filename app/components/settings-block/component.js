@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Component.extend({
   classNames: [],
-  classNameBindings: ['class'],
+  classNameBindings: [ 'class' ],
   isOpen: false
 });

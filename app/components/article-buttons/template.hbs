@@ -1,26 +1,26 @@
 <a class="ui small icon button" href={{article.url}} target="_blank" {{action "originalArticle" preventDefault=false}}
    data-content="Open article in new tab">
-    <i class="external icon"></i>
+  <i class="external icon"></i>
 </a>
 
 <a class="ui small icon button"
    href="mailto:?subject=Article: {{article.title}}&body={{article.title}}%0A%0A{{excerpt}}%0A%0A{{article.url}}">
-    <i class="mail forward icon"></i>
+  <i class="mail forward icon"></i>
 </a>
 
 <a class="ui small icon button" data-content="{{readUnreadHint}}" {{action "toggleUnread"}}>
   {{#if isUnread}}
-      <i class="radio icon"></i>
+    <i class="radio icon"></i>
   {{else}}
-      <i class="check circle outline icon"></i>
+    <i class="check circle outline icon"></i>
   {{/if}}
 </a>
 
 <a class="ui small icon button" {{action "toggleStarred"}} data-content={{starHint}}>
   {{#if isStarred}}
-      <i class="bookmark icon"></i>
+    <i class="bookmark icon"></i>
   {{else}}
-      <i class="bookmark remove icon"></i>
+    <i class="bookmark remove icon"></i>
   {{/if}}
 </a>
 

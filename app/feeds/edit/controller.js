@@ -5,6 +5,6 @@ import Ember from "ember";
 
 export default Ember.Controller.extend({
 
-  alterProps: ['title', 'link']
+  alterProps: [ 'title', 'link' ]
 
 });

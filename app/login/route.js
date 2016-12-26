@@ -1,11 +1,11 @@
-import Ember from 'ember';
-import Env from 'ambitious-oc-news/config/environment';
+import Ember from "ember";
+import Env from "ambitious-oc-news/config/environment";
 
 const {
   inject,
   get,
   set
-  } = Ember;
+} = Ember;
 
 
 export default Ember.Route.extend({

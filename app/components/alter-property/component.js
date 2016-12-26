@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Ember from "ember";
 
-const {Component, get, set, computed,$,observer, run} = Ember;
+const {Component, get, set, computed, $, observer, run} = Ember;
 
 const KEY_ESC = 27;
 const KEY_ENTER = 13;
@@ -39,7 +39,7 @@ export default Component.extend({
 
       if (get(this, 'value')) {
 
-        model[onUpdate]().then(() => {
+        model[ onUpdate ]().then(() => {
           set(this, 'isEditing', false);
         }, error => {
           throw error;

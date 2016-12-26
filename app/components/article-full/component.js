@@ -39,7 +39,7 @@ export default Component.extend({
     return 'Open Original Article';
   }),
 
-  classNames: ['ui', 'basic', 'segment', 'article-full'],
+  classNames: [ 'ui', 'basic', 'segment', 'article-full' ],
 
   iframeWidth: computed(function () {
     const component = this.$();
@@ -71,12 +71,12 @@ export default Component.extend({
     $('img, iframe, video', component).each(function () {
 
       const origWidth = typeOf($(this).attr('width')) !== 'undefined' ?
-        $(this).attr('width') :
-        $(this).width();
+                        $(this).attr('width') :
+                        $(this).width();
 
       const origHeight = typeOf($(this).attr('height')) !== 'undefined' ?
-        $(this).attr('height') :
-        $(this).height();
+                         $(this).attr('height') :
+                         $(this).height();
 
       const currentWidth = $('.article-body', component).width();
 

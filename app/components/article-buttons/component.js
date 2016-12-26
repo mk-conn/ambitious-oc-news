@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 const {get, $, set, computed, observer, run, typeOf, inject} = Ember;
 

@@ -1,56 +1,56 @@
 {{#if config.error}}
-    <div class="ui negative message">
-        <strong>Failure:</strong> {{config.error}}
-    </div>
+  <div class="ui negative message">
+    <strong>Failure:</strong> {{config.error}}
+  </div>
 {{/if}}
 
 {{#if config.success}}
-    <div class="ui positive message">
-        <strong>Success:</strong> {{config.success}}
-    </div>
+  <div class="ui positive message">
+    <strong>Success:</strong> {{config.success}}
+  </div>
 {{/if}}
 <div class="segment">
-    <form {{action "submit" on="submit"}} class="ui form">
+  <form {{action "submit" on="submit"}} class="ui form">
 
-        <div class="required field">
-            <label for="">Nextcloud NEWS URL</label>
-          {{input
-          value=config.domain
-          required=true
-          onChange=(action (mut config.domain))
-          icon="link"
-          }}
-        </div>
+    <div class="required field">
+      <label for="">Nextcloud NEWS URL</label>
+      {{input
+        value=config.domain
+        required=true
+        onChange=(action (mut config.domain))
+        icon="link"
+      }}
+    </div>
 
-        <div class="required field">
-            <label>Username</label>
-          {{input label="Username"
-          value=config.username
-          required=true
-          onChange=(action (mut config.username))
-          }}
-        </div>
+    <div class="required field">
+      <label>Username</label>
+      {{input label="Username"
+              value=config.username
+              required=true
+              onChange=(action (mut config.username))
+      }}
+    </div>
 
-        <div class="required field">
-            <label>Password</label>
-          {{input label="Password"
-          type="password"
-          block=true
-          value=config.password
-          required=true
-          onChange=(action (mut config.password))
-          errorMessages=(hash required="Password is required")
-          icon="lock"
-          }}
-        </div>
+    <div class="required field">
+      <label>Password</label>
+      {{input label="Password"
+              type="password"
+              block=true
+              value=config.password
+              required=true
+              onChange=(action (mut config.password))
+              errorMessages=(hash required="Password is required")
+              icon="lock"
+      }}
+    </div>
 
-        <div class="field">
-          {{ui-checkbox class="toggle" label="Remember settings (will be stored in the localstorage of your browser)"
-          checked=config.persist onChange=(action (mut config.persist))
-          }}
-        </div>
+    <div class="field">
+      {{ui-checkbox class="toggle" label="Remember settings (will be stored in the localstorage of your browser)"
+                    checked=config.persist onChange=(action (mut config.persist))
+      }}
+    </div>
 
-        <button class="ui button" type="submit">Submit</button>
+    <button class="ui button" type="submit">Submit</button>
 
-    </form>
+  </form>
 </div>

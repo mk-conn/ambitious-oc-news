@@ -1,10 +1,10 @@
-import Ember from 'ember';
-import Env from 'ambitious-oc-news/config/environment';
-import CryptoJS from 'npm:crypto-js';
+import Ember from "ember";
+import Env from "ambitious-oc-news/config/environment";
+import CryptoJS from "npm:crypto-js";
 
 const {
   Service,
-  } = Ember;
+} = Ember;
 
 export default Service.extend({
   error: '',

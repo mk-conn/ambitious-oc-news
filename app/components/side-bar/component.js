@@ -1,11 +1,11 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 const {
   Component
 } = Ember;
 
 export default Component.extend({
-  classNames: ['ui', 'visible', 'sidebar', 'inverted', 'vertical', 'left', 'menu'],
+  classNames: [ 'ui', 'visible', 'sidebar', 'inverted', 'vertical', 'left', 'menu' ],
 
   didInsertElement() {
     this._super(...arguments);

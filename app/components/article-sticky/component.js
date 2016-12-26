@@ -1,5 +1,5 @@
-import Ember from 'ember';
-import UiSticky from 'semantic-ui-ember/components/ui-sticky';
+import Ember from "ember";
+import UiSticky from "semantic-ui-ember/components/ui-sticky";
 
 const {
   $
@@ -8,7 +8,7 @@ const {
 export default UiSticky.extend({
 
   didInsertElement() {
-    let element = $('#'+this.get('elementId'));
+    let element = $('#' + this.get('elementId'));
 
     $(element).sticky({
       context: '#article-content-container',

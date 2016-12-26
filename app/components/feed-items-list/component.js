@@ -1,5 +1,5 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Component.extend({
-  classNames: ['feed-items-list']
+  classNames: [ 'feed-items-list' ]
 });

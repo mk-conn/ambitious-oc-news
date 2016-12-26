@@ -16,8 +16,8 @@ Router.map(function () {
     });
     this.route('edit', {path: '/edit/:feed_id'}, function () {
     });
-    this.route('pinned', function() {
-      this.route('show', function() {
+    this.route('pinned', function () {
+      this.route('show', function () {
         this.route('article');
       });
     });

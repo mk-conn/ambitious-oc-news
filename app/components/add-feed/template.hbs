@@ -1,47 +1,47 @@
 {{#if feed.error}}
-    <div class="ui error message">
-        <strong>Failure:</strong> {{feed.error}}
-    </div>
+  <div class="ui error message">
+    <strong>Failure:</strong> {{feed.error}}
+  </div>
 {{else}}
   {{#if feed.success.title}}
-      <div class="ui success message">
-          <strong>Success:</strong>
-          <div>
-            {{#link-to "feeds.show.articles" feed.success.id}}
-              {{#if feed.success.feedIcon}}
-                  <span class="feed-icon">
+    <div class="ui success message">
+      <strong>Success:</strong>
+      <div>
+        {{#link-to "feeds.show.articles" feed.success.id}}
+          {{#if feed.success.feedIcon}}
+            <span class="feed-icon">
                 <img src="{{feed.success.feedIcon}}" alt="feed-icon"/>
             </span>
-              {{else}}
-                  <span class="fa fa-feed"></span>
-              {{/if}}
+          {{else}}
+            <span class="fa fa-feed"></span>
+          {{/if}}
 
-              {{feed.success.title}}
-            {{/link-to}}
-          </div>
+          {{feed.success.title}}
+        {{/link-to}}
       </div>
+    </div>
   {{/if}}
 {{/if}}
 
 <form {{action "submit" on="submit"}} class="ui form">
-    <div class="required field">
-        <label>Feed URL</label>
-      {{input type="text" placeholder="https://feed-url.com/" value=feed.url class="form-control"}}
-    </div>
+  <div class="required field">
+    <label>Feed URL</label>
+    {{input type="text" placeholder="https://feed-url.com/" value=feed.url class="form-control"}}
+  </div>
 
-    <div class="field">
-        <label>Folder</label>
+  <div class="field">
+    <label>Folder</label>
 
-      {{!--
-      {{#power-select options=folders
-      selected=selected
-      noMatchesMessage="Create new folder"
-      onkeydown=(action "handleKeydown")
-      onchange=(action (mut selected)) as |folder|}}
-        {{folder.name}}
-      {{/power-select}} --}}
-    </div>
+    {{!--
+    {{#power-select options=folders
+    selected=selected
+    noMatchesMessage="Create new folder"
+    onkeydown=(action "handleKeydown")
+    onchange=(action (mut selected)) as |folder|}}
+      {{folder.name}}
+    {{/power-select}} --}}
+  </div>
 
-    <button type="submit" class="ui button">Submit</button>
+  <button type="submit" class="ui button">Submit</button>
 
 </form>

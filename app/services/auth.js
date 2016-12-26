@@ -1,5 +1,5 @@
-import Ember from 'ember';
-import Env from 'ambitious-oc-news/config/environment';
+import Ember from "ember";
+import Env from "ambitious-oc-news/config/environment";
 
 const {RSVP, get, set, $ : {ajax}, inject, Service, run} = Ember;
 
@@ -15,7 +15,7 @@ export default Service.extend({
         contentType: "application/json, text/javascript; q=0.01",
         dataType: 'json',
 
-        beforeSend: (xhr)  => {
+        beforeSend: (xhr) => {
           const auth = btoa(options.username + ':' + options.password);
           xhr.setRequestHeader('Authorization', 'Basic ' + auth);
         }

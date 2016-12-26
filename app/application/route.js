@@ -17,7 +17,7 @@ export default Route.extend(Protected, {
   beforeModel() {
     this._super(...arguments);
 
-    var lang = (navigator.language || navigator.browserLanguage).split('-')[0];
+    var lang = (navigator.language || navigator.browserLanguage).split('-')[ 0 ];
     this.get('moment').changeLocale(lang);
 
   },
