@@ -32,13 +32,15 @@ export default Ember.Route.extend(InfinityRoute, {
   // pageParam: "offset",
   // totalPagesParam: "",
 
-  init() {
-    set(this, 'offset', undefined);
-  },
+  // init() {
+  //   set(this, 'offset', undefined);
+  // },
 
   beforeModel(transition) {
-    this._super(...arguments);
 
+    set(this, 'offset', undefined);
+
+    this._super(...arguments);
     // $('#article-list-container').animate({scrollTop: 0, duration: 400});
 
 
