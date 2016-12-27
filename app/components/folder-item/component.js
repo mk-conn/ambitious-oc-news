@@ -1,20 +1,27 @@
 import Ember from "ember";
-const {get, set, computed} = Ember;
+const {
+  get,
+  computed,
+  Component
+} = Ember;
 
-export default Ember.Component.extend({
-  //unreadCount: computed.sum('folder.feeds.@each.unreadCount'),
+export default Component.extend({
+
   folderIcon: computed('folderOpen', function () {
     if (get(this, 'folderOpen')) {
       return 'fa-folder-open';
     }
     return 'fa-folder';
   }),
+
   folderOpen: computed.not('folder.isClosed'),
 
   actions: {
+
     toggleFolderClosed() {
       get(this, 'folder').toggleClosed();
     },
+
     markFolderRead() {
       get(this, 'folder').markAllRead();
     }

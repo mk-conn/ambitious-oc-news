@@ -4,7 +4,6 @@ import Protected from "ambitious-oc-news/mixins/protected";
 
 const {
   Route,
-  get,
   inject,
   $
 } = Ember;

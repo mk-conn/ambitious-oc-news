@@ -5,8 +5,6 @@ import InfinityRoute from "ember-infinity/mixins/route";
 const {
   get,
   set,
-  computed,
-  $,
   inject
 } = Ember;
 
@@ -32,18 +30,12 @@ export default Ember.Route.extend(InfinityRoute, {
   // pageParam: "offset",
   // totalPagesParam: "",
 
-  // init() {
-  //   set(this, 'offset', undefined);
-  // },
-
-  beforeModel(transition) {
+  beforeModel() {
+    Ember.debug(`>>>> feeds/show/articles/route::beforeModel()`);
 
     set(this, 'offset', undefined);
 
     this._super(...arguments);
-    // $('#article-list-container').animate({scrollTop: 0, duration: 400});
-
-
   },
 
   model() {
@@ -67,7 +59,7 @@ export default Ember.Route.extend(InfinityRoute, {
    * @param model
    */
   afterModel(model) {
-    Ember.debug('>>>> Feeds.Show.Items-Route::afterModel()');
+    Ember.debug('>>>> feeds/show/articles/route::afterModel()');
 
     set(model, 'feed', this.modelFor('feeds.show'));
 
@@ -81,14 +73,14 @@ export default Ember.Route.extend(InfinityRoute, {
    */
   afterInfinityModel(articles) {
 
-    Ember.debug('>>>> Articles offset: ' + get(this, 'offset') + ' -----');
+    Ember.debug('++++ Articles offset: ' + get(this, 'offset') + ' ++++');
     const lastObjectId = articles.get('lastObject.id');
     const loadedAny = articles.get('length') > 0;
 
     set(this, '_canLoadMore', loadedAny);
     set(this, 'offset', lastObjectId);
 
-    Ember.debug('<<<< Articles offset: ' + get(this, 'offset') + ' -----');
+    Ember.debug('---- Articles offset: ' + get(this, 'offset') + ' -----');
 
   },
 
@@ -124,7 +116,7 @@ export default Ember.Route.extend(InfinityRoute, {
 
     willTransition(transition) {
       // scroll to top
-      Ember.debug(`>>>> Feeds.Show.Articles::willTransition(${transition.targetName})`);
+      Ember.debug(`>>>> feeds/show/articles/route::willTransition(${transition.targetName})`);
 
       const targetName = transition.targetName;
 

@@ -1,10 +1,13 @@
 import Ember from "ember";
 
-const {Component, get, set, computed, $, observer, run} = Ember;
+const {
+  Component,
+  get,
+  set,
+  computed,
+} = Ember;
 
 const KEY_ESC = 27;
-const KEY_ENTER = 13;
-
 
 export default Component.extend({
   tagName: 'div',

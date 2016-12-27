@@ -1,6 +1,14 @@
 import Ember from "ember";
 
-const {get, $, set, computed, observer, run, typeOf, inject} = Ember;
+const {
+  get,
+  $,
+  computed,
+  observer,
+  run,
+  typeOf,
+  inject
+} = Ember;
 
 export default Ember.Component.extend({
   config: inject.service('configuration'),

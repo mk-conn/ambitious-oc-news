@@ -26,13 +26,10 @@ export default Ember.Route.extend(ActivateDeactivate, Protected, {
 
   actions: {
 
-    renameFeed(title) {
+    renameFeed() {
       const feed = this.modelFor('feed');
+
       feed.rename();
-    },
-
-    updateUrl(url) {
-
     }
   }
 });

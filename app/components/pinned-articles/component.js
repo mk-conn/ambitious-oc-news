@@ -1,8 +1,12 @@
 import Ember from "ember";
 
-const {inject, get, computed} = Ember;
+const {
+  inject,
+  Component,
+  computed
+} = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   meta: inject.service(),
 
   starredCount: computed.alias('meta.starredCount'),

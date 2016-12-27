@@ -2,14 +2,13 @@ import Ember from "ember";
 
 const {
   Route,
-  get,
   set,
-  RSVP,
   inject,
   $,
 } = Ember;
 
 export default Route.extend({
+
   gui: inject.service(),
 
   beforeModel() {

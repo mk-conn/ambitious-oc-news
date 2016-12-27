@@ -2,7 +2,12 @@ import Ember from "ember";
 import Protected from "ambitious-oc-news/mixins/protected";
 import ActivateDeactivate from "ambitious-oc-news/mixins/activate-deactivate-view";
 
-const {get, set, inject, Object, RSVP} = Ember;
+const {
+  get,
+  set,
+  inject,
+  RSVP
+} = Ember;
 
 export default Ember.Route.extend(Protected, ActivateDeactivate, {
 
@@ -19,7 +24,7 @@ export default Ember.Route.extend(Protected, ActivateDeactivate, {
 
     Ember.debug('>>>> Settings::model()');
 
-    let articleSettings = Object.create(
+    let articleSettings = Ember.Object.create(
       get(
         this, 'config').retrieve('article_settings',
         {allowEmbedded: false}
@@ -27,8 +32,8 @@ export default Ember.Route.extend(Protected, ActivateDeactivate, {
     );
 
     return RSVP.hash({
-      conn: Object.create(get(this, 'config').retrieve('oc_conn')),
-      feed: Object.create({}),
+      conn: Ember.Object.create(get(this, 'config').retrieve('oc_conn')),
+      feed: Ember.Object.create({}),
       folders: this.store.findAll('folder'),
       articleSettings: articleSettings
     });

@@ -2,7 +2,6 @@ import Ember from "ember";
 
 const {
   Route,
-  get,
   inject
 } = Ember;
 
@@ -37,11 +36,6 @@ export default Route.extend({
     willTransition() {
       Ember.debug(`>>>> Feeds.Show.Articles.ShowRoute::willTransition()`);
       this.get('gui').deactivate('article-overlay');
-    },
-
-    closeArticle(article) {
-      // Ember.debug(`Feeds.Show.Items.Show-Route::closeArticle(): ${article}`);
-      // this.send('transition', 'feeds.show.articles', get(article, 'feed'));
     }
   }
 

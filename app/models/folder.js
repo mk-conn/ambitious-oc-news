@@ -1,18 +1,36 @@
 import DS from "ember-data";
 import Ember from "ember";
 
-const {attr, hasMany} = DS;
-const {computed, inject, A, get, set, Object, observer} = Ember;
+const {
+  attr,
+  hasMany
+} = DS;
 
+const {
+  computed,
+  inject,
+  A,
+  get,
+  set
+} = Ember;
+/**
+ * Folder model
+ */
 export default DS.Model.extend({
+
   configuration: inject.service(),
+
   name: attr('string'),
+
   feeds: hasMany('feed', {async: false}),
+
   unreadFeedCounts: computed('feeds.@each.unreadCount', function () {
     var feeds = this.get('feeds');
     return feeds.mapBy('unreadCount');
   }),
+
   unreadCount: computed.sum('unreadFeedCounts'),
+
   markAllRead() {
     this.set('_updateEndpoint', '/folders/' + this.get('id') + '/read');
     this.set('_updateVerb', 'PUT');
@@ -26,6 +44,7 @@ export default DS.Model.extend({
 
     return promise;
   },
+
   toggleClosed() {
     if (this.get('isClosed')) {
       this.set('isClosed', false);
@@ -33,7 +52,9 @@ export default DS.Model.extend({
       this.set('isClosed', true);
     }
   },
+
   isClosed: computed({
+
     get() {
       const folderId = this.get('id');
       const config = this.get('configuration');
@@ -49,6 +70,7 @@ export default DS.Model.extend({
       return false;
 
     },
+
     set(type, closed) {
 
       const config = this.get('configuration');
@@ -63,7 +85,7 @@ export default DS.Model.extend({
           set(folder, 'closed', closed);
           folders.removeObject(folder);
         } else {
-          folder = Object.create({id: id, closed: closed});
+          folder = Ember.Object.create({id: id, closed: closed});
         }
         folders.addObject(folder);
       } else {

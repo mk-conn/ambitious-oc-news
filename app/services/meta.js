@@ -2,7 +2,7 @@ import Ember from "ember";
 
 const {
   Service
-} = Ember
+} = Ember;
 
 export default Service.extend({
   newestItemId: null,

@@ -1,10 +1,21 @@
 import Ember from "ember";
 import Env from "ambitious-oc-news/config/environment";
 
-const {RSVP, get, set, $ : {ajax}, inject, Service, run} = Ember;
+const {
+  RSVP,
+  get,
+  $ : {
+    ajax
+  },
+  inject,
+  Service,
+  run
+} = Ember;
 
 export default Service.extend({
+
   configuration: inject.service(),
+
   authorize(options) {
     const url = options.domain + '/' + Env.APP.OCAPIRootPath + '/version';
 
