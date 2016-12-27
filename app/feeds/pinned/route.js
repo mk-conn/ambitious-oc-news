@@ -1,37 +1,11 @@
 import Ember from "ember";
-import Env from "ambitious-oc-news/config/environment";
-import InfinityRoute from "ember-infinity/mixins/route";
+import FeedsShowArticlesRoute from "ambitious-oc-news/feeds/show/articles/route";
 
-const {
-  Route,
-  inject,
-  $,
-} = Ember;
-
-export default Route.extend(InfinityRoute, {
-
-  gui: inject.service(),
-
-  offset: "0",
-
-  _canLoadMore: true,
-
-  batchSize: Env.APP.articles.batchSize || "10",
-
-  getRead: "true",
-
-  oldestFirst: "false",
+export default FeedsShowArticlesRoute.extend({
 
   feed: null,
 
   type: "2",
-
-
-  beforeModel() {
-    $('#article-list-container').animate({scrollTop: 0, duration: 400});
-
-    this.get('gui').activate('article-list');
-  },
 
   /**
    *

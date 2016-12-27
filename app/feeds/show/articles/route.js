@@ -1,15 +1,18 @@
 import Ember from "ember";
 import Env from "ambitious-oc-news/config/environment";
 import InfinityRoute from "ember-infinity/mixins/route";
+import ActivateDeactivate from "ambitious-oc-news/mixins/activate-deactivate-view";
+
 
 const {
   get,
   set,
   inject,
-  Route
+  Route,
+  $
 } = Ember;
 
-export default Route.extend(InfinityRoute, {
+export default Route.extend(InfinityRoute, ActivateDeactivate, {
 
   gui: inject.service(),
 
@@ -33,6 +36,8 @@ export default Route.extend(InfinityRoute, {
 
   beforeModel() {
     Ember.debug(`>>>> feeds/show/articles/route::beforeModel()`);
+
+    $('#article-list-container').animate({scrollTop: 0, duration: 400});
 
     set(this, 'offset', undefined);
 
@@ -64,9 +69,11 @@ export default Route.extend(InfinityRoute, {
 
     set(model, 'feed', this.modelFor('feeds.show'));
 
-    Ember.run.scheduleOnce('afterRender', this, function () {
-      this.get('gui').activate('article-list');
-    });
+    this._super(...arguments);
+
+    // Ember.run.scheduleOnce('afterRender', this, function () {
+    //   this.get('gui').activate('article-list');
+    // });
   },
   /**
    *
