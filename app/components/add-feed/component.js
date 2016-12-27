@@ -19,20 +19,20 @@ export default Ember.Component.extend({
         get(this, 'feed').set('folder', get(this, 'selected'));
       }
 
-      this.sendAction('submit', get(this, 'feed'));
-    },
-    handleKeydown(dropdown, e) {
-      if (e.keyCode !== 13) {
-        return;
-      }
-
-      let value = e.target.value;
-
-      if (value) {
-        const folder = this.attrs.createFolder(value);
-        this.set('selected', folder);
-      }
+      this.sendAction('onSubmit', get(this, 'feed'));
     }
+    // handleKeydown(dropdown, e) {
+    //   if (e.keyCode !== 13) {
+    //     return;
+    //   }
+    //
+    //   let value = e.target.value;
+    //
+    //   if (value) {
+    //     const folder = this.attrs.createFolder(value);
+    //     this.set('selected', folder);
+    //   }
+    // }
 
   }
 });

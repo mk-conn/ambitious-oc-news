@@ -14,17 +14,14 @@
     {{/settings-block}}
 
       {{#settings-block class="add-folder" title="Add Folder"}}
-        {{add-folder
-          submit=(route-action "createFolder")
-        }}
+        {{add-folder folder=model.folder onCreateFolder="createFolder"}}
       {{/settings-block}}
 
     {{#settings-block class="add-feed" title="Add Feed"}}
       {{add-feed
         folders=model.folders
         feed=model.feed
-        createFolder=(route-action "createFolder")
-        submit="createFeed"
+        onSubmit="createFeed"
       }}
     {{/settings-block}}
 

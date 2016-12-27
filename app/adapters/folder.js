@@ -6,6 +6,7 @@ const {get, inject} = Ember;
 
 export default ApplicationAdapter.extend(UrlTemplates, {
   meta: inject.service(),
+
   updateRecord(store, type, snapshot) {
 
     var id = snapshot.id;
@@ -18,12 +19,13 @@ export default ApplicationAdapter.extend(UrlTemplates, {
     }
 
     if (url.match(/.*rename$/)) {
-      const feedTitle = get(snapshot.record, 'title');
-      return this.ajax(url, verb, {data: {feedTitle: feedTitle}});
+      const name = get(snapshot.record, 'name');
+      return this.ajax(url, verb, {data: {name: name}});
     }
 
     return this._super(store, type, snapshot);
   },
+
   createRecord(store, type, snapshot) {
 
     var id = snapshot.id;
@@ -31,7 +33,8 @@ export default ApplicationAdapter.extend(UrlTemplates, {
     var url = this.buildURL(type.modelName, id, snapshot, 'createRecord');
     var data = {
       url: get(snapshot.record, 'url'),
-      folderId: get(snapshot.record, 'folderId')
+      folderId: get(snapshot.record, 'folderId'),
+      name: get(snapshot.record, 'name')
     };
 
     return this.ajax(url, 'POST', {data: data});

@@ -12,6 +12,8 @@ You will need the following things properly installed on your computer.
 * [Ember CLI](https://ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
 
+You will need a [Nextcloud](https://nextcloud.org) installation with activated News plugin.
+
 ## Installation
 
 * `git clone <repository-url>` this repository

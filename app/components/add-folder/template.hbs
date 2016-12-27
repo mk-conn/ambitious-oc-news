@@ -1,0 +1,28 @@
+{{#if folder.error}}
+  <div class="ui error message">
+    <strong>Failure:</strong> {{folder.error}}
+  </div>
+{{else}}
+  {{#if folder.success}}
+    <div class="ui icon message">
+      <i class="success icon"></i>
+      <div class="content">
+        <div class="header">
+          Success!
+        </div>
+        <p>Folder {{folder.success}} was created.</p>
+      </div>
+    </div>
+  {{/if}}
+{{/if}}
+
+
+<form {{action "submit" on="submit"}} class="ui form">
+  <div class="required field">
+    <label>Folder Name</label>
+    {{input type="text" placeholder="Name" value=folder.name class="form-control"}}
+  </div>
+
+  <button type="submit" class="ui primary basic button">Submit</button>
+
+</form>

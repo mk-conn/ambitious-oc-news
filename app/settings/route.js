@@ -35,6 +35,7 @@ export default Ember.Route.extend(Protected, ActivateDeactivate, {
       conn: Ember.Object.create(get(this, 'config').retrieve('oc_conn')),
       feed: Ember.Object.create({}),
       folders: this.store.findAll('folder'),
+      folder: Ember.Object.create({}),
       articleSettings: articleSettings
     });
   },
@@ -86,10 +87,29 @@ export default Ember.Route.extend(Protected, ActivateDeactivate, {
      * @param name
      * @returns {*}
      **/
-    createFolder(name) {
-      return this.store.createRecord('folder', {name: name});
-    },
+    createFolder(model) {
+      Ember.debug(`>>>> settings/route::createFolder(${model})`);
 
+      set(model, 'success', false);
+      set(model, 'error', false);
+
+      let folder = this.store.createRecord('folder', {
+        name: get(model, 'name')
+      });
+
+      folder.save().then((folder) => {
+        set(model, 'success', {
+          name : get(folder, 'name')
+        });
+
+      }, error => {
+        set(model, 'error', error);
+      });
+    },
+    /**
+     *
+     * @param model
+     */
     createFeed(model) {
       set(model, 'success', false);
       set(model, 'error', false);
@@ -136,12 +156,12 @@ export default Ember.Route.extend(Protected, ActivateDeactivate, {
      *
      * @param settings
      */
-    saveArticleSettings(allow) {
-      Ember.debug(`>>>> settings/route::saveArticleSettings(${allow})`);
+    saveArticleSettings(settings) {
+      Ember.debug(`>>>> settings/route::saveArticleSettings(${settings})`);
 
       let model = this.get('currentModel');
-      set(model, 'articleSettings', allow);
-      get(this, 'config').store('article_settings', JSON.stringify(allow), 'local');
+      set(model, 'articleSettings', settings);
+      get(this, 'config').store('article_settings', JSON.stringify(settings), 'local');
     },
   }
 })

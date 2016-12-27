@@ -45,6 +45,20 @@ export default DS.Model.extend({
     return promise;
   },
 
+  rename() {
+    this.set('_updateEndpoint', '/folders/' + this.get('id') + '/rename');
+    this.set('_updateVerb', 'PUT');
+    //this.set('title', title);
+
+    let promise = this.save();
+    promise.finally(() => {
+      this.set('_updateEndpoint', null);
+      this.set('_updateVerb', null);
+    });
+
+    return promise;
+  },
+
   toggleClosed() {
     if (this.get('isClosed')) {
       this.set('isClosed', false);
