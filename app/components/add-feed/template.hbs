@@ -32,16 +32,24 @@
   <div class="field">
     <label>Folder</label>
 
-    {{!--
-    {{#power-select options=folders
-    selected=selected
-    noMatchesMessage="Create new folder"
-    onkeydown=(action "handleKeydown")
-    onchange=(action (mut selected)) as |folder|}}
-      {{folder.name}}
-    {{/power-select}} --}}
+    {{#ui-dropdown
+      class="search selection"
+      allowAdditions=false
+      selected=null
+      onChange=(action (mut selected)) as |execute selected_folder|}}
+      <div class="default text">Folder</div>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <div class="item" data-value="">All Items</div>
+        {{#each folders as |folder|}}
+          <div class="item" data-value="{{map-value selected_folder folder}}">
+            {{folder.name}}
+          </div>
+        {{/each}}
+      </div>
+      {{/ui-dropdown}}
   </div>
 
-  <button type="submit" class="ui button">Submit</button>
+  <button type="submit" class="ui primary basic button">Submit</button>
 
 </form>

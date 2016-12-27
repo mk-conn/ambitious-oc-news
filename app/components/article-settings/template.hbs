@@ -1,11 +1,6 @@
 <form {{action "submit" on="submit"}} class="ui form">
-  <div class="inline field">
-    {{ui-checkbox
-      class="toggle"
-      label="Allow embed of media (like youtube, vimeo, iframes, etc.)?"
-      checked=articleSettings.allowEmbedded
-      id="allow-embedded"
-      change=(action "submit")
-    }}
+  <div class="ui toggle checkbox">
+    {{input type="checkbox" checked=settings.allowEmbedded change=(action "submit")}}
+    <label>Allow embed of media (like youtube, vimeo, iframes, etc.)?</label>
   </div>
 </form>

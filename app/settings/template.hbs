@@ -1,6 +1,6 @@
 <div class="ui segment">
 
-  <button class="ui vertical animated button" {{action "goBack"}}>
+  <button class="ui vertical positive basic animated button" {{action "goBack"}}>
     <div class="hidden content">Feeds</div>
     <div class="visible content">
       <i class="arrow up icon"></i>
@@ -13,6 +13,12 @@
       {{config-form config=model.conn submit="setupConnection"}}
     {{/settings-block}}
 
+      {{#settings-block class="add-folder" title="Add Folder"}}
+        {{add-folder
+          submit=(route-action "createFolder")
+        }}
+      {{/settings-block}}
+
     {{#settings-block class="add-feed" title="Add Feed"}}
       {{add-feed
         folders=model.folders
@@ -23,7 +29,7 @@
     {{/settings-block}}
 
     {{#settings-block class="content-settings" title="Article settings"}}
-      {{article-settings articleSettings=model.articleSettings submit="saveArticleSettings"}}
+      {{article-settings settings=model.articleSettings submit="saveArticleSettings"}}
     {{/settings-block}}
   </div>
 </div>

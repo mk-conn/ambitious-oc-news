@@ -48,6 +48,9 @@ body {
   width: 0;
   background: #fff;
   z-index: 4;
+  padding-bottom:5rem;
+  padding-top:1rem;
+  @include overflow-scroll();
   @include full-height();
 }
 

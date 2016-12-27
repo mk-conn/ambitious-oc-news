@@ -9,7 +9,7 @@ export default Component.extend({
 
     submit() {
       let allow = false;
-      if (this.get('articleSettings.allowEmbedded') === false) {
+      if (this.get('settings.allowEmbedded') === false) {
         allow = true;
       }
       let settings = {allowEmbedded: allow};

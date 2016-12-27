@@ -132,10 +132,16 @@ export default Ember.Route.extend(Protected, ActivateDeactivate, {
       });
     },
 
-    saveArticleSettings(settings) {
+    /**
+     *
+     * @param settings
+     */
+    saveArticleSettings(allow) {
+      Ember.debug(`>>>> settings/route::saveArticleSettings(${allow})`);
+
       let model = this.get('currentModel');
-      set(model, 'articleSettings', settings);
-      get(this, 'config').store('article_settings', JSON.stringify(settings), 'local');
+      set(model, 'articleSettings', allow);
+      get(this, 'config').store('article_settings', JSON.stringify(allow), 'local');
     },
   }
 })
