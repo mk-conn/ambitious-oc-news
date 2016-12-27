@@ -42,11 +42,12 @@ export default Route.extend(InfinityRoute, ActivateDeactivate, {
   beforeModel() {
     Ember.debug(`>>>> feeds/show/articles/route::beforeModel()`);
 
+    this._super(...arguments);
+
     $('#article-list-container').animate({scrollTop: 0, duration: 400});
 
     set(this, 'offset', undefined);
 
-    this._super(...arguments);
   },
 
   model() {
@@ -141,7 +142,7 @@ export default Route.extend(InfinityRoute, ActivateDeactivate, {
         this.get('gui').deactivate('article-list');
       }
 
-      this._super(...arguments);
+      // this._super(...arguments);
     }
   }
 });

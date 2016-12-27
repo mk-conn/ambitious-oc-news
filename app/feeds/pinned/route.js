@@ -35,20 +35,6 @@ export default FeedsShowArticlesRoute.extend({
       into: 'application',
       outlet: 'article-list'
     });
-  },
-  /**
-   * Actions
-   */
-  actions: {
-
-    willTransition() {
-
-      this.get('gui').deactivate('article-list');
-
-      this._super(...arguments);
-
-    }
-
   }
 
 });

@@ -16,7 +16,8 @@ export default Mixin.create({
 
   afterModel() {
     let display = this.get('display');
-    Ember.debug(`>>>> ActivateDeactivateMixin::afterModel(${display})`);
+    Ember.debug(`>>>> mixins/activate-deactivate::afterModel(${display.activate})`);
+
     if (display) {
       this.get('gui').activate(display.activate);
     }
