@@ -16,19 +16,11 @@ export default Route.extend(Protected, {
   beforeModel() {
     this._super(...arguments);
 
-    var lang = (navigator.language || navigator.browserLanguage).split('-')[ 0 ];
+    let lang = (navigator.language || navigator.browserLanguage).split('-')[ 0 ];
     this.get('moment').changeLocale(lang);
-
   },
 
   actions: {
-    willTransition(){
-
-      console.log('routename:', this.routeName);
-      console.log('currentRouteName:', this.get('currentRouteName'));
-
-      this.controllerFor('application').set('lastRoute', this.routeName);
-    },
 
     openArticle(article) {
       Ember.debug(`ApplicationsRoute::openArticle(${article})`);

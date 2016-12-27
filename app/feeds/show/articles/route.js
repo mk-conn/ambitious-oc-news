@@ -14,6 +14,11 @@ const {
 
 export default Route.extend(InfinityRoute, ActivateDeactivate, {
 
+  display: {
+    activate: 'article-list',
+    deactivate: 'article-list'
+  },
+
   gui: inject.service(),
 
   offset: "0",

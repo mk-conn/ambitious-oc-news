@@ -1,11 +1,8 @@
-{{#ui-sticky class="article-close-button"}}
-  {{#link-to onCloseRoute
-             tagName="button"
-             classNames="ui basic huge circular right floated icon button"
-  }}
-    <i class="ui icon close"></i>
-  {{/link-to}}
-{{/ui-sticky}}
+{{#link-to onCloseRoute
+           classNames="article-close-button ui basic huge circular right floated icon button"
+}}
+  <i class="ui icon close"></i>
+{{/link-to}}
 
 {{!-- <button class="ui basic huge circular right floated icon button" {{action "closeArticle" article}}>
   <i class="ui icon close"></i>
