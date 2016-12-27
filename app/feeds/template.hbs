@@ -7,7 +7,11 @@
 
 {{#each model.folders as |folder|}}
   <div class="item">
-    <div class="header">{{folder.name}}</div>
+    <div class="header">
+      {{#link-to "folder.edit" folder}}
+        {{folder.name}}
+      {{/link-to}}
+    </div>
     {{feed-list feeds=folder.feeds}}
   </div>
 {{/each}}

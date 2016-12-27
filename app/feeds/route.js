@@ -132,6 +132,27 @@ export default Route.extend(Protected, {
         }
       }
     },
+
+    deleteFolder(folder) {
+      if (confirm(`Really delete folder "${get(folder, 'name')}" and all its containing feeds?`)) {
+        folder.deleteRecord();
+
+        if (folder.get('isDeleted')) {
+          folder.save().then(() => {
+            this.transitionTo('index');
+          });
+        }
+      }
+    },
+    /**
+     *
+     * @param folder
+     * @param name
+     */
+    renameFolder(folder, name) {
+
+    },
+
     /**
      *
      * @param feed

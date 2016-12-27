@@ -44,7 +44,6 @@ export default DS.Model.extend({
   rename() {
     this.set('_updateEndpoint', '/feeds/' + this.get('id') + '/rename');
     this.set('_updateVerb', 'PUT');
-    //this.set('title', title);
 
     let promise = this.save();
     promise.finally(() => {

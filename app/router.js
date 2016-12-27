@@ -7,7 +7,6 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function () {
-
   this.route('feeds', {path: '/feeds'}, function () {
 
     this.route('show', {path: '/:feed_id'}, function () {
@@ -32,6 +31,10 @@ Router.map(function () {
   });
 
   this.route('feed', {path: '/feed/:feed_id'}, function () {
+  });
+
+  this.route('folder', function () {
+    this.route('edit', {path: '/edit/:folder_id'});
   });
 });
 
