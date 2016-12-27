@@ -1,33 +1,20 @@
-<div id="feed-header" class="ui three item menu">
+<div id="feed-header" class="ui top fixed two item menu">
 
   <div class="header item">
-    <a href="{{model.feed.link}}" target="_blank">
-      {{model.feed.title}}
-    </a>
+    Pinned
   </div>
 
-  {{#if model.feed.unreadCount}}
-    <a title="Mark as read" class="item" {{action "markAllArticlesAsRead" model.feed}}>
-      <i class="ui icon radio"></i>
-    </a>
-  {{else}}
-    <div class="item" title="No unread articles">
-      <i class="ui icon check circle outline "></i>
-    </div>
-  {{/if}}
-
-  <div class="item close-feed-articles">
-    {{#link-to "feeds"}}
-      <i class="arrow left icon"></i>
-    {{/link-to}}
-  </div>
-
+  {{#link-to "feeds" classNames="item"}}
+    <i class="arrow left icon"></i>
+  {{/link-to}}
 </div>
 
-<div id="articles-container">
+<div id="article-list-container">
 
-  <div id="article-list-container">
-    {{article-list articles=model}}
-  </div>
+  {{article-list articleShowRoute="feeds.pinned.show.article" articles=model}}
+
+  {{#infinity-loader infinityModel=model scrollable="#article-list" destroyOnInfinity=true}}
+    {{partial "loading-articles"}}
+  {{/infinity-loader}}
 
 </div>

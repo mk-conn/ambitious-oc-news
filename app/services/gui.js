@@ -31,6 +31,7 @@ export default Service.extend({
    */
   deactivate(layoutComponent) {
     Ember.debug(`>>>> GuiService::deactivate(${layoutComponent})`);
+
     $(`#${layoutComponent}`).removeClass('activated');
   }
 

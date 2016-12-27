@@ -1,18 +1,35 @@
 import Ember from "ember";
+import Env from "ambitious-oc-news/config/environment";
+import InfinityRoute from "ember-infinity/mixins/route";
 
 const {
   Route,
-  set,
   inject,
   $,
 } = Ember;
 
-export default Route.extend({
+export default Route.extend(InfinityRoute, {
 
   gui: inject.service(),
 
+  offset: "0",
+
+  _canLoadMore: true,
+
+  batchSize: Env.APP.articles.batchSize || "10",
+
+  getRead: "true",
+
+  oldestFirst: "false",
+
+  feed: null,
+
+  type: "2",
+
+
   beforeModel() {
     $('#article-list-container').animate({scrollTop: 0, duration: 400});
+
     this.get('gui').activate('article-list');
   },
 
@@ -20,33 +37,26 @@ export default Route.extend({
    *
    */
   model() {
-    return this.store.query('item', {
-      type: 2,
-      getRead: true,
-      oldestFirst: false
-    });
-  },
-  /**
-   *
-   * @param model
-   */
-  afterModel(model) {
+    Ember.debug(`>>>> feeds/pinned::model()`);
 
-    let feed = Ember.Object.create({
-      id: 'pinned',
-      unreadCount: null,
-      title: 'Pinned',
-      url: '/feeds/pinned',
-      folder: null
-    });
-
-    set(model, 'feed', feed);
+    return this.infinityModel('item', {},
+      {
+        batchSize: 'batchSize',
+        offset: 'offset',
+        type: 'type',
+        getRead: 'getRead',
+        oldestFirst: 'oldestFirst'
+      });
   },
+
   /**
    *
    */
   renderTemplate()
   {
+
+    Ember.debug(`>>>> feeds/pinned::renderTemplate()`);
+
     this.render('feeds/pinned', {
       into: 'application',
       outlet: 'article-list'
@@ -58,9 +68,9 @@ export default Route.extend({
   actions: {
 
     willTransition() {
-      // scroll to top
 
       this.get('gui').deactivate('article-list');
+
       this._super(...arguments);
 
     }

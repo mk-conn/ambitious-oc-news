@@ -5,10 +5,11 @@ import InfinityRoute from "ember-infinity/mixins/route";
 const {
   get,
   set,
-  inject
+  inject,
+  Route
 } = Ember;
 
-export default Ember.Route.extend(InfinityRoute, {
+export default Route.extend(InfinityRoute, {
 
   gui: inject.service(),
 

@@ -2,7 +2,7 @@
   <img src={{articleImage}}>
 </div>
 <div class="content">
-  {{#link-to "feeds.show.articles.show" article}}
+  {{#link-to articleShowRoute article}}
     <h4 class="ui article-title {{readOrUnread}} header">{{title}}</h4>
     {{moment-format article.pubDate 'LLLL' 'X'}}
     <div class="meta">

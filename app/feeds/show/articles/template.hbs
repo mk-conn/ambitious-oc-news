@@ -8,11 +8,11 @@
 
   {{#if model.feed.unreadCount}}
     <a title="Mark as read" class="item" {{action "markAllArticlesAsRead" model.feed}}>
-      <i class="ui icon radio"></i>
+      <i class="ui icon check circle outline "></i>
     </a>
   {{else}}
     <div class="item" title="No unread articles">
-      <i class="ui icon check circle outline "></i>
+      <i class="ui icon radio"></i>
     </div>
   {{/if}}
 
@@ -42,7 +42,7 @@
 
 <div id="article-list-container">
 
-  {{article-list articles=model}}
+  {{article-list articleShowRoute="feeds.show.articles.show" articles=model}}
 
   {{#infinity-loader infinityModel=model scrollable="#article-list" destroyOnInfinity=true}}
     {{partial "loading-articles"}}

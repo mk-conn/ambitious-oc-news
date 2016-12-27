@@ -10,17 +10,17 @@
 
 <a class="ui small icon button" data-content="{{readUnreadHint}}" {{action "toggleUnread"}}>
   {{#if isUnread}}
-    <i class="radio icon"></i>
-  {{else}}
     <i class="check circle outline icon"></i>
+  {{else}}
+    <i class="radio icon"></i>
   {{/if}}
 </a>
 
 <a class="ui small icon button" {{action "toggleStarred"}} data-content={{starHint}}>
   {{#if isStarred}}
-    <i class="bookmark icon"></i>
-  {{else}}
     <i class="bookmark remove icon"></i>
+  {{else}}
+    <i class="bookmark icon"></i>
   {{/if}}
 </a>
 
