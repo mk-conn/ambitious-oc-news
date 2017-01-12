@@ -9,7 +9,7 @@ const {
 export default Component.extend({
   meta: inject.service(),
 
-  classNames: [ 'menu', 'feed-item' ],
+  classNames: [ 'feed-item' ],
 
   starredCount: computed.alias('meta.starredCount'),
 
