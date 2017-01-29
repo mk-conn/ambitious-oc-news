@@ -1,8 +1,8 @@
 import Ember from "ember";
 
 const {
-  Mixin,
-  inject
+    Mixin,
+    inject
 } = Ember;
 
 /**
@@ -10,33 +10,34 @@ const {
  */
 export default Mixin.create({
 
-  gui: inject.service(),
+    gui: inject.service(),
 
-  display: null,
+    display: null,
 
-  afterModel() {
-    let display = this.get('display');
-    Ember.debug(`>>>> mixins/activate-deactivate::afterModel(${display.activate})`);
+    afterModel() {
 
-    if (display) {
-      this.get('gui').activate(display.activate);
+        let display = this.get('display');
+        Ember.debug(`mixins: activate-deactivate::afterModel(${display.activate})`);
+
+        if (display) {
+            this.get('gui').activate(display.activate);
+        }
+
+        this._super(...arguments);
+    },
+
+    actions: {
+
+        willTransition() {
+            let display = this.get('display');
+            Ember.debug(`mixins: activate-deactivate::actions::willTransition(${display})`);
+
+            if (display) {
+                this.get('gui').deactivate(display.activate);
+            }
+
+            this._super(...arguments);
+        }
     }
-
-    this._super(...arguments);
-  },
-
-  actions: {
-
-    willTransition() {
-      let display = this.get('display');
-      Ember.debug(`>>>> ActivateDeactivateMixin::willTransition(${display})`);
-
-      if (display) {
-        this.get('gui').deactivate(display.activate);
-      }
-
-      this._super(...arguments);
-    }
-  }
 
 });

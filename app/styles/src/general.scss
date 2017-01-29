@@ -48,8 +48,8 @@ body {
   width: 0;
   background: #fff;
   z-index: 4;
-  padding-bottom:5rem;
-  padding-top:1rem;
+  padding-bottom: 5rem;
+  padding-top: 1rem;
   @include overflow-scroll();
   @include full-height();
 }
@@ -156,7 +156,7 @@ body {
   }
 
   .article-body {
-    padding-bottom: 3rem;
+    //padding-bottom: 3rem;
   }
 
   .article-embed {
@@ -235,9 +235,9 @@ body {
 }
 
 .article-close-button {
-  position:fixed;
-  top:1rem;
-  right:1rem;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
 }
 
 .action {
@@ -249,15 +249,12 @@ blockquote {
   border-left: .3rem solid #ccc;
 }
 
-@media only screen and (min-width: $tablet) {
+@media only screen and (min-width: $mobile + 1px) and (max-width: $desktop) {
 
-  $side-bar-width: 20%;
+  $side-bar-width: 35%;
   $second-overlay-width: 100% - $side-bar-width;
 
   #side-bar {
-    //position: absolute;
-    //top: 0;
-    //left: 0;
     width: $side-bar-width !important;
     z-index: 1;
     transition: all .5s ease;
@@ -276,7 +273,7 @@ blockquote {
     position: absolute;
     right: 0;
     top: 0;
-    width: 80%;
+    width: $second-overlay-width;
   }
 
   #article-overlay {
@@ -294,9 +291,65 @@ blockquote {
   }
 
   .article-close-button {
-    position:fixed;
-    top:1rem;
-    right:2rem;
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+  }
+
+}
+
+@media only screen and (min-width: $desktop+ 1px) {
+  $side-bar-width: 25%;
+  $second-overlay-width: 100% - $side-bar-width;
+
+  #side-bar {
+    width: $side-bar-width !important;
+    z-index: 1;
+    transition: all .5s ease;
+  }
+
+  #content {
+    width: 0;
+    transition: all .5s ease;
+  }
+
+  #content.activated {
+    width: $second-overlay-width;
+  }
+
+  #article-list, #article-list.activated {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $second-overlay-width;
+  }
+
+}
+
+@media only screen and (min-width: $widescreen) {
+  $side-bar-width: 20%;
+  $second-overlay-width: 100% - $side-bar-width;
+
+  #side-bar {
+    width: $side-bar-width !important;
+    z-index: 1;
+    transition: all .5s ease;
+  }
+
+  #content {
+    width: 0;
+    transition: all .5s ease;
+  }
+
+  #content.activated {
+    width: $second-overlay-width;
+  }
+
+  #article-list, #article-list.activated {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $second-overlay-width;
   }
 
 }
