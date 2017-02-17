@@ -274,6 +274,7 @@ blockquote {
   }
 
   #article-list, #article-list.activated {
+    font-size:.85rem;
     position: absolute;
     right: 0;
     top: 0;
@@ -315,7 +316,11 @@ blockquote {
     width: 0;
     z-index: 3;
     transition: all .5s ease;
+
+
   }
+
+
 
   #article-overlay.activated {
     width: 60%;
@@ -360,11 +365,16 @@ blockquote {
   #article-overlay.activated {
     width:60%;
     box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.4);
+
+    .article-full {
+      font-size:1.2rem;
+    }
   }
 
 }
 
 @media only screen and (min-width: $widescreen) {
+
   $side-bar-width: 20%;
   $second-overlay-width: 100% - $side-bar-width;
 
