@@ -1,9 +1,9 @@
 {{#each feeds as |feed|}}
-  {{#link-to "feeds.show.articles" feed classNames="item"}}
-    <img src="{{feed.feedIcon}}" class="ui mini inline feed-icon image"/>
-    {{feed.title}}
-    {{#if feed.unreadCount}}
-      <div class="ui blue label action">{{feed.unreadCount}}</div>
-    {{/if}}
-  {{/link-to}}
+    {{#link-to "feeds.show.articles" feed classNames="item"}}
+        <img src="{{feed.feedIcon}}" class="ui mini inline feed-icon image"/>
+        <span class="feed-title">{{feed.title}}</span>
+        {{#if feed.unreadCount}}
+            <div class="ui blue mini label action">{{feed.unreadCount}}</div>
+        {{/if}}
+    {{/link-to}}
 {{/each}}

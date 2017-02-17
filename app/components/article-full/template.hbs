@@ -12,12 +12,13 @@
 </h3>
 
 <div class="article-body">
-  {{#if showOriginalArticle}}
-
-    <div class="article-embed">
-      <iframe seamless src={{article.url}} frameborder="0"></iframe>
-    </div>
-  {{else}}
     {{body}}
-  {{/if}}
 </div>
+<div class="ui divider"></div>
+<a class="ui small icon button" href={{article.url}} target="_blank" {{action "originalArticle" preventDefault=false}}
+   data-content="Open article in new tab">
+    <i class="external icon"></i>
+    Open Original Article
+</a>
+
+<div class="ui divider"></div>
