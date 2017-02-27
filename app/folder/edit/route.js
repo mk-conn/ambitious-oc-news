@@ -1,6 +1,6 @@
 import Ember from "ember";
-import ActivateDeactivate from "ambitious-oc-news/mixins/activate-deactivate-view";
-import Protected from "ambitious-oc-news/mixins/protected";
+import ActivateDeactivate from "nextfeeds/mixins/activate-deactivate-view";
+import Protected from "nextfeeds/mixins/protected";
 
 export default Ember.Route.extend(ActivateDeactivate, Protected, {
 

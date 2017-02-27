@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   var ENV = {
-    modulePrefix: 'ambitious-oc-news',
+    modulePrefix: 'nextfeeds',
 
     environment: environment,
 

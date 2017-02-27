@@ -1,6 +1,6 @@
 import DS from "ember-data";
 import Ember from "ember";
-import Env from "ambitious-oc-news/config/environment";
+import Env from "nextfeeds/config/environment";
 //import UrlTemplates from 'ember-data-url-templates';
 
 const {

@@ -1,5 +1,5 @@
 import DS from "ember-data";
-import Serializer from "ambitious-oc-news/application/serializer";
+import Serializer from "nextfeeds/application/serializer";
 
 export default Serializer.extend(DS.EmbeddedRecordsMixin, {
   attrs: {

@@ -1,23 +1,23 @@
 <div id="side-bar" class="ui large vertical inverted menu">
 
-  <div class="item">
-    <div class="header">
-      <a href="/">AOC NEWS</a>
+    <div class="item">
+        <div class="header">
+            <a href="/">NEXTFEEDS</a>
+        </div>
     </div>
-  </div>
 
-  <div class="item">
-    {{#link-to "settings"}}
-      <i class="icon wrench"></i>
-      Settings
-    {{/link-to}}
-  </div>
+    <div class="item">
+        {{#link-to "settings"}}
+            <i class="icon wrench"></i>
+            Settings
+        {{/link-to}}
+    </div>
 
-  {{pinned-articles}}
+    {{pinned-articles}}
 
-  {{refresh-feeds}}
+    {{refresh-feeds}}
 
-  {{outlet}}
+    {{outlet}}
 
 </div>
 

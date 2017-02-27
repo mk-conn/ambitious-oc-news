@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { initialize } from 'ambitious-oc-news/initializers/fastclick';
+import { initialize } from 'nextfeeds/initializers/fastclick';
 import { module, test } from 'qunit';
 import destroyApp from '../../helpers/destroy-app';
 

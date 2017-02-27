@@ -1,5 +1,5 @@
 import Ember from "ember";
-import Protected from "ambitious-oc-news/mixins/protected";
+import Protected from "nextfeeds/mixins/protected";
 
 const {
   Route,

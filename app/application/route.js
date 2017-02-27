@@ -1,6 +1,6 @@
 import Ember from "ember";
-// import ENV from 'ambitious-oc-news/config/environment';
-import Protected from "ambitious-oc-news/mixins/protected";
+// import ENV from 'nextfeeds/config/environment';
+import Protected from "nextfeeds/mixins/protected";
 
 const {
     Route,

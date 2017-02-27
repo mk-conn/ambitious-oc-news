@@ -29,6 +29,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
 
   > div.ember-view {
     display: flex;
@@ -239,7 +240,7 @@ body {
 
 #side-bar {
   .feed-title {
-    max-width:100px;
+    max-width: 100px;
     text-overflow: ellipsis;
   }
 }
@@ -261,7 +262,7 @@ blockquote {
     width: $side-bar-width !important;
     z-index: 1;
     transition: all .5s ease;
-    font-size:.85rem;
+    font-size: .85rem;
   }
 
   #content {
@@ -274,7 +275,7 @@ blockquote {
   }
 
   #article-list, #article-list.activated {
-    font-size:.85rem;
+    font-size: .85rem;
     position: absolute;
     right: 0;
     top: 0;
@@ -317,10 +318,7 @@ blockquote {
     z-index: 3;
     transition: all .5s ease;
 
-
   }
-
-
 
   #article-overlay.activated {
     width: 60%;
@@ -363,11 +361,11 @@ blockquote {
   }
 
   #article-overlay.activated {
-    width:60%;
+    width: 60%;
     box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.4);
 
     .article-full {
-      font-size:1.2rem;
+      font-size: 1.2rem;
     }
   }
 

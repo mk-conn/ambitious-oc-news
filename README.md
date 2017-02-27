@@ -1,6 +1,6 @@
-# ambitious-oc-news
+# Nextfeeds
 
-This is a feed reader application based on emberJS and Nextcloud/News.
+This is a feed reader application based on EmberJS and Nextcloud/News.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ You will need a [Nextcloud](https://nextcloud.org) installation with activated N
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd ambitious-oc-news`
+* `cd nextfeeds`
 * `npm install`
 * `bower install`
 

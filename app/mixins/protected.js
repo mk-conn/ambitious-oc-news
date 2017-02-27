@@ -1,5 +1,5 @@
 import Ember from "ember";
-import Env from "ambitious-oc-news/config/environment";
+import Env from "nextfeeds/config/environment";
 const {
   inject,
   // get,

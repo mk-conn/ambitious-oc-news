@@ -1,5 +1,5 @@
 import Ember from "ember";
-import FeedsShowArticlesRoute from "ambitious-oc-news/feeds/show/articles/route";
+import FeedsShowArticlesRoute from "nextfeeds/feeds/show/articles/route";
 
 export default FeedsShowArticlesRoute.extend({
 
