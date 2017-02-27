@@ -235,7 +235,7 @@ body {
 .article-close-button {
   position: fixed;
   top: 1rem;
-  right: 1rem;
+  right: 2rem;
 }
 
 #side-bar {
@@ -323,12 +323,6 @@ blockquote {
   #article-overlay.activated {
     width: 60%;
     box-shadow: 3px 3px rgba(0, 0, 0, .16), -1em 0 0.4em rgba(0, 0, 0, .16);
-  }
-
-  .article-close-button {
-    position: fixed;
-    top: 1rem;
-    right: 2rem;
   }
 
 }
