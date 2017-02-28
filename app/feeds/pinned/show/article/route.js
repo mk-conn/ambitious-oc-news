@@ -1,5 +1,5 @@
 import Ember from "ember";
-import ActivateDeactivate from "nextfeeds/mixins/activate-deactivate-view";
+import ActivateDeactivate from "nextfeed/mixins/activate-deactivate-view";
 
 const {
   Route

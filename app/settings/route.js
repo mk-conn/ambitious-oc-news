@@ -1,6 +1,6 @@
 import Ember from "ember";
-import Protected from "nextfeeds/mixins/protected";
-import ActivateDeactivate from "nextfeeds/mixins/activate-deactivate-view";
+import Protected from "nextfeed/mixins/protected";
+import ActivateDeactivate from "nextfeed/mixins/activate-deactivate-view";
 
 const {
   get,

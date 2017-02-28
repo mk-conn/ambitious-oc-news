@@ -1,5 +1,5 @@
 import Ember from "ember";
-import Protected from "nextfeeds/mixins/protected";
+import Protected from "nextfeed/mixins/protected";
 
 const {
   Route,

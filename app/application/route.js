@@ -1,6 +1,6 @@
 import Ember from "ember";
-// import ENV from 'nextfeeds/config/environment';
-import Protected from "nextfeeds/mixins/protected";
+// import ENV from 'nextfeed/config/environment';
+import Protected from "nextfeed/mixins/protected";
 
 const {
     Route,

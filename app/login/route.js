@@ -1,6 +1,6 @@
 import Ember from "ember";
-import Env from "nextfeeds/config/environment";
-import ActivateDeactivate from 'nextfeeds/mixins/activate-deactivate-view';
+import Env from "nextfeed/config/environment";
+import ActivateDeactivate from 'nextfeed/mixins/activate-deactivate-view';
 
 const {
     Route,

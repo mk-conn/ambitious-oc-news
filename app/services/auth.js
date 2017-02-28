@@ -1,5 +1,5 @@
 import Ember from "ember";
-import Env from "nextfeeds/config/environment";
+import Env from "nextfeed/config/environment";
 
 const {
   RSVP,

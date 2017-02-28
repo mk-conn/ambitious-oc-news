@@ -1,4 +1,4 @@
-# Nextfeeds
+# Nextfeed
 
 This is a feed reader application based on EmberJS and Nextcloud/News.
 
@@ -17,7 +17,7 @@ You will need a [Nextcloud](https://nextcloud.org) installation with activated N
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd nextfeeds`
+* `cd nextfeed`
 * `npm install`
 * `bower install`
 

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ActivateDeactivateViewMixin from 'nextfeeds/mixins/activate-deactivate-view';
+import ActivateDeactivateViewMixin from 'nextfeed/mixins/activate-deactivate-view';
 import { module, test } from 'qunit';
 
 module('Unit | Mixin | activate deactivate view');

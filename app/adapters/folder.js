@@ -1,5 +1,5 @@
 import Ember from "ember";
-import ApplicationAdapter from "nextfeeds/application/adapter";
+import ApplicationAdapter from "nextfeed/application/adapter";
 import UrlTemplates from "ember-data-url-templates";
 
 const {get, inject} = Ember;
