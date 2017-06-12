@@ -1,0 +1,8 @@
+title: Ambitious OC News
+description: EmberJS based browser client for Owncloud News
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-tactile
+
+gems:
+  - jekyll-mentions
