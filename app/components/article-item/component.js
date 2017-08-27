@@ -34,7 +34,13 @@ export default Ember.Component.extend({
   }),
 
   articleImage: computed('article.body', function () {
-    let body = $(get(this, 'article.body'));
+    let body = '';
+    try {
+      body = $(get(this, 'article.body'));
+
+    } catch (e) {
+
+    }
 
     let img = $('img', body)
       .first();
@@ -50,10 +56,15 @@ export default Ember.Component.extend({
 
   excerpt: computed('article.body', function () {
     const stripAt = 240;
-    let text = $(get(this, 'article.body'))
-      .text();
-    if (text.length > stripAt) {
-      text = text.slice(0, stripAt) + ' ...'.htmlSafe();
+    let text = '';
+    try {
+      text = $(get(this, 'article.body'))
+        .text();
+      if (text.length > stripAt) {
+        text = text.slice(0, stripAt) + ' ...'.htmlSafe();
+      }
+    } catch (e) {
+      console.error(e);
     }
 
     return text;
@@ -64,8 +75,7 @@ export default Ember.Component.extend({
      *
      * @param article
      */
-    openArticle(article)
-    {
+    openArticle(article) {
       Ember.debug(`>>>> ArticleItemComponent::openArticle(${article})`);
       // this.get('app').transitionTo('feeds.show.items.show', article);
 
