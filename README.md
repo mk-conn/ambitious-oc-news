@@ -1,6 +1,7 @@
-# Nextfeed
+# nextfeed
 
-This is a feed reader application based on EmberJS and Nextcloud/News.
+This README outlines the details of collaborating on this Ember application.
+A short introduction of this app could easily go here.
 
 ## Prerequisites
 
@@ -8,18 +9,14 @@ You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with NPM)
-* [Bower](https://bower.io/)
 * [Ember CLI](https://ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
-
-You will need a [Nextcloud](https://nextcloud.org) installation with activated News plugin.
 
 ## Installation
 
 * `git clone <repository-url>` this repository
 * `cd nextfeed`
 * `npm install`
-* `bower install`
 
 ## Running / Development
 
